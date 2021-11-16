@@ -41,6 +41,13 @@ const widget = {
             url: '/mxcalculadorarapida',
             icon: IconCalculator
         },
+        {
+            id: 'skulist',
+            title: <FormattedMessage id="Productos" />,
+            type: 'item',
+            url: '/skulist',
+            icon: IconCalculator
+        },
 
     ]
 };

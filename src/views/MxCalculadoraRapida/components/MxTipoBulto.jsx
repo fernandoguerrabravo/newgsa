@@ -1,23 +1,26 @@
 /* eslint-disable no-alert */
-import React, { useState } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
-import FormControl from '@material-ui/core/FormControl';
-import Button from '@material-ui/core/Button';
-import Grid from '@material-ui/core/Grid';
-import swal from 'sweetalert';
-import Paper from '@material-ui/core/Paper';
-import { green, red, blue } from '@material-ui/core/colors';
-import { Divider, Typography } from '@material-ui/core';
-import InfoIcon from '@material-ui/icons/Info';
-import Tooltip from '@material-ui/core/Tooltip';
-import Radio from '@material-ui/core/Radio';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormLabel from '@material-ui/core/FormLabel';
-import Icon from '@material-ui/core/Icon';
-import { composeInitialProps } from 'react-i18next';
-
+import React, { useState } from "react";
+import { useTheme } from "@mui/material/styles";
+import SubCard from "ui-component/cards/SubCard";
+import {
+  Button,
+  Card,
+  CardActions,
+  CardContent,
+  CardHeader,
+  CardMedia,
+  Divider,
+  Grid,
+  Typography,
+  Paper,
+  Tooltip,
+  Radio,
+  RadioGroup,
+  FormControlLabel,
+  Avatar,
+} from "@mui/material";
+import { gridSpacing } from "store/constant";
+/*
 const useStyles = makeStyles(theme => ({
 	root: {
 		flexGrow: 1,
@@ -86,108 +89,114 @@ const useStyles = makeStyles(theme => ({
 		color: blue[50]
 	}
 }));
-
+*/
 const MxTipoBulto = ({ hidden, sethidden }) => {
-	const classes = useStyles();
-	const [value, setvalue] = React.useState({
-		tipo: ''
-	});
+  const theme = useTheme();
+  const cardStyle = {
+    background:
+      theme.palette.mode === "dark"
+        ? theme.palette.dark.main
+        : theme.palette.grey[50],
+    border: "1px solid",
+    borderColor:
+      theme.palette.mode === "dark"
+        ? theme.palette.dark.main
+        : theme.palette.grey[100],
+  };
 
-	const handleChange = e => {
-		if (e.target.value === 'p') {
-			sethidden({
-				...hidden,
-				ltl: true,
-				ftl: false,
-				expo: true,
-				summary: true
-			});
-			setvalue({
-				tipo: e.target.value
-			});
-		} else {
-			sethidden({
-				...hidden,
-				ltl: false,
-				ftl: true,
-				expo: true,
-				summary: true
-			});
-			setvalue({
-				tipo: e.target.value
-			});
-		}
-	};
+  const [value, setvalue] = React.useState({
+    tipo: "",
+  });
 
-	return (
-		<div className={classes.root}>
-			<Grid container spacing={3}>
-				<Grid item xs={12}>
-					<Paper className={classes.paper1}>
-						{' '}
-						<Typography variant="subtitle1" gutterBottom>
-							<strong>Select Your Packaging</strong>
-						</Typography>
-						<Divider />
-						<br />
-						<Typography style={{ color: green[600] }} variant="caption" gutterBottom>
-							<strong> In this section you must select the type of shipment</strong>
-						</Typography>
-					</Paper>
-				</Grid>
-				<Grid item xs={12}>
-					<RadioGroup aria-label="gender" name="gender1" value={value.tipo} onChange={handleChange}>
-						<Grid container spacing={3}>
-							<Grid item xs={6}>
-								<Paper className={classes.paper}>
-									<Grid container spacing={2}>
-										<img
-											src="https://fotos-ecl.s3.amazonaws.com/icons8-plataforma-500.png"
-											height="50"
-											width="50"
-											alt=""
-										/>
-										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-										<FormControlLabel value="p" control={<Radio />} label="Pallets Consolidated" />
-										<p />
-										<Typography
-											style={{ color: '#FF9900', alignItems: 'center' }}
-											variant="caption"
-											gutterBottom
-										>
-											<strong>LTL Services Max 12 Pallets</strong>
-										</Typography>
-									</Grid>
-								</Paper>
-							</Grid>
-							<Grid item xs={6}>
-								<Paper className={classes.paper}>
-									<Grid container spacing={2}>
-										<img
-											src="https://fotos-ecl.s3.amazonaws.com/icons8-camio%CC%81n-interestatal.svg"
-											height="50"
-											width="50"
-											alt=""
-										/>
-										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-										<FormControlLabel value="f" control={<Radio />} label="FTL Truck" />
-										<p />
-										<Typography
-											style={{ color: '#FF9900', alignItems: 'center' }}
-											variant="caption"
-											gutterBottom
-										>
-											<strong>Full Truck Services 13 to 22 Pallets</strong>
-										</Typography>
-									</Grid>
-								</Paper>
-							</Grid>
-						</Grid>
-					</RadioGroup>
-				</Grid>
-			</Grid>
-		</div>
-	);
+  const handleChange = (e) => {
+    if (e.target.value === "p") {
+      sethidden({
+        ...hidden,
+        ltl: true,
+        ftl: false,
+        expo: true,
+        summary: true,
+      });
+      setvalue({
+        tipo: e.target.value,
+      });
+    } else {
+      sethidden({
+        ...hidden,
+        ltl: false,
+        ftl: true,
+        expo: true,
+        summary: true,
+      });
+      setvalue({
+        tipo: e.target.value,
+      });
+    }
+  };
+
+  return (
+    <div>
+      
+        <SubCard title="Seleccione Tipo de Embarque">
+          <Card sx={cardStyle}>
+            <CardContent
+              sx={{ minHeight: 240, color: theme.palette.common.black }}
+            >
+              <RadioGroup
+                aria-label="gender"
+                name="gender1"
+                value={value.tipo}
+                onChange={handleChange}
+              >
+                <Grid container spacing={gridSpacing}>
+                  <Grid item>
+                    <Avatar>
+                      <img
+                        src="https://fotos-ecl.s3.amazonaws.com/icons8-plataforma-500.png"
+                        height="20"
+                        width="20"
+                        alt=""
+                      />
+                    </Avatar>
+                    <Grid item>
+                      <FormControlLabel
+                        value="p"
+                        control={<Radio />}
+                        label="Pallets Consolidated"
+                      />
+                    </Grid>
+                  </Grid>
+                  <Grid item>
+                    <Avatar>
+                      <img
+                        src="https://fotos-ecl.s3.amazonaws.com/icons8-camio%CC%81n-interestatal.svg"
+                        height="20"
+                        width="20"
+                        alt=""
+                      />
+                    </Avatar>
+                    <FormControlLabel
+                      value="f"
+                      control={<Radio />}
+                      label="FTL Truck"
+                    />
+                    <p />
+                    <Typography
+                      style={{ color: "#FF9900", alignItems: "center" }}
+                      variant="caption"
+                      gutterBottom
+                    >
+                      <strong>Full Truck Services 13 to 22 Pallets</strong>
+                    </Typography>
+                  </Grid>
+                </Grid>
+              </RadioGroup>
+            </CardContent>
+          </Card>
+        </SubCard>
+      
+    </div>
+  );
 };
 
 export default MxTipoBulto;
