@@ -26,12 +26,12 @@ import {
 } from "@mui/material";
 import { gridSpacing } from "store/constant";
 
-const styles = theme => ({
+/* const styles = theme => ({
 	root: {
 		margin: 0,
 		padding: theme.spacing(1)
 	}
-});
+});*/
 
 /*const styles2 = makeStyles(theme => ({
 	icons: {
@@ -94,7 +94,6 @@ export default function SkuStoreForm({ setoculto }) {
 			SaveSku(guardarsku)
 				.then(
 					await Swal.fire({
-						position: 'top-end',
 						icon: 'success',
 						title: 'Your work has been saved',
 						showConfirmButton: false,
@@ -142,9 +141,8 @@ export default function SkuStoreForm({ setoculto }) {
 
 	return (
 		<div>
-			<Grid container spacing={3}>
+			<Grid container spacing={gridSpacing}>
 				<Grid item xs={3}>
-					<Paper >
 						<Typography variant="h5" gutterBottom >
 							<strong>Basic Information</strong>
 						</Typography>
@@ -154,7 +152,7 @@ export default function SkuStoreForm({ setoculto }) {
 								startIcon={<SaveIcon />}
 								size="small"
 								variant="contained"
-								color="primary"
+								color="secondary"
 							>
 								Save Product
 							</Button>
@@ -168,7 +166,7 @@ export default function SkuStoreForm({ setoculto }) {
 								name="sku"
 								label="Product Code (SKU)"
 								variant="outlined"
-								color="primary"
+								color="secondary"
 								type="text"
 								value={guardarsku.sku}
 								onChange={handlingChange}
@@ -182,7 +180,7 @@ export default function SkuStoreForm({ setoculto }) {
 								name="upc_number"
 								label="UPC Number"
 								variant="outlined"
-								color="primary"
+								color="secondary"
 								type="number"
 								value={guardarsku.upc_number}
 								onChange={handlingChange}
@@ -196,7 +194,7 @@ export default function SkuStoreForm({ setoculto }) {
 								name="fob"
 								label="FOB Value"
 								variant="outlined"
-								color="primary"
+								color="secondary"
 								type="number"
 								value={guardarsku.fob}
 								onChange={handlingChange}
@@ -213,7 +211,7 @@ export default function SkuStoreForm({ setoculto }) {
 								name="shortdescription"
 								label="Short Description"
 								variant="outlined"
-								color="primary"
+								color="secondary"
 								type="text"
 								value={guardarsku.shortdescription}
 								onChange={handlingChange}
@@ -223,6 +221,7 @@ export default function SkuStoreForm({ setoculto }) {
 							</Typography>
 
 							<Select
+								color="secondary"
 								id="country_origin"
 								name="country_origin"
 								options={newJson1}
@@ -232,7 +231,6 @@ export default function SkuStoreForm({ setoculto }) {
 								Select Country Origin
 							</Typography>
 						</FormControl>
-					</Paper>
 				</Grid>
 				<br />
 				<Grid item xs={6}>

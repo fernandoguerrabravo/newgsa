@@ -98,10 +98,8 @@ const MxTipoBulto = ({ hidden, sethidden }) => {
         ? theme.palette.dark.main
         : theme.palette.grey[50],
     border: "1px solid",
-    borderColor:
-      theme.palette.mode === "dark"
-        ? theme.palette.dark.main
-        : theme.palette.grey[100],
+    borderColor: theme.palette.primary.main
+      
   };
 
   const [value, setvalue] = React.useState({
@@ -136,65 +134,72 @@ const MxTipoBulto = ({ hidden, sethidden }) => {
 
   return (
     <div>
-      
-        <SubCard title="Seleccione Tipo de Embarque">
-          <Card sx={cardStyle}>
-            <CardContent
-              sx={{ minHeight: 240, color: theme.palette.common.black }}
+      <SubCard title="Seleccione Tipo de Embarque">
+        <Card sx={cardStyle}>
+          <CardContent
+            sx={{ minHeight: 240, color: theme.palette.common.black }}
+          >
+            <RadioGroup
+              aria-label="gender"
+              name="gender1"
+              value={value.tipo}
+              onChange={handleChange}
             >
-              <RadioGroup
-                aria-label="gender"
-                name="gender1"
-                value={value.tipo}
-                onChange={handleChange}
-              >
-                <Grid container spacing={gridSpacing}>
-                  <Grid item>
-                    <Avatar>
-                      <img
-                        src="https://fotos-ecl.s3.amazonaws.com/icons8-plataforma-500.png"
-                        height="20"
-                        width="20"
-                        alt=""
-                      />
-                    </Avatar>
-                    <Grid item>
-                      <FormControlLabel
-                        value="p"
-                        control={<Radio />}
-                        label="Pallets Consolidated"
-                      />
-                    </Grid>
-                  </Grid>
-                  <Grid item>
-                    <Avatar>
-                      <img
-                        src="https://fotos-ecl.s3.amazonaws.com/icons8-camio%CC%81n-interestatal.svg"
-                        height="20"
-                        width="20"
-                        alt=""
-                      />
-                    </Avatar>
-                    <FormControlLabel
-                      value="f"
-                      control={<Radio />}
-                      label="FTL Truck"
+              <Grid container spacing={gridSpacing}>
+                <Grid item>
+                  <Avatar>
+                    <img
+                      src="https://fotos-ecl.s3.amazonaws.com/icons8-plataforma-500.png"
+                      height="20"
+                      width="20"
+                      alt=""
                     />
-                    <p />
-                    <Typography
-                      style={{ color: "#FF9900", alignItems: "center" }}
-                      variant="caption"
-                      gutterBottom
-                    >
-                      <strong>Full Truck Services 13 to 22 Pallets</strong>
-                    </Typography>
-                  </Grid>
+                  </Avatar>
                 </Grid>
-              </RadioGroup>
-            </CardContent>
-          </Card>
-        </SubCard>
-      
+                <Grid item>
+                  <FormControlLabel
+                    value="p"
+                    control={<Radio />}
+                    label="Pallets Consolidated"
+                  /> <p />
+                  <Typography
+                    style={{ color: "#FF9900", alignItems: "center" }}
+                    variant="caption"
+                    gutterBottom
+                  >
+                    <strong>LTL Services Max 12 Pallets</strong>
+                  </Typography>
+                </Grid>
+                <Grid item>
+                  <Avatar>
+                    <img
+                      src="https://fotos-ecl.s3.amazonaws.com/icons8-camio%CC%81n-interestatal.svg"
+                      height="20"
+                      width="20"
+                      alt=""
+                    />
+                  </Avatar>
+                </Grid>
+                <Grid item>
+                  <FormControlLabel
+                    value="f"
+                    control={<Radio />}
+                    label="FTL Truck"
+                  />
+                  <p />
+                  <Typography
+                    style={{ color: "#FF9900", alignItems: "center" }}
+                    variant="caption"
+                    gutterBottom
+                  >
+                    <strong>Full Truck Services 13 to 22 Pallets</strong>
+                  </Typography>
+                </Grid>
+              </Grid>
+            </RadioGroup>
+          </CardContent>
+        </Card>
+      </SubCard>
     </div>
   );
 };

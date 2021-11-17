@@ -48,10 +48,8 @@ export const SkuListApp = () => {
         ? theme.palette.dark.main
         : theme.palette.grey[50],
     border: "1px solid",
-    borderColor:
-      theme.palette.mode === "dark"
-        ? theme.palette.dark.main
-        : theme.palette.grey[100],
+    borderColor: theme.palette.primary.main
+    
   };
 
   const [skudetails, setskudetails] = useState({
@@ -69,7 +67,7 @@ export const SkuListApp = () => {
 
   return (
     <>
-      <SubCard title="Productos">
+      <SubCard  title="Productos">
         <Card sx={cardStyle}>
           <CardContent
             sx={{ minHeight: 240, color: theme.palette.common.black }}
@@ -82,9 +80,9 @@ export const SkuListApp = () => {
               />
             ) : null}
 
-         oculto.hiddenstoreform ? (
+         {oculto.hiddenstoreform ? (
               <SkuStoreForm setoculto={setoculto} /> 
-			) : null 
+			) : null }
           </CardContent>
         </Card>
       </SubCard>

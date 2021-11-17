@@ -200,8 +200,7 @@ const SkuStoreFiles = ({ skus, idcliente }) => {
     event.preventDefault();
     if (event.isTrusted && skus !== "") {
       const proceed = await Swal.fire({
-        title: "The files will be uploaded to the S3 bucket. Proceed?",
-        text: `The destination directory is /${idcliente}/${skus}`,
+        title: "The files will be uploaded. Proceed?",
         icon: "question",
         confirmButtonText: "Yes",
         cancelButtonText: "No. Abort action",
@@ -255,9 +254,9 @@ const SkuStoreFiles = ({ skus, idcliente }) => {
     }
   };
 
-  useEffect(() => {
+  /* useEffect(() => {
     document.title = "S3 REST API w/ File Upload Example";
-  }, []);
+  }, []); */
 
   return (
     <form onSubmit={handleFilesSubmit}>
@@ -275,13 +274,15 @@ const SkuStoreFiles = ({ skus, idcliente }) => {
           onChange={getCurrentFiles}
           variant="outlined"
           multiple
+          style = {{display:'none'}}
         />
         <label htmlFor="file1">
           <Button
             startIcon={<AttachmentIcon />}
             size="large"
-            variant="outlined"
             component="span"
+            variant="outlined"
+            color="secondary"
           >
             Select File ...
           </Button>
@@ -294,7 +295,7 @@ const SkuStoreFiles = ({ skus, idcliente }) => {
             startIcon={<PublishIcon />}
             size="large"
             variant="outlined"
-            color="primary"
+            color="secondary"
             type="submit"
           >
             Upload List
@@ -328,6 +329,7 @@ const SkuStoreFiles = ({ skus, idcliente }) => {
                     <TableCell>
                       <Button
                         variant="outlined"
+                        color = "error"
                         type="button"
                         onClick={(event) => removeFile(event, index)}
                         disabled={submitting}

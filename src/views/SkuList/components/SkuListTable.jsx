@@ -117,7 +117,7 @@ export default function SkuListTable({ oculto, setoculto, setskudetails }) {
       <br />
       <br />
       <Paper>
-        <DataTable columns={columnas} data={data} />
+        <DataTable striped pagination columns={columnas} data={data} />
       </Paper>
     </>
   );
