@@ -11,7 +11,7 @@ export default function ListResearchTable({ pdf, setpdf, setboton }) {
   const idcliente = "abcdef";
   const { data, loading } = useGetResearch(idcliente);
 
-console.log("Surullero", data)
+
   const columnas = [
     {
       name: "SKU Code",
