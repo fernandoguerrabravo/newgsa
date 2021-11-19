@@ -48,6 +48,13 @@ const widget = {
             url: '/skulist',
             icon: IconCalculator
         },
+        {
+            id: 'research',
+            title: <FormattedMessage id="Estudio Mercado" />,
+            type: 'item',
+            url: '/research',
+            icon: IconCalculator
+        },
 
     ]
 };

@@ -1,25 +1,22 @@
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-/* eslint-disable import/prefer-default-export */
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import TextField from '@material-ui/core/TextField';
-import { makeStyles } from '@material-ui/core/styles';
-import { useDispatch } from 'react-redux';
-import FuseMessage from '@fuse/core/FuseMessage';
-import swal from 'sweetalert';
-import Button from '@material-ui/core/Button';
-import FormControl from '@material-ui/core/FormControl';
-import Paper from '@material-ui/core/Paper';
-import InputBase from '@material-ui/core/InputBase';
-import Divider from '@material-ui/core/Divider';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
-import SearchIcon from '@material-ui/icons/Search';
-import DirectionsIcon from '@material-ui/icons/Directions';
-import StorefrontIcon from '@material-ui/icons/Storefront';
-import { SimplePopover } from '../hooks/mensaje';
+import React, { useState } from "react";
+import Swal from "sweetalert2";
+import { Search, Storefront } from "@mui/icons-material";
+import PropTypes from "prop-types";
+// material-ui
+import { styled, useTheme } from "@mui/material/styles";
+import { Avatar, Box, Grid, Menu, MenuItem, Typography } from "@mui/material";
+import { IconButton, Paper, Input, TextField } from "@mui/material";
+import { pink, grey } from '@mui/material/colors';
+// project imports
+import MainCard from "ui-component/cards/MainCard";
+import SkeletonEarningCard from "ui-component/cards/Skeleton/EarningCard";
 
-const useStyles = makeStyles(theme => ({
+// assets
+import EarningIcon from "assets/images/icons/earning.svg";
+import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
+
+/* const useStyles = makeStyles(theme => ({
 	root: {
 		'& > *': {
 			margin: theme.spacing(1),
@@ -46,78 +43,150 @@ const useStyles = makeStyles(theme => ({
 		height: 28,
 		margin: 4
 	}
+})); */
+
+const CardWrapper = styled(MainCard)(({ theme }) => ({
+  backgroundColor:
+    theme.palette.mode === "dark"
+      ? theme.palette.dark.dark
+      : theme.palette.secondary.dark,
+  color: "#fff",
+  overflow: "hidden",
+  position: "relative",
+  "&:after": {
+    content: '""',
+    position: "absolute",
+    width: 210,
+    height: 210,
+    background:
+      theme.palette.mode === "dark"
+        ? `linear-gradient(210.04deg, ${theme.palette.secondary.dark} -50.94%, rgba(144, 202, 249, 0) 95.49%)`
+        : theme.palette.secondary[800],
+    borderRadius: "50%",
+    top: -85,
+    right: -95,
+    [theme.breakpoints.down("sm")]: {
+      top: -105,
+      right: -140,
+    },
+  },
+  "&:before": {
+    content: '""',
+    position: "absolute",
+    width: 210,
+    height: 210,
+    background:
+      theme.palette.mode === "dark"
+        ? `linear-gradient(140.9deg, ${theme.palette.secondary.dark} -14.02%, rgba(144, 202, 249, 0) 85.50%)`
+        : theme.palette.secondary[800],
+    borderRadius: "50%",
+    top: -125,
+    right: -15,
+    opacity: 0.5,
+    [theme.breakpoints.down("sm")]: {
+      top: -155,
+      right: -70,
+    },
+  },
 }));
 
 export const AddCategory = ({ setCategories }) => {
-	const classes = useStyles();
+  const theme = useTheme();
+  const cardStyle = {
+    background:
+      theme.palette.mode === "dark"
+        ? theme.palette.dark.main
+        : theme.palette.grey[50],
+    border: "1px solid",
+    borderColor:
+      theme.palette.mode === "dark"
+        ? theme.palette.dark.main
+        : theme.palette.grey[100],
+  };
+  const [inputValue, setInputValue] = useState({
+    // sku: '',
+    keyword: "",
+  });
 
-	const [inputValue, setInputValue] = useState({
-		// sku: '',
-		keyword: ''
-	});
+  const handleInputChange = (event) => {
+    // console.log(e.target.value)
 
-	const handleInputChange = event => {
-		// console.log(e.target.value)
+    setInputValue({
+      ...inputValue,
+      [event.target.name]: event.target.value,
+    });
+  };
 
-		setInputValue({
-			...inputValue,
-			[event.target.name]: event.target.value
-		});
-	};
+  function onKeyDown(keyEvent) {
+    if ((keyEvent.charCode || keyEvent.keyCode) === 13) {
+      keyEvent.preventDefault();
+    }
+  }
 
-	function onKeyDown(keyEvent) {
-		if ((keyEvent.charCode || keyEvent.keyCode) === 13) {
-			keyEvent.preventDefault();
-		}
-	}
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (inputValue.keyword.trim().length > 3) {
+      setCategories({
+        keyword: inputValue.keyword,
+        hidden: true,
+        hidden1: false,
+        hidden2: true,
+        selected: [],
+      });
 
-	const handleSubmit = e => {
-		e.preventDefault();
-		if (inputValue.keyword.trim().length > 3) {
-			setCategories({
-				keyword: inputValue.keyword,
-				hidden: true,
-				hidden1: false,
-				hidden2: true,
-				selected: []
-			});
+      setInputValue({
+        // sku: '',
+        keyword: "",
+      });
+    } else {
+      Swal.fire({
+        title: "oops!",
+        text: "Please insert a valid Keyword and SKU Reference!",
+        icon: "warning",
+      });
+    }
+  };
 
-			setInputValue({
-				// sku: '',
-				keyword: ''
-			});
-		} else {
-			swal({
-				title: 'oops!',
-				text: 'Please insert a valid Keyword and SKU Reference!',
-				icon: 'warning'
-			});
-		}
-	};
+  // ===========================|| DASHBOARD DEFAULT - EARNING CARD ||=========================== //
 
-	return (
-		<form onKeyDown={onKeyDown} onSubmit={handleSubmit} className={classes.root} noValidate autoComplete="off">
-			<Paper className={classes.search}>
-				<IconButton className={classes.iconButton} aria-label="menu">
-					<StorefrontIcon />
-				</IconButton>
-				<InputBase
-					id="keyword"
-					name="keyword"
-					className={classes.input}
-					placeholder="Insert a Product Keyword"
-					inputProps={{ 'aria-label': 'search google maps' }}
-					value={inputValue.keyword}
-					onChange={handleInputChange}
-				/>
-				<IconButton color="secondary" type="submit" className={classes.iconButton} aria-label="search">
-					<SearchIcon />
-				</IconButton>
-				<Divider className={classes.divider} orientation="vertical" />
-				<IconButton color="primary" className={classes.iconButton} aria-label="directions">
-					<DirectionsIcon />
-				</IconButton>
-			</Paper>
-		</form>
-	);
+  return (
+    <form
+      onKeyDown={onKeyDown}
+      onSubmit={handleSubmit}
+      noValidate
+      autoComplete="off"
+    >
+      <CardWrapper border={false} content={false}>
+        <Box sx={{ p: 1.25 }}>
+          <Grid container direction="column">
+            <Grid item>
+                  <IconButton aria-label="menu">
+                    <Storefront sx={{ fontSize:30, color: '#ffff' }}  />
+                  </IconButton>
+                  <TextField 
+                    id="keyword"
+                    name="keyword"
+					sx={{width: '30%'}}
+					placeholder = "Ingrese Palabra Clave"
+                    value={inputValue.keyword}
+					color = "secondary"
+					variant="outlined"
+                    onChange={handleInputChange}
+
+                  />
+                  <IconButton
+                    sx={{color: '#ffff' }}
+                    type="submit"
+                    aria-label="search"
+                  >
+                    <Search />
+                  </IconButton>
+               
+            
+            </Grid>
+          </Grid>
+        </Box>
+      </CardWrapper>
+    </form>
+  );
 };

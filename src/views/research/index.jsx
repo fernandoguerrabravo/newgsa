@@ -1,8 +1,6 @@
-import { makeStyles } from '@material-ui/core/styles';
-// import ListResearchTools from './components/ListResearchTools';
-// import ListResearchTable from './components/ListResearchTable';
-// import SearchResearch from './components/SearchResearch';
-import SkuStoreForm from "./components/SkuStoreForm";
+import ListResearchTools from "./components/ListResearchTools";
+import ListResearchTable from './components/ListResearchTable';
+ import SearchResearch from './components/SearchResearch';
 
 import React, { useState, useEffect, useMemo } from "react";
 import Swal from "sweetalert2";
@@ -29,11 +27,8 @@ import { red, blue } from "@mui/material/colors";
 import SubCard from "ui-component/cards/SubCard";
 import { gridSpacing } from "store/constant";
 
-
-
-
 export const GifExpertApp = () => {
-	const useStyles = makeStyles(theme => ({
+  /* const useStyles = makeStyles(theme => ({
 		root: {
 			flexGrow: 1
 		},
@@ -44,55 +39,64 @@ export const GifExpertApp = () => {
 			color: theme.palette.text.secondary
 		}
 	}));
+    */
+  const theme = useTheme();
 
-	const classes = useStyles();
+  const cardStyle = {
+    background:
+      theme.palette.mode === "dark"
+        ? theme.palette.dark.main
+        : theme.palette.grey[50],
+    border: "1px solid",
+    borderColor: theme.palette.primary.main,
+  };
 
-	const [escondidoinicial, setescondidoinicial] = useState({
-		escondidoinicial: true
-	});
+  const [escondidoinicial, setescondidoinicial] = useState({
+    escondidoinicial: true,
+  });
 
-	const [boton, setboton] = useState({
-		volver: true
-	});
+  const [boton, setboton] = useState({
+    volver: true,
+  });
 
-	const [pdf, setpdf] = useState({
-		loading: true,
-		sku: '',
-		min: '',
-		average: '',
-		max: ''
-	});
+  const [pdf, setpdf] = useState({
+    loading: true,
+    sku: "",
+    min: "",
+    average: "",
+    max: "",
+  });
 
-	return (
-		<>
-			<Grid container spacing={3}>
-				<Grid item xs={12}>
-					<Paper className={classes.paper}>
-						<ListResearchTools
-							setpdf={setpdf}
-							volv={boton.volver}
-							setboton={setboton}
-							setescondidoinicial={setescondidoinicial}
-						/>
-					</Paper>
-				</Grid>
+  return (
+    <>
+      <Grid container spacing={gridSpacing}>
+        <Grid item xs={12}>
+          <ListResearchTools
+            setpdf={setpdf}
+            volv={boton.volver}
+            setboton={setboton}
+            setescondidoinicial={setescondidoinicial}
+          />
+        </Grid>
 
-				<Grid item xs={12}>
-					{escondidoinicial.escondidoinicial ? (
-						<Paper className={classes.paper}>
-							<ListResearchTable pdf={pdf} setpdf={setpdf} setboton={setboton} />
-						</Paper>
-					) : null}
-				</Grid>
+        <Grid item xs={12}>
+          {escondidoinicial.escondidoinicial ? (
+           
+              <ListResearchTable pdf={pdf} setpdf={setpdf} setboton={setboton} /> 
+           
+          ) : null}
+        </Grid>
 
-				<Grid item xs={12}>
-					{escondidoinicial.escondidoinicial ? null : (
-						<SearchResearch setescondidoinicial={setescondidoinicial} />
-					)}
-				</Grid>
-			</Grid>
-		</>
-	);
+        <Grid item xs={12}>
+          {escondidoinicial.escondidoinicial
+            ? null
+            : 
+                 <SearchResearch setescondidoinicial={setescondidoinicial} /> 
+              }
+        </Grid>
+      </Grid>
+    </>
+  );
 };
 
 export default GifExpertApp;
