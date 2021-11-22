@@ -3,9 +3,10 @@ import { CircularProgress, Grid,  } from '@mui/material';
 import DataTable from "react-data-table-component";
 import { blue, red } from '@mui/material/colors';
 import { star } from '../hooks/star';
-import CustomizedDialogs from '../hooks/dialogo';
+//import CustomizedDialogs from '../hooks/dialogo';
 import { useFetchGifs } from '../hooks/useFetchGifs';
-
+import Center from 'react-center';
+import SimpleDialogDemo from './SimpleDialog';
 /* const useStyles = makeStyles(theme => ({
 	root: {
 		flexGrow: 1
@@ -16,7 +17,7 @@ import { useFetchGifs } from '../hooks/useFetchGifs';
 		padding: '2px 4px'
 	},
 
-	centrar: {
+	centrar: {]]
 		textAlign: 'center',
 		direction: 'row',
 		justify: 'center',
@@ -58,7 +59,7 @@ export const GiftGrid2 = ({ setCategories, category }) => {
 	const columnas = [
 		{
 			name: 'Imagen',
-			selector: rowData => <img src={rowData.url} style={{ width: 80 }} />
+			selector: rowData => <img src={rowData.url} style={{ width: 60 }} alt="imagen"/>
 		},
 
 		{
@@ -68,7 +69,7 @@ export const GiftGrid2 = ({ setCategories, category }) => {
 
 		{
 			name: 'Description',
-			selector: rowData => rowData.name
+			selector: rowData => rowData.title
 		},
 		{
 			name: 'Price',
@@ -78,7 +79,7 @@ export const GiftGrid2 = ({ setCategories, category }) => {
 		{
 			name: 'Details',
 			 
-			selector: rowData => <CustomizedDialogs codigo={rowData.id} />
+			selector: rowData =>  <SimpleDialogDemo codigo={rowData.id} /> 
 		},
 		{
 			name: 'Rank',
@@ -93,21 +94,24 @@ export const GiftGrid2 = ({ setCategories, category }) => {
 			<br />
 			<br />
 			{loading ? (
-				<Grid className={classes.centrar} item xs={12}>
+				<Grid item xs={12}>
+					<Center>
 					<CircularProgress color="primary" size={60} />
+					</Center>
 				</Grid>
 			) : (
 				<>
-					<Grid className={classes.centrar} item xs={12}>
-						<MaterialTable
-							name=""
+					<Grid  item xs={12}>
+						<DataTable
+							striped
+							pagination
 							columns={columnas}
 							data={data}
-							options={{
+							/*options={{
 								selection: true
-							}}
+							}} */
 							// onSelectionChange={(event) => { event ? console.log(event[0]?.id) : null }}
-							actions={[
+							/*actions={[
 								{
 									tooltip: 'Save Selected Products',
 									icon: () => <SaveIcon color="inherit" style={{ fontSize: 40 }} />,
@@ -120,7 +124,7 @@ export const GiftGrid2 = ({ setCategories, category }) => {
 											selected: data
 										})
 								}
-							]}
+							]} */
 						/>
 					</Grid>
 				</>

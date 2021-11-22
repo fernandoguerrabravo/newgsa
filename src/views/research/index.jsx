@@ -82,10 +82,10 @@ export const GifExpertApp = () => {
         <Grid item xs={12}>
           {escondidoinicial.escondidoinicial ? (
            
-              <ListResearchTable pdf={pdf} setpdf={setpdf} setboton={setboton} /> 
+              <><ListResearchTable pdf={pdf} setpdf={setpdf} setboton={setboton} /><br /></>
            
           ) : null}
-        </Grid>
+        </Grid> <br /><br />
 
         <Grid item xs={12}>
           {escondidoinicial.escondidoinicial

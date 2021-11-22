@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useTheme } from "@mui/material/styles";
-//import { GiftGrid2 } from './GiftGrid2';
+import { GiftGrid2 } from './GiftGrid2';
 //import SelectedResearch from './SelectedResearch';
 import { AddCategory } from "./AddCategory";
 import { gridSpacing } from "store/constant";
@@ -64,11 +64,11 @@ const SearchResearch = ({ setescondidoinicial }) => {
             <AddCategory setCategories={setCategories} />
           ) : null}
         </Grid>
-      </Grid>
+      </Grid><br /><br />
       <Grid container spacing={gridSpacing}>
-        <br />
+       
 
-        {/* categories.hidden && <GiftGrid2 setCategories={setCategories} category={categories.keyword} /> */}
+        { categories.hidden && <GiftGrid2 setCategories={setCategories} category={categories.keyword} /> }
       </Grid>
       <Grid item xs={12}>
         {/* categories.hidden1 ? (
