@@ -1,16 +1,22 @@
+/* eslint-disable no-unused-expressions */
 import React, { useState } from 'react';
-import MaterialTable from 'material-table';
-import Grid from '@material-ui/core/Grid';
-import { makeStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
 import Select from 'react-select';
-import { UseGetSku } from 'app/main/door2door/hooks/useGetSku';
-import { green, red, blue } from '@material-ui/core/colors';
+
+import { green, red, blue } from '@mui/material/colors';
 import Swal from 'sweetalert2';
 import { UpdateSku } from '../helpers/UpdateSku';
+import {
+	FormControl,
+	Button,
+	Grid,
+	Typography,
+	Paper,
+	Avatar,
+	Tooltip
+  } from "@mui/material";
+import { useGetSku } from 'views/SkuList/hooks/useGetSku';
 
-const useStyles = makeStyles(theme => ({
+/* const useStyles = makeStyles(theme => ({
 	root: {
 		flexGrow: 1
 	},
@@ -40,12 +46,12 @@ const useStyles = makeStyles(theme => ({
 		height: 0,
 		paddingTop: '56.25%' // 16:9
 	}
-}));
+})); */
 
 const FinishSelected = ({ selected, average, max, min, setescondidoinicial, category }) => {
-	const classes = useStyles();
+	
 	const idcliente = 'abcdef';
-	const sku = UseGetSku(idcliente);
+	const sku = useGetSku(idcliente);
 	const skufinal = sku.data;
 	const newJson1 = [];
 	skufinal.forEach(event => {
@@ -96,7 +102,7 @@ const FinishSelected = ({ selected, average, max, min, setescondidoinicial, cate
 	return (
 		<>
 			<Select options={newJson1} onChange={handleInputChange} />
-			<Typography className={classes.titles} style={{ color: red[400] }} variant="caption" gutterBottom>
+			<Typography  style={{ color: red[400] }} variant="caption" gutterBottom>
 				<strong>Search Your Saved SKU Code</strong>
 			</Typography>
 			<Button onClick={updatesku} variant="contained" color="primary">

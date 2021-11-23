@@ -120,14 +120,14 @@ function SimpleDialog({ state, onClose, open }) {
 SimpleDialog.propTypes = {
   onClose: PropTypes.func.isRequired,
   open: PropTypes.bool.isRequired,
-  selectedValue: PropTypes.string.isRequired,
+
 };
 
 // ===============================|| UI DIALOG - SIMPLE ||=============================== //
 
 export default function SimpleDialogDemo(codigo) {
   const [open, setOpen] = useState(false);
-  const [selectedValue, setSelectedValue] = useState(emails[0].email);
+  
 
   const [state, setstate] = useState({
     rank: "",
@@ -169,10 +169,10 @@ export default function SimpleDialogDemo(codigo) {
     setOpen(true);
     getDetails();
   };
-  console.log("hola", state)
+  
   const handleClose = (value) => {
     setOpen(false);
-    setSelectedValue(value);
+    
   };
 
   return (
@@ -180,7 +180,7 @@ export default function SimpleDialogDemo(codigo) {
       {state.loading ? (
         <CircularProgress color="primary" size={40} />
       ) : (
-        <div>
+        <div>    
           <Button
             variant="outlined"
             color="secondary"

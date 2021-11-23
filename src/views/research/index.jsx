@@ -1,30 +1,9 @@
 import ListResearchTools from "./components/ListResearchTools";
-import ListResearchTable from './components/ListResearchTable';
- import SearchResearch from './components/SearchResearch';
-
-import React, { useState, useEffect, useMemo } from "react";
-import Swal from "sweetalert2";
-
+import ListResearchTable from "./components/ListResearchTable";
+import SearchResearch from "./components/SearchResearch";
+import React, { useState } from "react";
 import { useTheme } from "@mui/material/styles";
-import {
-  TextField,
-  FormControl,
-  InputLabel,
-  Select,
-  MenuItem,
-  Button,
-  Card,
-  CardActions,
-  CardContent,
-  CardHeader,
-  CardMedia,
-  Divider,
-  Grid,
-  Typography,
-  Paper,
-} from "@mui/material";
-import { red, blue } from "@mui/material/colors";
-import SubCard from "ui-component/cards/SubCard";
+import { Grid } from "@mui/material";
 import { gridSpacing } from "store/constant";
 
 export const GifExpertApp = () => {
@@ -81,18 +60,21 @@ export const GifExpertApp = () => {
 
         <Grid item xs={12}>
           {escondidoinicial.escondidoinicial ? (
-           
-              <><ListResearchTable pdf={pdf} setpdf={setpdf} setboton={setboton} /><br /></>
-           
+            <>
+              <ListResearchTable
+                pdf={pdf}
+                setpdf={setpdf}
+                setboton={setboton}
+              />
+              <br />
+            </>
           ) : null}
-        </Grid> <br /><br />
+        </Grid>
 
         <Grid item xs={12}>
-          {escondidoinicial.escondidoinicial
-            ? null
-            : 
-                 <SearchResearch setescondidoinicial={setescondidoinicial} /> 
-              }
+          {escondidoinicial.escondidoinicial ? null : (
+            <SearchResearch setescondidoinicial={setescondidoinicial} />
+          )}
         </Grid>
       </Grid>
     </>

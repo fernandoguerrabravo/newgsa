@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import { CircularProgress, Grid,  } from '@mui/material';
+/* eslint-disable react-hooks/exhaustive-deps */
+import React from "react";
+import { CircularProgress, Grid } from "@mui/material";
 import DataTable from "react-data-table-component";
-import { blue, red } from '@mui/material/colors';
-import { star } from '../hooks/star';
+import { star } from "../hooks/star";
 //import CustomizedDialogs from '../hooks/dialogo';
-import { useFetchGifs } from '../hooks/useFetchGifs';
-import Center from 'react-center';
-import SimpleDialogDemo from './SimpleDialog';
+import { useFetchGifs } from "../hooks/useFetchGifs";
+import Center from "react-center";
+import SimpleDialogDemo from "./SimpleDialog";
 /* const useStyles = makeStyles(theme => ({
 	root: {
 		flexGrow: 1
@@ -25,156 +25,133 @@ import SimpleDialogDemo from './SimpleDialog';
 		padding: theme.spacing(6)
 	}
 }));
-*/ 
+*/
 const reviews = (info, info2) => {
-	return (
-		<>
-			<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-				Total Reviews: {info2} <br />
-			</div>
-			<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>{info}</div>
-			<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>{star(info)}</div>
-		</>
-	);
+  return (
+    <>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        Total Reviews: {info2} <br />
+      </div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        {info}
+      </div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        {star(info)}
+      </div>
+    </>
+  );
 };
 
-const link = asin => {
-	const link = `https://www.amazon.com/dp/${asin}`;
-	return (
-		<>
-			<a href={link} target="_blank" rel="noreferrer">
-				{asin}
-			</a>
-		</>
-	);
+const link = (asin) => {
+  const link = `https://www.amazon.com/dp/${asin}`;
+  return (
+    <>
+      <a href={link} target="_blank" rel="noreferrer">
+        {asin}
+      </a>
+    </>
+  );
 };
 
-export const GiftGrid2 = ({ setCategories, category }) => {
+export const GiftGrid2 = ({  setseleccionado, setCategories, category }) => {
+  
 	
 	const { data, loading } = useFetchGifs(category);
-	// {loading && <p>Loading Results...</p>}
-	
-	// console.log(category)
+  // {loading && <p>Loading Results...</p>}
 
-	const columnas = [
-		{
-			name: 'Imagen',
-			selector: rowData => <img src={rowData.url} style={{ width: 60 }} alt="imagen"/>
-		},
+  // console.log(category)
 
-		{
-			name: 'ASIN',
-			selector: rowData => link(rowData.id)
-		},
+  const columnas = [
+    {
+      name: "Imagen",
+      selector: (rowData) => (
+        <img src={rowData.url} style={{ width: 60 }} alt="imagen" />
+      ),
+    },
 
-		{
-			name: 'Description',
-			selector: rowData => rowData.title
-		},
-		{
-			name: 'Price',
-			selector: rowData => rowData.price
-		},
+    {
+      name: "ASIN",
+      selector: (rowData) => link(rowData.id),
+    },
 
-		{
-			name: 'Details',
-			 
-			selector: rowData =>  <SimpleDialogDemo codigo={rowData.id} /> 
-		},
-		{
-			name: 'Rank',
-			
-			selector: rowData => reviews(rowData.reviews, rowData.total_reviews)
-		}
-	];
+    {
+      name: "Description",
+      selector: (rowData) => rowData.title,
+    },
+    {
+      name: "Price",
+      selector: (rowData) => rowData.price,
+    },
 
-	return (
-		<>
-			<br />
-			<br />
-			<br />
-			{loading ? (
-				<Grid item xs={12}>
-					<Center>
-					<CircularProgress color="primary" size={60} />
-					</Center>
-				</Grid>
-			) : (
-				<>
-					<Grid  item xs={12}>
-						<DataTable
-							striped
-							pagination
-							columns={columnas}
-							data={data}
-							/*options={{
-								selection: true
-							}} */
-							// onSelectionChange={(event) => { event ? console.log(event[0]?.id) : null }}
-							/*actions={[
-								{
-									tooltip: 'Save Selected Products',
-									icon: () => <SaveIcon color="inherit" style={{ fontSize: 40 }} />,
-									onClick: (evt, data) =>
-										setCategories({
-											keyword: category,
-											hidden: false,
-											hidden1: true,
-											hidden2: false,
-											selected: data
-										})
-								}
-							]} */
-						/>
-					</Grid>
-				</>
-			)}
-		</>
-	);
-};
+    {
+      name: "Details",
 
-/* import react from 'react';
+      selector: (rowData) => <SimpleDialogDemo codigo={rowData.id} />,
+    },
+    {
+      name: "Rank",
 
+      selector: (rowData) => reviews(rowData.reviews, rowData.total_reviews),
+    },
+  ];
 
-export default function ListResearchApp() {
+  const [selectedRows, setSelectedRows] = React.useState([]);
+  const [toggleCleared, setToggleCleared] = React.useState(false);
+  const [datos, setDatos] = React.useState(data);
 
-    const columnas = [
+ 
+  const handleRowSelected = React.useCallback((state) => {
+    setSelectedRows(state.selectedRows);
+	setseleccionado(state.selectedRows);
+  }, []);
 
-        {
-            name: 'KeyWord',
-             'Keword'
-        },
-        {
-            name: 'Date Creation',
-             'date'
-        },
-        {
-            name: 'Details',
-             'details'
-        },
+  console.log("Seleccionadas", selectedRows)
+  
 
-    ];
-
-    const data = [];
-
-    return (
-
-
-
+  return (
+    <>
+      <br />
+      <br />
+      <br />
+      {loading ? (
+        <Grid item xs={12}>
+          <Center>
+            <CircularProgress color="primary" size={60} />
+          </Center>
+        </Grid>
+      ) : (
         <>
-
-            <MaterialTable
-
-                name=""
-                columns={columnas}
-                data={data}
-            >
-
-            </MaterialTable>
-
+          <Grid item xs={12}>
+            <DataTable
+              striped
+              pagination
+              columns={columnas}
+              data={data}
+              selectableRows
+              onSelectedRowsChange={handleRowSelected}
+              clearSelectedRows={toggleCleared}
+            />
+          </Grid>
         </>
-
-
-
-
-    ); */
+      )}
+    </>
+  );
+};

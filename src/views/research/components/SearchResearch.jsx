@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useTheme } from "@mui/material/styles";
-import { GiftGrid2 } from './GiftGrid2';
-//import SelectedResearch from './SelectedResearch';
+import { GiftGrid2 } from "./GiftGrid2";
+import SelectedResearch from './SelectedResearch';
 import { AddCategory } from "./AddCategory";
 import { gridSpacing } from "store/constant";
 import {
@@ -55,6 +55,18 @@ const SearchResearch = ({ setescondidoinicial }) => {
     hidden1: false,
     hidden2: true,
   });
+  
+  const [seleccionado, setseleccionado] = React.useState([]);
+
+  const botonseleccionar = () => {
+
+       setCategories({
+         ...categories,
+         hidden: false,
+         hidden1: true
+       })
+
+  }
 
   return (
     <>
@@ -64,20 +76,32 @@ const SearchResearch = ({ setescondidoinicial }) => {
             <AddCategory setCategories={setCategories} />
           ) : null}
         </Grid>
-      </Grid><br /><br />
+      </Grid>
+      <br />
+      <br />
       <Grid container spacing={gridSpacing}>
-       
-
-        { categories.hidden && <GiftGrid2 setCategories={setCategories} category={categories.keyword} /> }
+        <Grid item lg={4} md={6} sm={6} xs={12}>
+          <Button onClick={botonseleccionar} sx={{ backgroundColor: "#D84315" }} variant="contained">
+            Seleccione Productos
+          </Button>
+        </Grid>
+        {categories.hidden && (
+          <GiftGrid2
+            setseleccionado = {setseleccionado}
+            setCategories={setCategories}
+            category={categories.keyword}
+          />
+        )}
       </Grid>
       <Grid item xs={12}>
-        {/* categories.hidden1 ? (
+     { categories.hidden1 ? (
 					<SelectedResearch
 						setescondidoinicial={setescondidoinicial}
 						selected={categories.selected}
 						category={categories.keyword}
+            seleccionado = {seleccionado}
 					/>
-				) : null */}
+				) : null }
       </Grid>
     </>
   );

@@ -1,49 +1,15 @@
 import React, { useState } from "react";
 import Swal from "sweetalert2";
 import { Search, Storefront } from "@mui/icons-material";
-import PropTypes from "prop-types";
 // material-ui
 import { styled, useTheme } from "@mui/material/styles";
-import { Avatar, Box, Grid, Menu, MenuItem, Typography } from "@mui/material";
-import { IconButton, Paper, Input, TextField } from "@mui/material";
-import { pink, grey } from '@mui/material/colors';
+import { Box, Grid, Button } from "@mui/material";
+import { IconButton, TextField } from "@mui/material";
 // project imports
 import MainCard from "ui-component/cards/MainCard";
-import SkeletonEarningCard from "ui-component/cards/Skeleton/EarningCard";
+import Stack from '@mui/material/Stack';
+import { gridSpacing } from "store/constant";
 
-// assets
-import EarningIcon from "assets/images/icons/earning.svg";
-import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
-import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
-
-/* const useStyles = makeStyles(theme => ({
-	root: {
-		'& > *': {
-			margin: theme.spacing(1),
-			width: '25ch'
-		}
-	},
-	search: {
-		padding: '2px 4px',
-		display: 'flex',
-		alignItems: 'center',
-		width: 400
-	},
-
-	input: {
-		marginLeft: theme.spacing(1),
-		flex: 1
-	},
-
-	iconButton: {
-		padding: 10
-	},
-
-	divider: {
-		height: 28,
-		margin: 4
-	}
-})); */
 
 const CardWrapper = styled(MainCard)(({ theme }) => ({
   backgroundColor:
@@ -157,32 +123,29 @@ export const AddCategory = ({ setCategories }) => {
       autoComplete="off"
     >
       <CardWrapper border={false} content={false}>
-        <Box sx={{ p: 1.25 }}>
-          <Grid container direction="column">
-            <Grid item>
-                  <IconButton aria-label="menu">
-                    <Storefront sx={{ fontSize:30, color: '#ffff' }}  />
-                  </IconButton>
-                  <TextField 
-                    id="keyword"
-                    name="keyword"
-					sx={{width: '30%'}}
-					placeholder = "Ingrese Palabra Clave"
-                    value={inputValue.keyword}
-					color = "secondary"
-					variant="outlined"
-                    onChange={handleInputChange}
-
-                  />
-                  <IconButton
-                    sx={{color: '#ffff' }}
-                    type="submit"
-                    aria-label="search"
-                  >
-                    <Search />
-                  </IconButton>
-               
-            
+        <Box sx={{ p: 2.25 }}>
+          <Grid container>
+          <Grid item lg={6} md={6} sm={12} xs={12}>
+              <IconButton aria-label="menu">
+                <Storefront sx={{ fontSize: 30, color: "#ffff" }} />
+              </IconButton>
+              <TextField
+                id="keyword"
+                name="keyword"
+                sx={{ width: "70%" }}
+                placeholder="Ingrese Palabra Clave"
+                value={inputValue.keyword}
+                color="secondary"
+                variant="outlined"
+                onChange={handleInputChange}
+              />
+              <IconButton
+                sx={{ color: "#ffff" }}
+                type="submit"
+                aria-label="search"
+              >
+                <Search />
+              </IconButton>
             </Grid>
           </Grid>
         </Box>
