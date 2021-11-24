@@ -5,21 +5,7 @@ import SelectedResearch from './SelectedResearch';
 import { AddCategory } from "./AddCategory";
 import { gridSpacing } from "store/constant";
 import {
-  TextField,
-  FormControl,
-  InputLabel,
-  Select,
-  MenuItem,
-  Button,
-  Card,
-  CardActions,
-  CardContent,
-  CardHeader,
-  CardMedia,
-  Divider,
   Grid,
-  Typography,
-  Paper,
 } from "@mui/material";
 
 const SearchResearch = ({ setescondidoinicial }) => {
@@ -58,15 +44,7 @@ const SearchResearch = ({ setescondidoinicial }) => {
   
   const [seleccionado, setseleccionado] = React.useState([]);
 
-  const botonseleccionar = () => {
-
-       setCategories({
-         ...categories,
-         hidden: false,
-         hidden1: true
-       })
-
-  }
+  
 
   return (
     <>
@@ -80,16 +58,15 @@ const SearchResearch = ({ setescondidoinicial }) => {
       <br />
       <br />
       <Grid container spacing={gridSpacing}>
-        <Grid item lg={4} md={6} sm={6} xs={12}>
-          <Button onClick={botonseleccionar} sx={{ backgroundColor: "#D84315" }} variant="contained">
-            Seleccione Productos
-          </Button>
-        </Grid>
+       
+          
+      
         {categories.hidden && (
           <GiftGrid2
             setseleccionado = {setseleccionado}
             setCategories={setCategories}
             category={categories.keyword}
+            categories = {categories}
           />
         )}
       </Grid>

@@ -1,19 +1,10 @@
 import React, { useState } from "react";
-import InfoIcon from "@mui/icons-material/Info";
 
 import FinishSelected from "./FinishSelected";
 import DataTable from "react-data-table-component";
-import { green } from "@mui/material/colors";
 import { star } from "../hooks/star";
-import {
-  FormControl,
-  Button,
-  Grid,
-  Typography,
-  Paper,
-  Avatar,
-  Tooltip,
-} from "@mui/material";
+import { FormControl, Grid, Paper } from "@mui/material";
+import MinCard from "./MinCard";
 
 /* const useStyles = makeStyles(theme => ({
 	root: {
@@ -105,11 +96,11 @@ const SelectedResearch = ({
     escondido: true,
   });
 
-  const crearsku = () => {
+  /*const crearsku = () => {
     setescondido({
       escondido: false,
     });
-  };
+  };*/
 
   const precios = [];
   let suma = 0;
@@ -159,71 +150,31 @@ const SelectedResearch = ({
   return (
     <>
       <Grid container spacing={3}>
-        <Grid item xs={2}>
-          <Paper>
-            <Avatar src="https://fotos-ecl.s3.amazonaws.com/icons8-precio-bajo-48.png" />
-            <Typography color="primary" variant="h6">
-              Min Price
-            </Typography>
-            <br />
-            <Typography color="secondary" variant="h5">
-              {new Intl.NumberFormat("en-US", {
-                style: "currency",
-                currency: "USD",
-              }).format(min)}
-            </Typography>
-          </Paper>
+        <Grid item lg={2} md={2} sm={12} xs={12}>
+          <MinCard min={min} tag={"Precio Minimo"}></MinCard>
         </Grid>
-        <Grid item xs={2}>
-          <Paper>
-            <Avatar src="https://fotos-ecl.s3.amazonaws.com/icons8-flujo-de-fondos-48.png" />
-            <Typography color="primary" variant="h6">
-              Average Price
-            </Typography>
-            <br />
-            <Typography color="secondary" variant="h5">
-              {new Intl.NumberFormat("en-US", {
-                style: "currency",
-                currency: "USD",
-              }).format(average)}
-            </Typography>
-          </Paper>
+        <Grid item lg={2} md={2} sm={12} xs={12}>
+          <MinCard min={average} tag={"Precio Medio"}></MinCard>
         </Grid>
-        <Grid item xs={2}>
-          <Paper>
-            <Avatar src="https://fotos-ecl.s3.amazonaws.com/icons8-etiqueta-de-precio-usd-48.png" />
-            <Typography color="primary" variant="h6">
-              Max Price
-            </Typography>
-            <br />
-            <Typography color="secondary" variant="h5">
-              {new Intl.NumberFormat("en-US", {
-                style: "currency",
-                currency: "USD",
-              }).format(max)}
-            </Typography>
-          </Paper>
+        <Grid item lg={2} md={2} sm={12} xs={12}>
+          <MinCard min={max} tag={"Precio Máximo"}></MinCard>
         </Grid>
-        <Grid item xs={6}>
-          <Paper>
-            <FormControl variant="outlined">
-              {escondido.escondido ? (
-                <FinishSelected
-                  setescondidoinicial={setescondidoinicial}
-                  selected={selected}
-                  average={average}
-                  max={max}
-                  min={min}
-                  category={category}
-                />
-              ) : null}
-              <b />
-            </FormControl>
-          </Paper>
+
+        <Grid item lg={6} md={6} sm={12} xs={12}>
+          {escondido.escondido ? (
+            <FinishSelected
+              setescondidoinicial={setescondidoinicial}
+              selected={seleccionado}
+              average={average}
+              max={max}
+              min={min}
+              category={category}
+            />
+          ) : null}
         </Grid>
-        <br />
+
         <Grid item xs={12}>
-          <Paper>
+         
             <DataTable
               style={{ zIndex: 0 }}
               columns={columnas}
@@ -231,7 +182,7 @@ const SelectedResearch = ({
               striped
               pagination
             />
-          </Paper>
+      
         </Grid>
       </Grid>
     </>

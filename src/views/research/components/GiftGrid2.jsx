@@ -1,12 +1,14 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React from "react";
-import { CircularProgress, Grid } from "@mui/material";
+import { CircularProgress, Grid, Button } from "@mui/material";
 import DataTable from "react-data-table-component";
 import { star } from "../hooks/star";
 //import CustomizedDialogs from '../hooks/dialogo';
 import { useFetchGifs } from "../hooks/useFetchGifs";
 import Center from "react-center";
 import SimpleDialogDemo from "./SimpleDialog";
+import Swal from 'sweetalert2'
+
 /* const useStyles = makeStyles(theme => ({
 	root: {
 		flexGrow: 1
@@ -71,10 +73,8 @@ const link = (asin) => {
   );
 };
 
-export const GiftGrid2 = ({  setseleccionado, setCategories, category }) => {
-  
-	
-	const { data, loading } = useFetchGifs(category);
+export const GiftGrid2 = ({ setseleccionado, setCategories, category, categories }) => {
+  const { data, loading } = useFetchGifs(category);
   // {loading && <p>Loading Results...</p>}
 
   // console.log(category)
@@ -117,14 +117,32 @@ export const GiftGrid2 = ({  setseleccionado, setCategories, category }) => {
   const [toggleCleared, setToggleCleared] = React.useState(false);
   const [datos, setDatos] = React.useState(data);
 
- 
   const handleRowSelected = React.useCallback((state) => {
     setSelectedRows(state.selectedRows);
-	setseleccionado(state.selectedRows);
+    setseleccionado(state.selectedRows);
   }, []);
 
-  console.log("Seleccionadas", selectedRows)
-  
+  console.log("Seleccionadas", selectedRows);
+
+  const botonseleccionar = () => {
+
+    if(selectedRows.length < 1) {
+      
+      Swal.fire(
+        'Opps!',
+        'Por favor realice su selección!',
+        'warning'
+      )
+
+    } else {
+    setCategories({
+      ...categories,
+      hidden: false,
+      hidden1: true,
+      hidden2: false
+    })
+  }
+}
 
   return (
     <>
@@ -132,14 +150,19 @@ export const GiftGrid2 = ({  setseleccionado, setCategories, category }) => {
       <br />
       <br />
       {loading ? (
-        <Grid item xs={12}>
+        <Grid item lg={12} md={12} sm={12} xs={12}>
           <Center>
             <CircularProgress color="primary" size={60} />
           </Center>
         </Grid>
       ) : (
         <>
-          <Grid item xs={12}>
+          <Grid item lg={12} md={12} sm={12} xs={12}>
+            <Button onClick={botonseleccionar} sx={{ backgroundColor: "#D84315" }} variant="contained">
+              Grabar Selección
+            </Button>
+          </Grid>
+          <Grid item lg={12} md={12} sm={12} xs={12}>
             <DataTable
               striped
               pagination

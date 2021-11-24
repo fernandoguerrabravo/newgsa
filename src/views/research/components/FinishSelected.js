@@ -101,8 +101,8 @@ const FinishSelected = ({ selected, average, max, min, setescondidoinicial, cate
 
 	return (
 		<>
-			<Select options={newJson1} onChange={handleInputChange} />
-			<Typography  style={{ color: red[400] }} variant="caption" gutterBottom>
+			<Select width='100px' options={newJson1} onChange={handleInputChange} />
+			<Typography  variant="caption" gutterBottom>
 				<strong>Search Your Saved SKU Code</strong>
 			</Typography>
 			<Button onClick={updatesku} variant="contained" color="primary">
