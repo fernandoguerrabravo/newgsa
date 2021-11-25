@@ -1,26 +1,10 @@
-import { Link, Redirect } from "react-router-dom";
 import { useGetSku } from "../hooks/useGetSku";
-import React, { useState, useEffect, useMemo } from "react";
-import Swal from "sweetalert2";
-import { useTheme } from "@mui/material/styles";
+import React, {  } from "react";
+// import { useTheme } from "@mui/material/styles";
 import {
-  TextField,
-  FormControl,
-  InputLabel,
-  Select,
-  MenuItem,
   Button,
-  Card,
-  CardActions,
-  CardContent,
-  CardHeader,
-  CardMedia,
-  Divider,
-  Grid,
-  Typography,
   Paper,
 } from "@mui/material";
-import SubCard from "ui-component/cards/SubCard";
 import DataTable from "react-data-table-component";
 
 export default function SkuListTable({ oculto, setoculto, setskudetails }) {
@@ -32,8 +16,8 @@ export default function SkuListTable({ oculto, setoculto, setskudetails }) {
       hiddenlistools: true,
     });
   };
-  /*
-	const useStyles = makeStyles(theme => ({
+  
+/*	const useStyles = makeStyles(theme => ({
 		root: {
 			flexGrow: 1
 		},
@@ -42,10 +26,10 @@ export default function SkuListTable({ oculto, setoculto, setskudetails }) {
 			padding: theme.spacing(2),
 			color: theme.palette.text.secondary
 		}
-	}));
-*/
-  const theme = useTheme();
-  const cardStyle = {
+	})); */
+
+   // const theme = useTheme();
+   /* const cardStyle = {
     background:
       theme.palette.mode === "dark"
         ? theme.palette.dark.main
@@ -55,17 +39,17 @@ export default function SkuListTable({ oculto, setoculto, setskudetails }) {
       theme.palette.mode === "dark"
         ? theme.palette.dark.main
         : theme.palette.grey[100],
-  };
+  };  */
 
   const idcliente = "abcdef";
   // const { data, loading } = useGetResearch(idcliente)
 
-  const details = (event) => {
+ /*  const details = (event) => {
     setskudetails({
       idcliente: "abcdef",
       skunumber: event,
       skudetail: data,
-    });
+    }); 
 
     setoculto({
       hiddenlistools: true,
@@ -73,7 +57,7 @@ export default function SkuListTable({ oculto, setoculto, setskudetails }) {
       hiddentable: false,
       hiddendetails: true,
     });
-  };
+  }; */
 
   const { data } = useGetSku(idcliente);
 

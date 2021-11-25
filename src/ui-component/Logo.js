@@ -12,6 +12,7 @@ import { useTheme } from '@mui/material/styles';
 // ==============================|| LOGO SVG ||============================== //
 
 const Logo = () => {
+    // eslint-disable-next-line no-unused-vars
     const theme = useTheme();
 
     return (

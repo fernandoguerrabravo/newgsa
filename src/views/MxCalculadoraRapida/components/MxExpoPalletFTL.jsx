@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useTheme } from "@mui/material/styles";
 import {
   TextField,
@@ -6,18 +6,10 @@ import {
   InputLabel,
   Select,
   MenuItem,
-  Button,
   Card,
-  CardActions,
   CardContent,
-  CardHeader,
-  CardMedia,
-  Divider,
-  Grid,
   Typography,
-  Paper,
 } from "@mui/material";
-import { red, blue } from "@mui/material/colors";
 import SubCard from "ui-component/cards/SubCard";
 
 /*
@@ -130,7 +122,7 @@ const MxExpoPalletFTL = ({ finales, setfinales }) => {
     disponible: false,
   });
 
-  const handlechangeoption = (e) => {
+ /*  const handlechangeoption = (e) => {
     if (e.target.value === "g") {
       setvalue({
         ...value,
@@ -148,7 +140,7 @@ const MxExpoPalletFTL = ({ finales, setfinales }) => {
         flete: "",
       });
     }
-  };
+  }; */
 
   const handlefobChange = (e) => {
     setvalue({
@@ -162,6 +154,7 @@ const MxExpoPalletFTL = ({ finales, setfinales }) => {
       ...finales,
       totalseguro: value.fob,
     });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value.fob]);
 
   const handleChangegarantizado = (e) => {
@@ -213,7 +206,7 @@ const MxExpoPalletFTL = ({ finales, setfinales }) => {
     }
   };
 
-  const handleChangedisponible = (e) => {
+/*  const handleChangedisponible = (e) => {
     switch (e.target.value) {
       case "2300":
         setvalue({
@@ -247,9 +240,9 @@ const MxExpoPalletFTL = ({ finales, setfinales }) => {
 
         break;
     }
-  };
+  }; */
 
-  const FTL = {
+  /* const FTL = {
     disponible: {
       2300: 1983.75,
       45679: 1907.56,
@@ -260,7 +253,7 @@ const MxExpoPalletFTL = ({ finales, setfinales }) => {
       45679: 2342.84,
       66628: 1092.24,
     },
-  };
+  }; */
 
   return (
     <div>

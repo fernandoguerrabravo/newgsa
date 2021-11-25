@@ -3,30 +3,21 @@ import { useEffect, useState } from "react";
 // material-ui
 import { useTheme } from '@mui/material/styles';
 import {
-  Button,
   Card,
   CardActions,
   CardContent,
-  CardHeader,
   CardMedia,
-  Divider,
   Grid,
   Typography,
 } from "@mui/material";
 import SubCard from 'ui-component/cards/SubCard';
-import Card3 from 'assets/images/cards/card-3.jpg';
 // project imports
-import EarningCard from "./EarningCard";
-import PopularCard from "./PopularCard";
-import TotalOrderLineChartCard from "./TotalOrderLineChartCard";
-import TotalIncomeDarkCard from "./TotalIncomeDarkCard";
-import TotalIncomeLightCard from "./TotalIncomeLightCard";
-import TotalGrowthBarChart from "./TotalGrowthBarChart";
 import { gridSpacing } from "store/constant";
 
 // ==============================|| DEFAULT DASHBOARD ||============================== //
 
 const Dashboard = () => {
+  // eslint-disable-next-line no-unused-vars
   const [isLoading, setLoading] = useState(true);
   useEffect(() => {
     setLoading(false);
@@ -41,9 +32,9 @@ const Dashboard = () => {
 
   return (
     <Grid container spacing={gridSpacing}>
-      <Grid item xs={12}>
+          {/* <Grid item xs={12}>
         <Grid container spacing={gridSpacing}>
-          <Grid item lg={4} md={6} sm={6} xs={12}>
+      <Grid item lg={4} md={6} sm={6} xs={12}>
             <EarningCard isLoading={isLoading} />
           </Grid>
           <Grid item lg={4} md={6} sm={6} xs={12}>
@@ -70,9 +61,9 @@ const Dashboard = () => {
             <PopularCard isLoading={isLoading} />
           </Grid>
         </Grid>
-      </Grid>
+  </Grid> */}
       <Grid item xs={12} lg={3}>
-        <SubCard title="Image Overlay">
+        <SubCard>
           <Card sx={cardStyle}>
             <CardMedia image='https://fotos-ecl.s3.amazonaws.com/38065222_xl.jpg' title="Card 3">
               <CardContent
@@ -96,7 +87,7 @@ const Dashboard = () => {
                 <Grid container>
                   <Grid item>
                     <Typography variant="caption">
-                      Last updated 3 mins ago
+                      Powered by Ecommerce Logisitcs LLC
                     </Typography>
                   </Grid>
                 </Grid>

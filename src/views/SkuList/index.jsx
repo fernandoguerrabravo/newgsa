@@ -3,30 +3,14 @@ import SkuListTable from "./components/SkuListTable";
 import SkuStoreForm from "./components/SkuStoreForm";
 //import SkuListTools from "./components/SkuListTools";
 
-import React, { useState, useEffect, useMemo } from "react";
-import Swal from "sweetalert2";
+import React, { useState } from "react";
 
 import { useTheme } from "@mui/material/styles";
 import {
-  TextField,
-  FormControl,
-  InputLabel,
-  Select,
-  MenuItem,
-  Button,
   Card,
-  CardActions,
   CardContent,
-  CardHeader,
-  CardMedia,
-  Divider,
-  Grid,
-  Typography,
-  Paper,
 } from "@mui/material";
-import { red, blue } from "@mui/material/colors";
 import SubCard from "ui-component/cards/SubCard";
-import { gridSpacing } from "store/constant";
 
 export const SkuListApp = () => {
   /* const useStyles = makeStyles(theme => ({
@@ -52,6 +36,7 @@ export const SkuListApp = () => {
     
   };
 
+  // eslint-disable-next-line no-unused-vars
   const [skudetails, setskudetails] = useState({
     skunumber: "",
     idcliente: "abcdef",

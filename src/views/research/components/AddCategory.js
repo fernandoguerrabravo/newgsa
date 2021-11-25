@@ -2,13 +2,11 @@ import React, { useState } from "react";
 import Swal from "sweetalert2";
 import { Search, Storefront } from "@mui/icons-material";
 // material-ui
-import { styled, useTheme } from "@mui/material/styles";
-import { Box, Grid, Button } from "@mui/material";
+import { styled } from "@mui/material/styles";
+import { Box, Grid } from "@mui/material";
 import { IconButton, TextField } from "@mui/material";
 // project imports
 import MainCard from "ui-component/cards/MainCard";
-import Stack from '@mui/material/Stack';
-import { gridSpacing } from "store/constant";
 
 
 const CardWrapper = styled(MainCard)(({ theme }) => ({
@@ -57,8 +55,8 @@ const CardWrapper = styled(MainCard)(({ theme }) => ({
 }));
 
 export const AddCategory = ({ setCategories }) => {
-  const theme = useTheme();
-  const cardStyle = {
+ // const theme = useTheme();
+ /* const cardStyle = {
     background:
       theme.palette.mode === "dark"
         ? theme.palette.dark.main
@@ -68,7 +66,7 @@ export const AddCategory = ({ setCategories }) => {
       theme.palette.mode === "dark"
         ? theme.palette.dark.main
         : theme.palette.grey[100],
-  };
+  }; */
   const [inputValue, setInputValue] = useState({
     // sku: '',
     keyword: "",

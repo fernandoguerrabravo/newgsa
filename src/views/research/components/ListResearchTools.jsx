@@ -1,24 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import { useTheme } from "@mui/material/styles";
+import React, {  } from 'react';
+// import { useTheme } from "@mui/material/styles";
 import {
   
   Button,
-  Card,
-  CardActions,
-  CardContent,
-  CardHeader,
-  CardMedia,
-  Divider,
-  Grid,
-  Typography,
-  Paper,
 } from "@mui/material";
 
-import { gridSpacing } from "store/constant";
  
 const ListResearchTools = ({ setpdf, volv, setboton, setescondidoinicial }) => {
 	
-	const theme = useTheme();
+	// const theme = useTheme();
 	
 	const research = () => {
 		setescondidoinicial({

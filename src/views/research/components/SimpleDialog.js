@@ -1,44 +1,26 @@
 import PropTypes from "prop-types";
-import { useState, Fragment } from "react";
+import { useState } from "react";
 import Center from 'react-center';
 // material-ui
 import {
-  Avatar,
   Button,
   Card,
   CardContent,
   Dialog,
   DialogTitle,
   Divider,
-  List,
-  ListItemButton,
-  ListItemAvatar,
-  ListItemText,
   CircularProgress,
   CardActions,
   CardHeader,
-  CardMedia,
-  IconButton,
-  MuiDialogTitle,
-  MuiDialogContent,
-  MuiDialogActions,
-  TextField,
-  FormControl,
-  InputLabel,
-  Select,
-  MenuItem,
-  Grid,
   Typography,
-  Paper,
 } from "@mui/material";
 
 // assets
-import AddIcon from "@mui/icons-material/Add";
 
-const avatarImage = require.context("assets/images/profile", true);
+// const avatarImage = require.context("assets/images/profile", true);
 
 // alert user data
-const emails = [
+/*const emails = [
   {
     email: "username@company.com",
     avatar: "user-1.png",
@@ -47,7 +29,7 @@ const emails = [
     email: "user02@company.com",
     avatar: "user-2.png",
   },
-];
+]; */
 
 // ===============================|| DIALOG ||=============================== //
 
@@ -56,9 +38,9 @@ function SimpleDialog({ state, onClose, open }) {
     onClose();
   };
 
-  const handleListItemClick = (value) => {
+  /* const handleListItemClick = (value) => {
     onClose(value);
-  };
+  }; */
 
   return (
     <Dialog

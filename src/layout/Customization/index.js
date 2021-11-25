@@ -8,29 +8,25 @@ import {
     Avatar,
     ButtonBase,
     Drawer,
-    Fab,
     FormControl,
     FormControlLabel,
     FormLabel,
     Grid,
-    IconButton,
     Radio,
     RadioGroup,
     Slider,
     Stack,
     Switch,
     TextField,
-    Tooltip,
     Typography
 } from '@mui/material';
-import { IconChecks, IconSettings } from '@tabler/icons';
+import { IconChecks } from '@tabler/icons';
 
 // third-party
 import PerfectScrollbar from 'react-perfect-scrollbar';
 
 // project imports
 import SubCard from 'ui-component/cards/SubCard';
-import AnimateButton from 'ui-component/extended/AnimateButton';
 import { MENU_TYPE, PRESET_COLORS, SET_BORDER_RADIUS, SET_FONT_FAMILY, SET_OUTLINED_FILLED, THEME_RTL } from 'store/actions';
 import { gridSpacing } from 'store/constant';
 

@@ -1,18 +1,11 @@
 /* eslint-disable no-unused-expressions */
 import React, { useState } from "react";
 import Select from "react-select";
-import Stack from "@mui/material/Stack";
-import { green, red, blue } from "@mui/material/colors";
 import Swal from "sweetalert2";
 import { UpdateSku } from "../helpers/UpdateSku";
 import {
-  FormControl,
   Button,
   Grid,
-  Typography,
-  Paper,
-  Avatar,
-  Tooltip,
 } from "@mui/material";
 import { useGetSku } from "views/SkuList/hooks/useGetSku";
 

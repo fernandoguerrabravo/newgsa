@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect } from "react";
 import Swal from "sweetalert2";
 
 import { useTheme } from "@mui/material/styles";
@@ -10,16 +10,9 @@ import {
   MenuItem,
   Button,
   Card,
-  CardActions,
   CardContent,
-  CardHeader,
-  CardMedia,
-  Divider,
-  Grid,
   Typography,
-  Paper,
 } from "@mui/material";
-import { red, blue } from "@mui/material/colors";
 import SubCard from "ui-component/cards/SubCard";
 import DataTable from "react-data-table-component";
 import IconButton from "@mui/material/IconButton";
@@ -115,7 +108,7 @@ const MxExpoShipping = ({ handout, sethandout, lista, setoutlista }) => {
         ? theme.palette.dark.main
         : theme.palette.grey[100],
   };
-  const [value, setValue] = React.useState("");
+
 
   const [paquetes, setpaquetes] = useState({
     tipo: "",
@@ -178,6 +171,7 @@ const MxExpoShipping = ({ handout, sethandout, lista, setoutlista }) => {
       setoutlista({ lista: [...lista, paquetes] });
       let totalporembarque = 0;
       let totalporembarque1 = 0;
+      // eslint-disable-next-line no-unused-vars
       let totalout = 0;
       lista.forEach((total) => {
         if (total.tipo === "Pallets") {

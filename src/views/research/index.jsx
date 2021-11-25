@@ -2,7 +2,7 @@ import ListResearchTools from "./components/ListResearchTools";
 import ListResearchTable from "./components/ListResearchTable";
 import SearchResearch from "./components/SearchResearch";
 import React, { useState } from "react";
-import { useTheme } from "@mui/material/styles";
+// import { useTheme } from "@mui/material/styles";
 import { Grid } from "@mui/material";
 import { gridSpacing } from "store/constant";
 
@@ -19,16 +19,16 @@ export const GifExpertApp = () => {
 		}
 	}));
     */
-  const theme = useTheme();
+  // const theme = useTheme();
 
-  const cardStyle = {
+ /*  const cardStyle = {
     background:
       theme.palette.mode === "dark"
         ? theme.palette.dark.main
         : theme.palette.grey[50],
     border: "1px solid",
     borderColor: theme.palette.primary.main,
-  };
+  };*/
 
   const [escondidoinicial, setescondidoinicial] = useState({
     escondidoinicial: true,
@@ -36,7 +36,7 @@ export const GifExpertApp = () => {
 
   const [boton, setboton] = useState({
     volver: true,
-  });
+  }); 
 
   const [pdf, setpdf] = useState({
     loading: true,

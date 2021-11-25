@@ -1,26 +1,7 @@
-import React, { useState, useEffect } from "react";
-import UseGetMexico from '../hooks/UseGetMexico';
-import { useTheme } from "@mui/material/styles";
-import {
-  TextField,
-  FormControl,
-  InputLabel,
-  Select,
-  MenuItem,
-  Button,
-  Card,
-  CardActions,
-  CardContent,
-  CardHeader,
-  CardMedia,
-  Divider,
-  Grid,
-  Typography,
-  Paper,
-} from "@mui/material";
-import { red, blue } from "@mui/material/colors";
-import SubCard from "ui-component/cards/SubCard";
-
+import React from "react";
+import UseGetMexico from "../hooks/UseGetMexico";
+// import { useTheme } from "@mui/material/styles";
+import { Typography } from "@mui/material";
 
 /* const useStyles = makeStyles(theme => ({
 	root: {
@@ -90,7 +71,7 @@ import SubCard from "ui-component/cards/SubCard";
 	}
 }));
 */
-const newJson1 = [
+/*const newJson1 = [
 	{
 		value: '2300',
 		label: 'CDMX C.P. 02300'
@@ -114,17 +95,16 @@ const newJson2 = [
 		value: 'b',
 		label: 'Boxes'
 	}
-];
+]; */
 
-const MxExpoPalletTotal = valued => {
-
-	const formatter = new Intl.NumberFormat('en-US', {
-		style: 'currency',
-		currency: 'USD',
-		minimumFractionDigits: 2
-	});
-	const theme = useTheme();
-  const cardStyle = {
+const MxExpoPalletTotal = (valued) => {
+  const formatter = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+    minimumFractionDigits: 2,
+  });
+  /* const theme = useTheme(); */
+  /* const cardStyle = {
     background:
       theme.palette.mode === "dark"
         ? theme.palette.dark.main
@@ -134,18 +114,18 @@ const MxExpoPalletTotal = valued => {
       theme.palette.mode === "dark"
         ? theme.palette.dark.main
         : theme.palette.grey[100],
-  };
-  
-	const tarifa = UseGetMexico(valued);
+  }; */
 
-	return (
-		<>
-			Tarifa MX-Laredo TX &nbsp;&nbsp;
-			<Typography style={{ color: '#FF9900' }}>
-				<strong>{formatter.format(tarifa.data)}</strong>{' '}
-			</Typography>
-		</>
-	);
+  const tarifa = UseGetMexico(valued);
+
+  return (
+    <>
+      Tarifa MX-Laredo TX &nbsp;&nbsp;
+      <Typography style={{ color: "#FF9900" }}>
+        <strong>{formatter.format(tarifa.data)}</strong>{" "}
+      </Typography>
+    </>
+  );
 };
 
 export default MxExpoPalletTotal;

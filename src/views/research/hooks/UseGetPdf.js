@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { roundToNearestMinutes } from 'date-fns/esm';
 import React, { useState, useEffect } from 'react';
 import GetPdf from '../helpers/GetPdf';

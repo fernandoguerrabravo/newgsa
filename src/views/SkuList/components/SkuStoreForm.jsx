@@ -4,25 +4,15 @@ import SaveIcon from '@mui/icons-material/Save';
 import UseGetCountry from '../hooks/useGetCountry';
 import SaveSku from '../helpers/SaveSku';
 import SkuStoreFiles from './SkuStoreFiles';
-import { red, blue } from "@mui/material/colors";
 import React, { useState } from "react";
-import { useTheme } from "@mui/material/styles";
 import {
 	InputAdornment,
 	TextField,
 	FormControl,
-	InputLabel,
-	MenuItem,
 	Button,
-	Card,
-	CardActions,
-	CardContent,
-	CardHeader,
-	CardMedia,
 	Divider,
 	Grid,
 	Typography,
-	Paper,
 } from "@mui/material";
 import { gridSpacing } from "store/constant";
 
@@ -128,16 +118,18 @@ export default function SkuStoreForm({ setoculto }) {
 		});
 	});
 
+	// eslint-disable-next-line no-unused-vars
 	const [hidden, sethidden] = useState({
 		escondido: false
 	});
+	// eslint-disable-next-line no-unused-vars
 	const [clas, useclas] = useState({
 		datos: ''
 	});
-	const buscarhts = () => {
+	/* const buscarhts = () => {
 		sethidden({ escondido: true });
 		useclas({ datos: guardarsku.shortdescription });
-	};
+	}; */
 
 	return (
 		<div>

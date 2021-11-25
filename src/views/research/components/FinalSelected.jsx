@@ -4,11 +4,9 @@ import PropTypes from "prop-types";
 // material-ui
 import { useTheme, styled } from "@mui/material/styles";
 import {
-  Avatar,
   Box,
   List,
   ListItem,
-  ListItemAvatar,
   ListItemText,
   Typography,
 } from "@mui/material";
@@ -18,15 +16,13 @@ import MainCard from "ui-component/cards/MainCard";
 import TotalIncomeCard from "ui-component/cards/Skeleton/TotalIncomeCard";
 
 // assets
-import StorefrontTwoToneIcon from "@mui/icons-material/StorefrontTwoTone";
 
 import React, { useState } from "react";
 import Select from "react-select";
 import Stack from "@mui/material/Stack";
-import { green, red, blue } from "@mui/material/colors";
 import Swal from "sweetalert2";
 import { UpdateSku } from "../helpers/UpdateSku";
-import { FormControl, Button, Grid, Paper, Tooltip } from "@mui/material";
+import { Button } from "@mui/material";
 import { useGetSku } from "views/SkuList/hooks/useGetSku";
 
 // styles

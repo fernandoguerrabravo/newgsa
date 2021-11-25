@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { PostResearch } from './PostResearch';
 
 const getGifs = async category => {

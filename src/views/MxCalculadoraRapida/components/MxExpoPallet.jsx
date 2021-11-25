@@ -11,16 +11,10 @@ import {
   MenuItem,
   Button,
   Card,
-  CardActions,
   CardContent,
-  CardHeader,
-  CardMedia,
-  Divider,
   Grid,
   Typography,
-  Paper,
 } from "@mui/material";
-import { red, blue } from "@mui/material/colors";
 import SubCard from "ui-component/cards/SubCard";
 
 /* const useStyles = makeStyles(theme => ({
@@ -106,7 +100,7 @@ const newJson1 = [
   },
 ];
 
-const newJson2 = [
+/*const newJson2 = [
   {
     value: "p",
     label: "Pallets",
@@ -115,7 +109,7 @@ const newJson2 = [
     value: "b",
     label: "Boxes",
   },
-];
+]; */
 
 const MxExpoPallet = ({ finales, setfinales }) => {
   const formatter = new Intl.NumberFormat("en-US", {
@@ -146,6 +140,7 @@ const MxExpoPallet = ({ finales, setfinales }) => {
     fob: "",
   });
 
+  // eslint-disable-next-line no-unused-vars
   const [fletetotal, setfletetotal] = useState({
     total: 0,
   });
@@ -191,6 +186,7 @@ const MxExpoPallet = ({ finales, setfinales }) => {
       ...finales,
       totalseguro: valued.fob,
     });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [valued.fob]);
 
   const calcular = () => {

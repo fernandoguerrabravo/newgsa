@@ -1,26 +1,9 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
-import Swal from "sweetalert2";
-import { useTheme } from "@mui/material/styles";
 import {
   CircularProgress,
-  TextField,
-  FormControl,
-  InputLabel,
-  Select,
-  MenuItem,
   Button,
-  Card,
-  CardActions,
-  CardContent,
-  CardHeader,
-  CardMedia,
-  Divider,
-  Grid,
-  Typography,
-  Paper,
 } from "@mui/material";
-import SubCard from "ui-component/cards/SubCard";
-import DataTable from "react-data-table-component";
 
 const ResearchReport = ({
   setboton,

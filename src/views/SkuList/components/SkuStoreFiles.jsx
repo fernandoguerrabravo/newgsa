@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState } from "react";
 import {
   checkFileMIMEType,
   checkFileSize,
@@ -10,26 +10,13 @@ import PublishIcon  from '@mui/icons-material/Info';
 
 import Swal from "sweetalert2";
 
-import { useTheme } from "@mui/material/styles";
+// import { useTheme } from "@mui/material/styles";
 import {
-  FormLabel,
   TextField,
-  FormControlLabel,
   FormControl,
-  InputLabel,
-  Select,
-  MenuItem,
   Button,
-  Card,
-  CardActions,
-  CardContent,
-  CardHeader,
-  CardMedia,
-  Divider,
-  Grid,
   Typography,
-  Paper,
- Table,
+  Table,
  TableBody ,
  TableCell ,
  TableContainer ,
@@ -42,10 +29,6 @@ import {
 } from "@mui/material";
 import FileProvider from '../providers/file.provider';
 
-import { red, blue } from "@mui/material/colors";
-import SubCard from "ui-component/cards/SubCard";
-import DataTable from "react-data-table-component";
-import IconButton from "@mui/material/IconButton";
 
 const blobToBase64 = async (file) =>
   new Promise((resolve, reject) => {
@@ -87,8 +70,8 @@ const styles2 = makeStyles((theme) => ({
 
 const SkuStoreFiles = ({ skus, idcliente }) => {
   
-	const theme = useTheme();
-  const cardStyle = {
+	// const theme = useTheme();
+  /* const cardStyle = {
     background:
       theme.palette.mode === "dark"
         ? theme.palette.dark.main
@@ -98,7 +81,7 @@ const SkuStoreFiles = ({ skus, idcliente }) => {
       theme.palette.mode === "dark"
         ? theme.palette.dark.main
         : theme.palette.grey[100],
-  };
+  }; */
 
   const MAXIMUM_FILES_LIMIT = 5;
   /**

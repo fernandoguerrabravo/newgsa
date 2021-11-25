@@ -1,18 +1,7 @@
 import React, { useState } from "react";
-import { useTheme } from "@mui/material/styles";
-import {
-  Button,
-  Card,
-  CardActions,
-  CardContent,
-  CardHeader,
-  CardMedia,
-  Divider,
-  Grid,
-  Typography,
-  Paper,
-} from "@mui/material";
-import MxSummary from './components/MxSummary';
+// import { useTheme } from "@mui/material/styles";
+import { Grid } from "@mui/material";
+import MxSummary from "./components/MxSummary";
 import MxExpoPallet from "./components/MxExpoPallet";
 import MxTipoBulto from "./components/MxTipoBulto";
 import MxExpoPalletFTL from "./components/MxExpoPalletFTL";
@@ -44,9 +33,9 @@ import MxExpoShipping from './components/MxExpoShipping';
 })); */
 
 const MxCalculadoraApp = () => {
-  const theme = useTheme();
+  // const theme = useTheme();
 
-  const cardStyle = {
+  /* const cardStyle = {
     background:
       theme.palette.mode === "dark"
         ? theme.palette.dark.main
@@ -56,12 +45,12 @@ const MxCalculadoraApp = () => {
       theme.palette.mode === "dark"
         ? theme.palette.dark.main
         : theme.palette.grey[100],
-  };
+  }; */
 
-  const paper = {
+  /* const paper = {
     padding: theme.spacing(2),
     color: theme.palette.text.secondary,
-  };
+  }; */
 
   const [finales, setfinales] = useState({
     total: 0,
@@ -95,7 +84,11 @@ const MxCalculadoraApp = () => {
         {hidden.summary ? (
           <Grid item xs={12} lg={8} md={8}>
             {" "}
-            	<MxSummary setfinales={setfinales} finales={finales} handout={handout} />{" "}
+            <MxSummary
+              setfinales={setfinales}
+              finales={finales}
+              handout={handout}
+            />{" "}
           </Grid>
         ) : null}
         <br />
@@ -113,15 +106,15 @@ const MxCalculadoraApp = () => {
           </Grid>
         ) : null}
         <br />
-       
+
         {hidden.expo ? (
           <Grid item xs={12} lg={6} md={6}>
-             <MxExpoShipping
-								handout={handout}
-								sethandout={sethandout}
-								lista={outlista.lista}
-								setoutlista={setoutlista}
-          /> 
+            <MxExpoShipping
+              handout={handout}
+              sethandout={sethandout}
+              lista={outlista.lista}
+              setoutlista={setoutlista}
+            />
           </Grid>
         ) : null}
       </Grid>
@@ -130,4 +123,3 @@ const MxCalculadoraApp = () => {
 };
 
 export default MxCalculadoraApp;
-

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import { Document, Page, View, Text, StyleSheet, Image, Canvas } from '@react-pdf/renderer';
 import { useTheme } from "@mui/material/styles";

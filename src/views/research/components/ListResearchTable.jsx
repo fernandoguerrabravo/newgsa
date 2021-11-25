@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import Center from "react-center";
 import useGetResearch from "../hooks/useGetResearch";

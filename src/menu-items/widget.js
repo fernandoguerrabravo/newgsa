@@ -1,19 +1,19 @@
 import { FormattedMessage } from 'react-intl';
 
 // assets
-import { IconChartArcs, IconClipboardList, IconChartInfographic , IconCalculator  } from '@tabler/icons';
+import { IconChartArcs, IconClipboardList, IconChartInfographic , IconCalculator , IconTag, IconChartDots  } from '@tabler/icons';
 
 // constant
-const icons = { IconChartArcs, IconClipboardList, IconChartInfographic };
+const icons = { IconChartArcs, IconClipboardList, IconChartInfographic, IconTag, IconChartDots };
 
 // ===========================|| WIDGET MENU ITEMS ||=========================== //
 
 const widget = {
     id: 'widget',
-    title: <FormattedMessage id="widget" />,
+    title: <FormattedMessage id="Herramientas" />,
     type: 'group',
     children: [
-        {
+      /*  {
             id: 'statistics',
             title: <FormattedMessage id="statistics" />,
             type: 'item',
@@ -33,10 +33,10 @@ const widget = {
             type: 'item',
             url: '/widget/chart',
             icon: icons.IconChartInfographic
-        },
+        }, */
         {
             id: 'calculadorarapida',
-            title: <FormattedMessage id="Calculadora" />,
+            title: <FormattedMessage id="Calculadora Rápida" />,
             type: 'item',
             url: '/mxcalculadorarapida',
             icon: IconCalculator
@@ -46,14 +46,14 @@ const widget = {
             title: <FormattedMessage id="Productos" />,
             type: 'item',
             url: '/skulist',
-            icon: IconCalculator
+            icon: icons.IconTag
         },
         {
             id: 'research',
-            title: <FormattedMessage id="Estudio Mercado" />,
+            title: <FormattedMessage id="Estudio de Mercado" />,
             type: 'item',
             url: '/research',
-            icon: IconCalculator
+            icon: icons.IconChartDots
         },
 
     ]

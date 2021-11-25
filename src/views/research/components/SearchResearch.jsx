@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useTheme } from "@mui/material/styles";
+// import { useTheme } from "@mui/material/styles";
 import { GiftGrid2 } from "./GiftGrid2";
 import SelectedResearch from './SelectedResearch';
 import { AddCategory } from "./AddCategory";
@@ -21,8 +21,8 @@ const SearchResearch = ({ setescondidoinicial }) => {
 		}
 	})); */
 
-  const theme = useTheme();
-  const cardStyle = {
+ // const theme = useTheme();
+ /*  const cardStyle = {
     background:
       theme.palette.mode === "dark"
         ? theme.palette.dark.main
@@ -32,7 +32,7 @@ const SearchResearch = ({ setescondidoinicial }) => {
       theme.palette.mode === "dark"
         ? theme.palette.dark.main
         : theme.palette.grey[100],
-  };
+  }; */
 
   const [categories, setCategories] = useState({
     selected: [],
