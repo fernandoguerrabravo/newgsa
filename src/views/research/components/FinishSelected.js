@@ -1,20 +1,20 @@
 /* eslint-disable no-unused-expressions */
-import React, { useState } from 'react';
-import Select from 'react-select';
-
-import { green, red, blue } from '@mui/material/colors';
-import Swal from 'sweetalert2';
-import { UpdateSku } from '../helpers/UpdateSku';
+import React, { useState } from "react";
+import Select from "react-select";
+import Stack from "@mui/material/Stack";
+import { green, red, blue } from "@mui/material/colors";
+import Swal from "sweetalert2";
+import { UpdateSku } from "../helpers/UpdateSku";
 import {
-	FormControl,
-	Button,
-	Grid,
-	Typography,
-	Paper,
-	Avatar,
-	Tooltip
-  } from "@mui/material";
-import { useGetSku } from 'views/SkuList/hooks/useGetSku';
+  FormControl,
+  Button,
+  Grid,
+  Typography,
+  Paper,
+  Avatar,
+  Tooltip,
+} from "@mui/material";
+import { useGetSku } from "views/SkuList/hooks/useGetSku";
 
 /* const useStyles = makeStyles(theme => ({
 	root: {
@@ -48,68 +48,77 @@ import { useGetSku } from 'views/SkuList/hooks/useGetSku';
 	}
 })); */
 
-const FinishSelected = ({ selected, average, max, min, setescondidoinicial, category }) => {
-	
-	const idcliente = 'abcdef';
-	const sku = useGetSku(idcliente);
-	const skufinal = sku.data;
-	const newJson1 = [];
-	skufinal.forEach(event => {
-		event.res !== true
-			? newJson1.push({
-					value: event.sku,
-					label: event.sku
-			  })
-			: null;
-	});
+const FinishSelected = ({
+  selected,
+  average,
+  max,
+  min,
+  setescondidoinicial,
+  category,
+}) => {
+  const idcliente = "abcdef";
+  const sku = useGetSku(idcliente);
+  const skufinal = sku.data;
+  const newJson1 = [];
+  skufinal.forEach((event) => {
+    event.res !== true
+      ? newJson1.push({
+          value: event.sku,
+          label: event.sku,
+        })
+      : null;
+  });
 
-	// Defino mi arreglo final para enviar a la base de datos
+  // Defino mi arreglo final para enviar a la base de datos
 
-	const [final, setfinal] = useState({
-		sku: '',
-		average,
-		max,
-		min,
-		keyword: category,
-		data: selected
-	});
+  const [final, setfinal] = useState({
+    sku: "",
+    average,
+    max,
+    min,
+    keyword: category,
+    data: selected,
+  });
 
-	const handleInputChange = event => {
-		setfinal({
-			...final,
-			sku: event.value
-		});
-	};
+  const handleInputChange = (event) => {
+    setfinal({
+      ...final,
+      sku: event.value,
+    });
+  };
 
-	const updatesku = async () => {
-		console.log('A grabar: ', final);
+  const updatesku = async () => {
+    console.log("A grabar: ", final);
 
-		UpdateSku(final)
-			.then(
-				await Swal.fire({
-					position: 'top-end',
-					icon: 'success',
-					title: 'Your work has been saved',
-					showConfirmButton: false,
-					timer: 1500
-				})
-			)
-			.then(result => {
-				setescondidoinicial({ escondidoinicial: true });
-			});
-	};
+    UpdateSku(final)
+      .then(
+        await Swal.fire({
+          icon: "success",
+          title: "Your work has been saved",
+          showConfirmButton: false,
+          timer: 1500,
+        })
+      )
+      .then((result) => {
+        setescondidoinicial({ escondidoinicial: true });
+      });
+  };
 
-	return (
-		<>
-			<Select width='100px' options={newJson1} onChange={handleInputChange} />
-			<Typography  variant="caption" gutterBottom>
-				<strong>Search Your Saved SKU Code</strong>
-			</Typography>
-			<Button onClick={updatesku} variant="contained" color="primary">
-				Finish an Save
-			</Button>
-		</>
-	);
+  return (
+    <>
+      <Grid container spacing={3}>
+        <Grid item lg={6} md={6} sm={6} xs={6}>
+          <Select options={newJson1} onChange={handleInputChange} /><br />
+		  <strong>Seleccione un SKU</strong>
+        </Grid>
+        <Grid item lg={6} md={6} sm={6} xs={6}>
+          <Button onClick={updatesku} variant="contained" color="secondary">
+            Terminar y Grabar
+          </Button>
+        </Grid>
+      </Grid>
+    </>
+  );
 };
 
 export default FinishSelected;

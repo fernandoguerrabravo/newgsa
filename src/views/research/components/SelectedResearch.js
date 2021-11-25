@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-
+import { useTheme, styled } from '@mui/material/styles';
 import FinishSelected from "./FinishSelected";
 import DataTable from "react-data-table-component";
 import { star } from "../hooks/star";
 import { FormControl, Grid, Paper } from "@mui/material";
 import MinCard from "./MinCard";
+import FinalSelected from "./FinalSelected";
 
 /* const useStyles = makeStyles(theme => ({
 	root: {
@@ -102,6 +103,8 @@ const SelectedResearch = ({
     });
   };*/
 
+  const theme = useTheme();
+
   const precios = [];
   let suma = 0;
   seleccionado.forEach((datitos) => {
@@ -159,9 +162,14 @@ const SelectedResearch = ({
         <Grid item lg={2} md={2} sm={12} xs={12}>
           <MinCard min={max} tag={"Precio Máximo"}></MinCard>
         </Grid>
-
+       
         <Grid item lg={6} md={6} sm={12} xs={12}>
           {escondido.escondido ? (
+            <Paper
+              sx = {{padding: 2,
+                backgroundColor: theme.palette.primary.light,
+              }}
+            >
             <FinishSelected
               setescondidoinicial={setescondidoinicial}
               selected={seleccionado}
@@ -170,6 +178,7 @@ const SelectedResearch = ({
               min={min}
               category={category}
             />
+            </Paper>
           ) : null}
         </Grid>
 
