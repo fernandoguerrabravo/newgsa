@@ -55,6 +55,13 @@ const widget = {
             url: '/research',
             icon: icons.IconChartDots
         },
+        {
+            id: 'clasificacion',
+            title: <FormattedMessage id="Clasificacion Arancelaria" />,
+            type: 'item',
+            url: '/htstaxlist',
+            icon: icons.IconChartDots
+        }
 
     ]
 };

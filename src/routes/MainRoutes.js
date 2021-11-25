@@ -130,6 +130,7 @@ const SamplePage = Loadable(lazy(() => import('views/sample-page')));
 const MxCalculadoraApp  = Loadable(lazy(() => import('views/MxCalculadoraRapida')));
 const SkuListApp  = Loadable(lazy(() => import('views/SkuList')));
 const GifExpertApp  = Loadable(lazy(() => import('views/research')));
+const FullWidthGrid  = Loadable(lazy(() => import('views/HtsList')));
 
 // ==============================|| MAIN ROUTING ||============================== //
 
@@ -514,6 +515,10 @@ const MainRoutes = {
         {
             path: '/research',
             element: <GifExpertApp />
+        },
+        {
+            path: '/htstaxlist',
+            element: <FullWidthGrid />
         }
 
     ]
