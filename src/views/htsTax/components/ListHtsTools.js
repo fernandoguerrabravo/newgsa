@@ -15,13 +15,13 @@ const ListHtsTools = ({ setencabezado }) => {
 			{/* <Grid container direction="row" justify="flex-end" alignItems="right" spacing={2}> */}
 			<Link role="button" to="/htsTax">
 				<Button onClick={search} variant="contained" color="secondary">
-					+ New Search
+					+ Nueva Búsqueda
 				</Button>
 			</Link>
 			&nbsp; &nbsp; &nbsp;
 			<Link role="button" to="/htstaxlist">
 				<Button onClick={search} variant="contained" color="secondary">
-					+ Back to List
+					+ Volver a Lista
 				</Button>
 			</Link>
 			{/* </Grid> */}

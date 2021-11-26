@@ -6,6 +6,7 @@ import { Box, Grid, Paper, Button } from "@mui/material";
 //import HtsGrid2 from './components/HtsGrid2';
 import Htsbegin from './components/htsbegin';
 import ListHtsTools from "./components/ListHtsTools";
+import HtsGrid2 from './components/HtsGrid2'
 
 /*const useStyles = makeStyles(theme => ({
 	root: {
@@ -49,7 +50,7 @@ export default function HtsTax() {
         <Grid item xs={12}>
           {encabezado.hidden && (
             <Paper>
-              {/* <HtsGrid2 encabezado={encabezado} setencabezado={setencabezado} /> */}
+               <HtsGrid2 encabezado={encabezado} setencabezado={setencabezado} />
             </Paper>
           )}
         </Grid>

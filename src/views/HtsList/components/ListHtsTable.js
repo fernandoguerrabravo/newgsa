@@ -24,7 +24,7 @@ export default function ListHtsTable() {
 			name: 'Country Origin',
 			selector: row => row.country_origin
 		},
-		{
+		/*{
 			name: 'Category Description',
 			selector: rowData => (
 				<>
@@ -32,7 +32,7 @@ export default function ListHtsTable() {
 					{rowData.htsclas.categories.L3} ;
 				</>
 			)
-		},
+		},*/
 		{
 			name: 'US Classification',
 			selector: row => row.htsclas.hts
