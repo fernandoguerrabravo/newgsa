@@ -1,9 +1,10 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
-import { CircularProgress, Box, Grid, Paper, Button } from "@mui/material";
+import { CircularProgress, Box, Grid, Paper, Button, Tooltip } from "@mui/material";
 import DataTable from "react-data-table-component";
 import UseFetchClas from "../hooks/UseFetchClas";
 import Center from "react-center";
+import IconButton from "@mui/material/IconButton";
 /*const useStyles = makeStyles({
 	table: {
 		minWidth: 750
@@ -18,6 +19,17 @@ import Center from "react-center";
 
 const HtsGrid2 = ({ encabezado, setencabezado }) => {
   // const { data, loading, finales } = UseFetchHts(encabezado.hts)
+
+  const ActionComponent = ({ htsno, general, special, duties,  dutiespecific, onClick }) => {
+    const clickHandler = () => onClick(htsno, general, special, duties,  dutiespecific);
+    return  <Tooltip title="Seleccionar"><IconButton onClick={clickHandler}><img
+    src="https://fotos-ecl.s3.amazonaws.com/icons8-hoy.svg"
+    alt="edit"
+    width="40"
+    height="40"
+  /></IconButton></Tooltip>;
+  };
+
 
   const { data, loading, finales } = UseFetchClas(encabezado.hts);
 
@@ -47,6 +59,12 @@ const HtsGrid2 = ({ encabezado, setencabezado }) => {
       name: "Brief Description",
       selector: (row) => row.description,
     },
+    {
+      name: "Actions",
+      cell: (row) =>  <ActionComponent htsno={row.htsno} general={row.general} special={row.special} duties={row.duties}  dutiespecific ={row.dutiespecific}  onClick={detailhts}></ActionComponent>
+          
+      
+    },
   ];
 
   /* const actions = [
@@ -61,11 +79,11 @@ const HtsGrid2 = ({ encabezado, setencabezado }) => {
   return (
       <>
       {loading ? (
-        <Grid item lg={12} md={12} sm={12} xs={12}>
+       
           <Center>
             <CircularProgress color="primary" size={60} />
           </Center>
-        </Grid>
+        
       ) : (
         <Grid item xs={12}>
           <DataTable columns={columnas} data={data} striped />
