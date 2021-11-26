@@ -10,11 +10,11 @@ const ListHtsTools = () => {
 	// <SimplePopover codigo = {id}/>
 	return (
 		<>
-			{ /* <Link role="button" to="htsTax"> */}
+			 <Link role="button" to="/htstax"> 
 				<Button onClick={search} variant="contained" color="secondary">
 					+ New HTS Classification
 				</Button>
-			{ /* </Link> */}
+			 </Link> 
 		</>
 	);
 };
