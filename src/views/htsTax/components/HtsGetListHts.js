@@ -8,7 +8,7 @@ import FormHelperText from '@mui/material/FormHelperText';
 import { green, red, blue } from '@mui/material/colors';
 import Typography from '@mui/material/Typography';
 import { Box, Grid, Paper, Button, Divider } from "@mui/material";
-//import HtsDialogEnd from './HtsDialogEnd';
+import HtsDialogEnd from './HtsDialogEnd';
 
 /* const useStyles = makeStyles(theme => ({
 	formControl: {
@@ -66,7 +66,7 @@ export default function HtsGetListHts({ htschino, eventos, categorias, encabezad
 				</RadioGroup>
 				<br />
 				<FormHelperText>{helperText}</FormHelperText> <br />
-				{ /* value && (
+				{  value && (
 					<HtsDialogEnd
 						evento1={value}
 						evento2={categorias}
@@ -74,7 +74,7 @@ export default function HtsGetListHts({ htschino, eventos, categorias, encabezad
 						evento4={encabezado}
 						evento5={htschino}
 					/>
-				) */}
+				) }
 				{/* value && <HtsDialogFix evento1={value} evento2={categorias} evento3={descripcion.description} evento4={encabezado} /> */}
 			</FormControl>
 		</form>
