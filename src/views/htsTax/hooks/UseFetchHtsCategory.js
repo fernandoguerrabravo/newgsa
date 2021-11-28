@@ -1,5 +1,5 @@
 /* eslint-disable import/prefer-default-export */
-import startOfYesterday from 'date-fns/startOfYesterday';
+
 import { useState, useEffect } from 'react';
 import { HtsGetCategories } from '../helpers/GetHtsCategory';
 

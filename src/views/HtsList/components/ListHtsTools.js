@@ -12,7 +12,7 @@ const ListHtsTools = () => {
 		<>
 			 <Link role="button" to="/htstax"> 
 				<Button onClick={search} variant="contained" color="secondary">
-					+ New HTS Classification
+					+ Buscar Nueva Clasifiación
 				</Button>
 			 </Link> 
 		</>

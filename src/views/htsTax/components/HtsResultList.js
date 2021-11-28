@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable import/prefer-default-export */
 import React, { useState, useEffect } from 'react';
 import TableCell from '@material-ui/core/TableCell';

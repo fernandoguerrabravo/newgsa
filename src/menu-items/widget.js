@@ -1,10 +1,10 @@
 import { FormattedMessage } from 'react-intl';
 
 // assets
-import { IconChartArcs, IconClipboardList, IconChartInfographic , IconCalculator , IconTag, IconChartDots  } from '@tabler/icons';
+import { IconChartArcs, IconClipboardList, IconChartInfographic , IconCalculator , IconTag, IconChartDots, IconFileSearch  } from '@tabler/icons';
 
 // constant
-const icons = { IconChartArcs, IconClipboardList, IconChartInfographic, IconTag, IconChartDots };
+const icons = { IconChartArcs, IconClipboardList, IconChartInfographic, IconTag, IconChartDots , IconFileSearch};
 
 // ===========================|| WIDGET MENU ITEMS ||=========================== //
 
@@ -60,7 +60,7 @@ const widget = {
             title: <FormattedMessage id="Clasificacion Arancelaria" />,
             type: 'item',
             url: '/htstaxlist',
-            icon: icons.IconChartDots
+            icon: icons.IconFileSearch
         }
 
     ]
