@@ -7,7 +7,7 @@ import HtsGrid from './components/HtsGrid';
 import Htsbegin from "./components/htsbegin";
 import ListHtsTools from "./components/ListHtsTools";
 import HtsGrid2 from "./components/HtsGrid2";
-
+import { gridSpacing } from "store/constant";
 /*const useStyles = makeStyles(theme => ({
 	root: {
 		flexGrow: 1
@@ -40,14 +40,14 @@ export default function HtsTax() {
 
   return (
     <div>
-      <Grid container spacing={3}>
-        <Grid item xs={12}>
+      <Grid container spacing={gridSpacing}>
+         <Grid item lg={12} md={12} sm={12} xs={12}>
           <ListHtsTools setencabezado={setencabezado} />
         </Grid>
-        <Grid item xs={12}>
+         <Grid item lg={12} md={12} sm={12} xs={12}>
         <Htsbegin setencabezado={setencabezado} /> 
         </Grid>
-        <Grid item xs={12}>
+         <Grid item lg={12} md={12} sm={12} xs={12}>
           {encabezado.hidden && (
             <HtsGrid2 encabezado={encabezado} setencabezado={setencabezado} /> 
           )}

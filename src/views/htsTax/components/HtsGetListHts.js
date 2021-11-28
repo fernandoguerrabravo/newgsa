@@ -1,16 +1,16 @@
 /* eslint-disable no-unused-vars */
 import { useState } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Radio from '@material-ui/core/Radio';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormControl from '@material-ui/core/FormControl';
-import FormHelperText from '@material-ui/core/FormHelperText';
-import { green, red, blue } from '@material-ui/core/colors';
-import Typography from '@material-ui/core/Typography';
-import HtsDialogEnd from './HtsDialogEnd';
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormControl from '@mui/material/FormControl';
+import FormHelperText from '@mui/material/FormHelperText';
+import { green, red, blue } from '@mui/material/colors';
+import Typography from '@mui/material/Typography';
+import { Box, Grid, Paper, Button, Divider } from "@mui/material";
+//import HtsDialogEnd from './HtsDialogEnd';
 
-const useStyles = makeStyles(theme => ({
+/* const useStyles = makeStyles(theme => ({
 	formControl: {
 		margin: theme.spacing(3)
 	},
@@ -23,10 +23,10 @@ const useStyles = makeStyles(theme => ({
 	color: {
 		color: green[600]
 	}
-}));
+})); */
 
 export default function HtsGetListHts({ htschino, eventos, categorias, encabezado }) {
-	const classes = useStyles();
+	
 	const [value, setValue] = useState('');
 	const [error, setError] = useState(false);
 	const [helperText, setHelperText] = useState('Choose wisely');
@@ -53,11 +53,12 @@ export default function HtsGetListHts({ htschino, eventos, categorias, encabezad
 
 	return (
 		<form onSubmit={handleSubmit}>
-			<FormControl component="fieldset" error={error} className={classes.formControl}>
-				<Typography variant="h5" className={classes.color}>
+			<FormControl component="fieldset" error={error} >
+				<Typography variant="h5" >
 					Select Suggested US HTS{' '}
 				</Typography>
 				<br />
+				<Divider></Divider>
 				<RadioGroup aria-label="quiz" name="quiz" value={value} onChange={handleRadioChange}>
 					{eventos.map(img => (
 						<FormControlLabel key={img.htsno} value={img.htsno} control={<Radio />} label={img.htsno} />
@@ -65,7 +66,7 @@ export default function HtsGetListHts({ htschino, eventos, categorias, encabezad
 				</RadioGroup>
 				<br />
 				<FormHelperText>{helperText}</FormHelperText> <br />
-				{value && (
+				{ /* value && (
 					<HtsDialogEnd
 						evento1={value}
 						evento2={categorias}
@@ -73,7 +74,7 @@ export default function HtsGetListHts({ htschino, eventos, categorias, encabezad
 						evento4={encabezado}
 						evento5={htschino}
 					/>
-				)}
+				) */}
 				{/* value && <HtsDialogFix evento1={value} evento2={categorias} evento3={descripcion.description} evento4={encabezado} /> */}
 			</FormControl>
 		</form>
