@@ -132,6 +132,7 @@ const SkuListApp  = Loadable(lazy(() => import('views/SkuList')));
 const GifExpertApp  = Loadable(lazy(() => import('views/research')));
 const FullWidthGrid  = Loadable(lazy(() => import('views/HtsList')));
 const HtsTax  = Loadable(lazy(() => import('views/htsTax')));
+const SellerListTable  = Loadable(lazy(() => import('views/profile')));
 // ==============================|| MAIN ROUTING ||============================== //
 
 const MainRoutes = {
@@ -523,8 +524,11 @@ const MainRoutes = {
         {
             path: '/htstax',
             element: <HtsTax />
+        },
+        {
+            path:'/profile',
+            element: <SellerListTable />
         }
-
     ]
 };
 

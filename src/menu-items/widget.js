@@ -41,13 +41,7 @@ const widget = {
             url: '/mxcalculadorarapida',
             icon: IconCalculator
         },
-        {
-            id: 'skulist',
-            title: <FormattedMessage id="Productos" />,
-            type: 'item',
-            url: '/skulist',
-            icon: icons.IconTag
-        },
+        
         {
             id: 'research',
             title: <FormattedMessage id="Estudio de Mercado" />,
@@ -57,7 +51,7 @@ const widget = {
         },
         {
             id: 'clasificacion',
-            title: <FormattedMessage id="Clasificacion Arancelaria" />,
+            title: <FormattedMessage id="Aranceles" />,
             type: 'item',
             url: '/htstaxlist',
             icon: icons.IconFileSearch
