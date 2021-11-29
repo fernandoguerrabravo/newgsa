@@ -70,7 +70,7 @@ const Dashboard = () => {
           </Grid>
         </Grid>
   </Grid> */}
-      <Grid item xs={12} lg={2}>
+      <Grid item xs={12} lg={3}>
         <Card sx={cardStyle}>
           <CardHeader title="Productos" subheader="Agregar SKU" />
           <CardMedia
@@ -97,7 +97,7 @@ const Dashboard = () => {
           </CardContent>
         </Card>
       </Grid>
-      <Grid item xs={12} lg={2}>
+      <Grid item xs={12} lg={3}>
         <Card sx={cardStyle}>
           <CardHeader title="Benchmarking" subheader="Estudio de Mercado" />
           <CardMedia
@@ -124,7 +124,7 @@ const Dashboard = () => {
           </CardContent>
         </Card>
       </Grid>
-      <Grid item xs={12} lg={2}>
+      <Grid item xs={12} lg={3}>
         <Card sx={cardStyle}>
           <CardHeader title="Clasificación" subheader="HTS y Aranceles" />
           <CardMedia
@@ -151,7 +151,7 @@ const Dashboard = () => {
           </CardContent>
         </Card>
       </Grid>
-      <Grid item xs={12} lg={2}>
+      <Grid item xs={12} lg={3}>
         <Card sx={cardStyle}>
           <CardHeader title="Calculadora" subheader="Costos Logísticos" />
           <CardMedia
