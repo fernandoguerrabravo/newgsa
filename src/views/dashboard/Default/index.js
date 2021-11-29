@@ -1,5 +1,5 @@
+/* eslint-disable no-unused-vars */
 import { useEffect, useState } from "react";
-
 // material-ui
 import { useTheme } from "@mui/material/styles";
 import {
@@ -12,7 +12,7 @@ import {
   Typography,
   Button,
 } from "@mui/material";
-import SubCard from "ui-component/cards/SubCard";
+import { Link, Redirect } from 'react-router-dom';
 // project imports
 import { gridSpacing } from "store/constant";
 
@@ -88,9 +88,11 @@ const Dashboard = () => {
               </Grid>
             </Grid>
             <Grid container spacing={1}>
+            <Link role="button" to="/skulist"> 
               <Button variant="outlined" color="secondary">
                 Acceder...
               </Button>
+              </Link>
             </Grid>
           </CardContent>
         </Card>
@@ -113,9 +115,11 @@ const Dashboard = () => {
               </Grid>
             </Grid>
             <Grid container spacing={1}>
+            <Link role="button" to="/research"> 
               <Button variant="outlined" color="secondary">
                 Acceder...
               </Button>
+              </Link>
             </Grid>
           </CardContent>
         </Card>
@@ -138,9 +142,11 @@ const Dashboard = () => {
               </Grid>
             </Grid>
             <Grid container spacing={1}>
+            <Link role="button" to="/htstaxlist"> 
               <Button variant="outlined" color="secondary">
                 Acceder...
               </Button>
+              </Link>
             </Grid>
           </CardContent>
         </Card>
@@ -163,9 +169,11 @@ const Dashboard = () => {
               </Grid>
             </Grid>
             <Grid container spacing={1}>
+            <Link role="button" to="/mxcalculadorarapida"> 
               <Button variant="outlined" color="secondary">
                 Acceder...
               </Button>
+              </Link>
             </Grid>
           </CardContent>
         </Card>
