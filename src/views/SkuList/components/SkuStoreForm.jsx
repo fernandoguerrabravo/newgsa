@@ -218,6 +218,7 @@ export default function SkuStoreForm({ setoculto }) {
 								name="country_origin"
 								options={newJson1}
 								onChange={SelectChange}
+								sx = {{zIndex: 1}}
 							/>
 							<Typography variant="caption" gutterBottom>
 								Select Country Origin
