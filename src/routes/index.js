@@ -8,7 +8,7 @@ import AuthenticationRoutes from './AuthenticationRoutes';
 import Loadable from 'ui-component/Loadable';
 
 const PagesLanding = Loadable(lazy(() => import('views/pages/landing')));
-
+//const FirebaseLogin =Loadable(lazy(() => import('views/pages/authentication/auth-forms/AuthLogin')));
 // ==============================|| ROUTING RENDER ||============================== //
 
 export default function ThemeRoutes() {

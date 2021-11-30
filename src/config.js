@@ -24,8 +24,8 @@ const config = {
         measurementId: 'G-MGJHSL8XW3'
     },
     auth0: {
-        client_id: '7T4IlWis4DKHSbG8JAye4Ipk0rvXkH9V',
-        domain: 'dev-w0-vxep3.us.auth0.com'
+        client_id: 'aoa8SxksE0aGeTA2CVEmvXgdA9klIADY',
+        domain: 'eclprojects.us.auth0.com'
     }
 };
 
