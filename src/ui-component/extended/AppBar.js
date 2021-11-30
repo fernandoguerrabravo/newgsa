@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { cloneElement, useState } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 

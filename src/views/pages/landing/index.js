@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 // material-ui
 import { styled } from '@mui/material/styles';
 
@@ -36,7 +37,7 @@ const Landing = () => (
             <AppBar />
             <Header />
         </HeaderWrapper>
-        <SecondWrapper>
+       {/*} <SecondWrapper>
             <Feature />
         </SecondWrapper>
         <SecondWrapper>
@@ -52,7 +53,7 @@ const Landing = () => (
             <Subscribe />
         </SecondWrapper>
         <Footer />
-        <Customization />
+<Customization /> */}
     </>
 );
 
