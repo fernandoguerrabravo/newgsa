@@ -25,7 +25,8 @@ const config = {
     },
     auth0: {
         client_id: 'aoa8SxksE0aGeTA2CVEmvXgdA9klIADY',
-        domain: 'eclprojects.us.auth0.com'
+        domain: 'eclprojects.us.auth0.com',
+        redirectUri: 'https://master.d1tni99ii3w2o8.amplifyapp.com/dashboard/default'
     }
 };
 
