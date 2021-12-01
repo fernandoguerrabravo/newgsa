@@ -203,7 +203,7 @@ const HeaderPage = () => {
                   delay: 0.2,
                 }}
               >
-                <HeaderAnimationImage src="https://fotos-ecl.s3.amazonaws.com/logos-global-selling/logo_transparent_background.png" alt="Berry" />
+                <HeaderAnimationImage src={widget2}  alt="Berry" />
               </motion.div>
             </Box>
             <Box
@@ -226,7 +226,7 @@ const HeaderPage = () => {
                   delay: 0.4,
                 }}
               >
-                <HeaderAnimationImage src={widget2} alt="Berry" />
+                <HeaderAnimationImage src="https://fotos-ecl.s3.amazonaws.com/logos-global-selling/logo_transparent_background.png" alt="Berry" />
               </motion.div>
             </Box>
           </Box>

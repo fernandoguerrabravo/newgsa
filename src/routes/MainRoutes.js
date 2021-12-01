@@ -133,6 +133,7 @@ const GifExpertApp  = Loadable(lazy(() => import('views/research')));
 const FullWidthGrid  = Loadable(lazy(() => import('views/HtsList')));
 const HtsTax  = Loadable(lazy(() => import('views/htsTax')));
 const SellerListTable  = Loadable(lazy(() => import('views/profile')));
+const Normasdeorigen  = Loadable(lazy(() => import('views/origen')));
 // ==============================|| MAIN ROUTING ||============================== //
 
 const MainRoutes = {
@@ -528,6 +529,10 @@ const MainRoutes = {
         {
             path:'/profile',
             element: <SellerListTable />
+        },
+        {
+            path:'/normasdeorigen',
+            element: <Normasdeorigen />
         }
     ]
 };
