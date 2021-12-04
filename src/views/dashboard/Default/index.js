@@ -1,16 +1,18 @@
+/* eslint-disable no-unused-vars */
 import { useEffect, useState } from "react";
-
 // material-ui
-import { useTheme } from '@mui/material/styles';
+import { useTheme } from "@mui/material/styles";
 import {
   Card,
+  CardHeader,
   CardActions,
   CardContent,
   CardMedia,
   Grid,
   Typography,
+  Button,
 } from "@mui/material";
-import SubCard from 'ui-component/cards/SubCard';
+import { Link, Redirect } from 'react-router-dom';
 // project imports
 import { gridSpacing } from "store/constant";
 
@@ -24,15 +26,21 @@ const Dashboard = () => {
   }, []);
 
   const theme = useTheme();
-    const cardStyle = {
-        background: theme.palette.mode === 'dark' ? theme.palette.dark.main : theme.palette.grey[50],
-        border: '1px solid',
-        borderColor: theme.palette.mode === 'dark' ? theme.palette.dark.main : theme.palette.grey[100]
-    };
+  const cardStyle = {
+    background:
+      theme.palette.mode === "dark"
+        ? theme.palette.dark.main
+        : theme.palette.grey[50],
+    border: "1px solid",
+    borderColor:
+      theme.palette.mode === "dark"
+        ? theme.palette.dark.main
+        : theme.palette.grey[100],
+  };
 
   return (
     <Grid container spacing={gridSpacing}>
-          {/* <Grid item xs={12}>
+      {/* <Grid item xs={12}>
         <Grid container spacing={gridSpacing}>
       <Grid item lg={4} md={6} sm={6} xs={12}>
             <EarningCard isLoading={isLoading} />
@@ -63,39 +71,137 @@ const Dashboard = () => {
         </Grid>
   </Grid> */}
       <Grid item xs={12} lg={3}>
+        <Card sx={cardStyle}>
+          <CardHeader title="Productos" subheader="Agregar SKU" />
+          <CardMedia
+            component="img"
+            height="100"
+            image="https://fotos-ecl.s3.amazonaws.com/38065222_xl.jpg"
+            alt="Paella dish"
+          />
+          <CardContent
+            sx={{ minHeight: 20, color: theme.palette.common.black }}
+          >
+            <Grid container spacing={1}>
+              <Grid item>
+                <Typography variant="h5" color="primary"></Typography>
+              </Grid>
+            </Grid>
+            <Grid container spacing={1}>
+            <Link role="button" to="/skulist"> 
+              <Button variant="outlined" color="secondary">
+                Acceder...
+              </Button>
+              </Link>
+            </Grid>
+          </CardContent>
+        </Card>
+      </Grid>
+      <Grid item xs={12} lg={3}>
+        <Card sx={cardStyle}>
+          <CardHeader title="Benchmarking" subheader="Estudio de Mercado" />
+          <CardMedia
+            component="img"
+            height="100"
+            image="https://fotos-ecl.s3.amazonaws.com/165024815_l.jpg"
+            alt="Paella dish"
+          />
+          <CardContent
+            sx={{ minHeight: 20, color: theme.palette.common.black }}
+          >
+            <Grid container spacing={1}>
+              <Grid item>
+                <Typography variant="h5" color="primary"></Typography>
+              </Grid>
+            </Grid>
+            <Grid container spacing={1}>
+            <Link role="button" to="/research"> 
+              <Button variant="outlined" color="secondary">
+                Acceder...
+              </Button>
+              </Link>
+            </Grid>
+          </CardContent>
+        </Card>
+      </Grid>
+      <Grid item xs={12} lg={3}>
+        <Card sx={cardStyle}>
+          <CardHeader title="Clasificación" subheader="HTS y Aranceles" />
+          <CardMedia
+            component="img"
+            height="100"
+            image="https://fotos-ecl.s3.amazonaws.com/47275211_l.jpg"
+            alt="Paella dish"
+          />
+          <CardContent
+            sx={{ minHeight: 20, color: theme.palette.common.black }}
+          >
+            <Grid container spacing={1}>
+              <Grid item>
+                <Typography variant="h5" color="primary"></Typography>
+              </Grid>
+            </Grid>
+            <Grid container spacing={1}>
+            <Link role="button" to="/htstaxlist"> 
+              <Button variant="outlined" color="secondary">
+                Acceder...
+              </Button>
+              </Link>
+            </Grid>
+          </CardContent>
+        </Card>
+      </Grid>
+      <Grid item xs={12} lg={3}>
+        <Card sx={cardStyle}>
+          <CardHeader title="Calculadora" subheader="Costos Logísticos" />
+          <CardMedia
+            component="img"
+            height="100"
+            image="https://fotos-ecl.s3.amazonaws.com/110166333_l.jpg"
+            alt="Paella dish"
+          />
+          <CardContent
+            sx={{ minHeight: 20, color: theme.palette.common.black }}
+          >
+            <Grid container spacing={1}>
+              <Grid item>
+                <Typography variant="h5" color="primary"></Typography>
+              </Grid>
+            </Grid>
+            <Grid container spacing={1}>
+            <Link role="button" to="/mxcalculadorarapida"> 
+              <Button variant="outlined" color="secondary">
+                Acceder...
+              </Button>
+              </Link>
+            </Grid>
+          </CardContent>
+        </Card>
+      </Grid>
+      {/* <Grid item xs={12} lg={3}>
         <SubCard>
           <Card sx={cardStyle}>
-            <CardMedia image='https://fotos-ecl.s3.amazonaws.com/38065222_xl.jpg' title="Card 3">
-              <CardContent
-                sx={{ minHeight: 240, color: theme.palette.common.black }}
-              >
-                <Grid container spacing={1}>
-                  <Grid item>
-                    <Typography variant="subtitle1" color="inherit">
-                      Registra tu Producto
-                    </Typography>
-                  </Grid>
-                  <Grid item>
-                    <Typography variant="subtitle2" color="inherit">
-                      Agrega la información de tus SKU, fichas técnicas para
-                      ayudar en tu clasificación y procesos de Aduana en USA
-                    </Typography>
-                  </Grid>
+            <CardHeader title="Agregar Productos" subheader="" />
+            <CardMedia
+              component="img"
+              height="180"
+              image="https://fotos-ecl.s3.amazonaws.com/38065222_xl.jpg"
+              alt="Paella dish"
+            />
+            <CardContent
+              sx={{ minHeight: 100, color: theme.palette.common.black }}
+            >
+              <Grid container spacing={1}>
+                <Grid item>
+                  <Typography variant="h5" color="primary">
+                    
+                  </Typography>
                 </Grid>
-              </CardContent>
-              <CardActions>
-                <Grid container>
-                  <Grid item>
-                    <Typography variant="caption">
-                      Powered by Ecommerce Logisitcs LLC
-                    </Typography>
-                  </Grid>
-                </Grid>
-              </CardActions>
-            </CardMedia>
+              </Grid>
+            </CardContent>
           </Card>
         </SubCard>
-      </Grid>
+</Grid> */}
     </Grid>
   );
 };
