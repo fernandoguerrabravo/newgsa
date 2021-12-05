@@ -1,11 +1,11 @@
-const SaveClasHts = async (event1, event2) => {
+const SaveClasHts = async (event1, event2, idcliente) => {
 	const myHeaders = new Headers();
 	myHeaders.append('Content-Type', 'application/json');
-
+    
 	const fecha = new Date();
 	const fecha1 = fecha.toDateString();
 	const raw = JSON.stringify({
-		idcliente: 'abcdef',
+		idcliente: idcliente,
 		htsdetails: event1,
 		fecha: fecha1,
 		sku: event2

@@ -70,6 +70,33 @@ const Dashboard = () => {
           </Grid>
         </Grid>
   </Grid> */}
+   <Grid item xs={12} lg={3}>
+        <Card sx={cardStyle}>
+          <CardHeader title="Perfil Usuarios" subheader="Crear/Editar Usuarios" />
+          <CardMedia
+            component="img"
+            height="100"
+            image="https://fotos-ecl.s3.amazonaws.com/144748074_l.jpg"
+            alt="Paella dish"
+          />
+          <CardContent
+            sx={{ minHeight: 20, color: theme.palette.common.black }}
+          >
+            <Grid container spacing={1}>
+              <Grid item>
+                <Typography variant="h5" color="primary"></Typography>
+              </Grid>
+            </Grid>
+            <Grid container spacing={1}>
+            <Link role="button" to="/profile"> 
+              <Button variant="outlined" color="secondary">
+                Acceder...
+              </Button>
+              </Link>
+            </Grid>
+          </CardContent>
+        </Card>
+      </Grid>
       <Grid item xs={12} lg={3}>
         <Card sx={cardStyle}>
           <CardHeader title="Productos" subheader="Agregar SKU" />
@@ -170,6 +197,33 @@ const Dashboard = () => {
             </Grid>
             <Grid container spacing={1}>
             <Link role="button" to="/mxcalculadorarapida"> 
+              <Button variant="outlined" color="secondary">
+                Acceder...
+              </Button>
+              </Link>
+            </Grid>
+          </CardContent>
+        </Card>
+      </Grid>
+      <Grid item xs={12} lg={3}>
+        <Card sx={cardStyle}>
+          <CardHeader title="Base Conocimiento" subheader="Normas de Origen" />
+          <CardMedia
+            component="img"
+            height="100"
+            image="https://fotos-ecl.s3.amazonaws.com/141307057_l.jpg"
+            alt="Paella dish"
+          />
+          <CardContent
+            sx={{ minHeight: 20, color: theme.palette.common.black }}
+          >
+            <Grid container spacing={1}>
+              <Grid item>
+                <Typography variant="h5" color="primary"></Typography>
+              </Grid>
+            </Grid>
+            <Grid container spacing={1}>
+            <Link role="button" to="/normasdeorigen"> 
               <Button variant="outlined" color="secondary">
                 Acceder...
               </Button>

@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 // import { useTheme } from "@mui/material/styles";
 import { GiftGrid2 } from "./GiftGrid2";
-import SelectedResearch from './SelectedResearch';
+import SelectedResearch from "./SelectedResearch";
 import { AddCategory } from "./AddCategory";
 import { gridSpacing } from "store/constant";
-import {
-  Grid,
-} from "@mui/material";
+import { Grid } from "@mui/material";
 
-const SearchResearch = ({ setescondidoinicial }) => {
+const SearchResearch = ({ setescondidoinicial, idcliente }) => {
   /* const useStyles = makeStyles(theme => ({
 		root: {
 			flexGrow: 1
@@ -21,8 +19,8 @@ const SearchResearch = ({ setescondidoinicial }) => {
 		}
 	})); */
 
- // const theme = useTheme();
- /*  const cardStyle = {
+  // const theme = useTheme();
+  /*  const cardStyle = {
     background:
       theme.palette.mode === "dark"
         ? theme.palette.dark.main
@@ -41,10 +39,8 @@ const SearchResearch = ({ setescondidoinicial }) => {
     hidden1: false,
     hidden2: true,
   });
-  
-  const [seleccionado, setseleccionado] = React.useState([]);
 
-  
+  const [seleccionado, setseleccionado] = React.useState([]);
 
   return (
     <>
@@ -58,27 +54,25 @@ const SearchResearch = ({ setescondidoinicial }) => {
       <br />
       <br />
       <Grid container spacing={gridSpacing}>
-       
-          
-      
         {categories.hidden && (
           <GiftGrid2
-            setseleccionado = {setseleccionado}
+            setseleccionado={setseleccionado}
             setCategories={setCategories}
             category={categories.keyword}
-            categories = {categories}
+            categories={categories}
           />
         )}
       </Grid>
       <Grid item xs={12}>
-     { categories.hidden1 ? (
-					<SelectedResearch
-						setescondidoinicial={setescondidoinicial}
-						selected={categories.selected}
-						category={categories.keyword}
-            seleccionado = {seleccionado}
-					/>
-				) : null }
+        {categories.hidden1 ? (
+          <SelectedResearch
+            setescondidoinicial={setescondidoinicial}
+            selected={categories.selected}
+            category={categories.keyword}
+            seleccionado={seleccionado}
+            idcliente={idcliente}
+          />
+        ) : null}
       </Grid>
     </>
   );

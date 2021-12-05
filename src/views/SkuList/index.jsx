@@ -1,8 +1,9 @@
+/* eslint-disable no-unused-vars */
 import SkuListTable from "./components/SkuListTable";
 //import PreviewCard from './components/SkuListDetails';
 import SkuStoreForm from "./components/SkuStoreForm";
 //import SkuListTools from "./components/SkuListTools";
-
+import useAuth from "../../hooks/useAuth";
 import React, { useState } from "react";
 
 import { useTheme } from "@mui/material/styles";
@@ -35,20 +36,23 @@ export const SkuListApp = () => {
     borderColor: theme.palette.primary.main
     
   };
+  const { logout, user } = useAuth();
 
   // eslint-disable-next-line no-unused-vars
   const [skudetails, setskudetails] = useState({
     skunumber: "",
-    idcliente: "abcdef",
+    idcliente: user.id,
     skudetalle: [],
   });
-
+ 
   const [oculto, setoculto] = useState({
     //hiddenlistools: false,
     //hiddenstoreform: false,
     hiddentable: true,
     //hiddendetails: false,
   });
+
+  
 
   return (
     <>
@@ -61,12 +65,13 @@ export const SkuListApp = () => {
               <SkuListTable
                 oculto={oculto}
                 setoculto={setoculto}
-                setskudetails={setskudetails}
+                idcliente={user.id}
+               
               />
             ) : null}
 
          {oculto.hiddenstoreform ? (
-              <SkuStoreForm setoculto={setoculto} /> 
+              <SkuStoreForm setoculto={setoculto}  idcliente={user.id} /> 
 			) : null }
           </CardContent>
         </Card>

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import ListResearchTools from "./components/ListResearchTools";
 import ListResearchTable from "./components/ListResearchTable";
 import SearchResearch from "./components/SearchResearch";
@@ -5,6 +6,7 @@ import React, { useState } from "react";
 // import { useTheme } from "@mui/material/styles";
 import { Grid } from "@mui/material";
 import { gridSpacing } from "store/constant";
+import useAuth from "../../hooks/useAuth";
 
 export const GifExpertApp = () => {
   /* const useStyles = makeStyles(theme => ({
@@ -21,7 +23,7 @@ export const GifExpertApp = () => {
     */
   // const theme = useTheme();
 
- /*  const cardStyle = {
+  /*  const cardStyle = {
     background:
       theme.palette.mode === "dark"
         ? theme.palette.dark.main
@@ -29,6 +31,7 @@ export const GifExpertApp = () => {
     border: "1px solid",
     borderColor: theme.palette.primary.main,
   };*/
+  const { logout, user } = useAuth();
 
   const [escondidoinicial, setescondidoinicial] = useState({
     escondidoinicial: true,
@@ -36,7 +39,7 @@ export const GifExpertApp = () => {
 
   const [boton, setboton] = useState({
     volver: true,
-  }); 
+  });
 
   const [pdf, setpdf] = useState({
     loading: true,
@@ -65,6 +68,7 @@ export const GifExpertApp = () => {
                 pdf={pdf}
                 setpdf={setpdf}
                 setboton={setboton}
+                idcliente={user.id}
               />
               <br />
             </>
@@ -73,7 +77,10 @@ export const GifExpertApp = () => {
 
         <Grid item xs={12}>
           {escondidoinicial.escondidoinicial ? null : (
-            <SearchResearch setescondidoinicial={setescondidoinicial} />
+            <SearchResearch
+              setescondidoinicial={setescondidoinicial}
+              idcliente={user.id}
+            />
           )}
         </Grid>
       </Grid>

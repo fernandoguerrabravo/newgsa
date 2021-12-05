@@ -18,7 +18,7 @@ export const UpdateSku = async final => {
 		res: true
 	});
 
-	console.log('raw : ', datos.sku);
+	console.log('rawraw : ', final);
 
 	const requestOptions = {
 		method: 'POST',
@@ -26,7 +26,7 @@ export const UpdateSku = async final => {
 		body: raw
 	};
 
-	fetch('https://vwat0hqjt0.execute-api.us-east-1.amazonaws.com/dev/updatesku', requestOptions)
+	await fetch('https://vwat0hqjt0.execute-api.us-east-1.amazonaws.com/dev/updatesku', requestOptions)
 		.then(response => response.json())
 		.then(result => console.log(result))
 		.catch(error => console.log('error', error));

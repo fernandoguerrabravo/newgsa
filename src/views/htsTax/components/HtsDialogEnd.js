@@ -27,7 +27,7 @@ import Swal from "sweetalert2";
 import Select from "react-select";
 import { useGetSku } from "../../SkuList/hooks/useGetSku";
 import SaveClasHts from "../helpers/SaveClasHts";
-
+import useAuth from "../../../hooks/useAuth";
 /* const styles = theme => ({
 	root: {
 		margin: 0,
@@ -92,8 +92,8 @@ export default function HtsDialogEnd({
   evento4,
   evento5,
 }) {
-  const idcliente = "abcdef";
-  const sku = useGetSku(idcliente);
+  const { logout, user } = useAuth();
+  const sku = useGetSku(user.id);
   const skufinal = sku.data;
   const newJson1 = [];
   skufinal.forEach((codigo) => {
@@ -103,10 +103,10 @@ export default function HtsDialogEnd({
     });
   });
 
-  console.log("chinos de la gran puta", evento5.chinos.type);
+  //console.log("chinos de la gran puta", evento5.chinos.type);
   // para manejar los eventos de las dos cajas de texto
   const history = useNavigate();
-
+  
   const [datos, setDatos] = useState({
     sku: "",
     shortdescription: "",
@@ -154,7 +154,7 @@ export default function HtsDialogEnd({
         icon: "warning",
       });
     } else {
-      SaveClasHts(saveclashts, datos.sku);
+      SaveClasHts(saveclashts, datos.sku, user.id);
       setOpen(true);
     }
   };

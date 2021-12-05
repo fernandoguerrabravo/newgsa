@@ -55,7 +55,8 @@ const widget = {
             type: 'item',
             url: '/htstaxlist',
             icon: icons.IconFileSearch
-        }
+        },
+        
 
     ]
 };

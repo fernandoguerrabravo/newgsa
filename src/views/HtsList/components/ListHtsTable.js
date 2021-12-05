@@ -3,13 +3,13 @@ import react from 'react';
 import useGetClasHts from '../hooks/UseGetClasHts';
 import DataTable from "react-data-table-component";
 
-export default function ListHtsTable() {
-	const idcliente = 'abcdef';
+export default function ListHtsTable(idcliente) {
+	//const idcliente = 'abcdef';
 	// const { data, loading } = useGetResearch(idcliente)
-
+    //console.log("picopico", idcliente)
 	const { data } = useGetClasHts(idcliente);
 
-	console.log('datos para tabla:', data);
+	//console.log('datos para tabla:', data);
 
 	const columnas = [
 		{

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { cloneElement, useState } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 
@@ -73,19 +74,7 @@ const AppBar = ({ ...others }) => {
                                 Home
                             </Button>
                             <Button color="inherit" component={RouterLink} to="login" target="_blank">
-                                Dashboard
-                            </Button>
-                            <Button color="inherit" component={Link} href="https://codedthemes.gitbook.io/berry" target="_blank">
-                                Documentation
-                            </Button>
-                            <Button
-                                component={Link}
-                                href="https://material-ui.com/store/items/berry-react-material-admin/"
-                                disableElevation
-                                variant="contained"
-                                color="secondary"
-                            >
-                                Purchase Now
+                                Acceso
                             </Button>
                         </Stack>
                         <Box sx={{ display: { xs: 'block', sm: 'none' } }}>
@@ -115,31 +104,7 @@ const AppBar = ({ ...others }) => {
                                                 <ListItemIcon>
                                                     <IconDashboard />
                                                 </ListItemIcon>
-                                                <ListItemText primary="Dashboard" />
-                                            </ListItemButton>
-                                        </Link>
-                                        <Link
-                                            style={{ textDecoration: 'none' }}
-                                            href="https://codedthemes.gitbook.io/berry"
-                                            target="_blank"
-                                        >
-                                            <ListItemButton component="a">
-                                                <ListItemIcon>
-                                                    <IconBook />
-                                                </ListItemIcon>
-                                                <ListItemText primary="Documentation" />
-                                            </ListItemButton>
-                                        </Link>
-                                        <Link
-                                            style={{ textDecoration: 'none' }}
-                                            href="https://material-ui.com/store/items/berry-react-material-admin/"
-                                            target="_blank"
-                                        >
-                                            <ListItemButton component="a">
-                                                <ListItemIcon>
-                                                    <IconCreditCard />
-                                                </ListItemIcon>
-                                                <ListItemText primary="Purchase Now" />
+                                                <ListItemText primary="Acceso" />
                                             </ListItemButton>
                                         </Link>
                                     </List>

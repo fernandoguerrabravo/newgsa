@@ -1,7 +1,8 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from 'react';
 import GetClasHts from '../helpers/GetClasHts';
 
-const useGetClasHts = idcliente => {
+const useGetClasHts = (idcliente) => {
 	const [state, setState] = useState({
 		data: []
 	});
@@ -12,9 +13,9 @@ const useGetClasHts = idcliente => {
 				data: imgs
 			});
 		});
-	}, [idcliente]);
+	}, []);
 
-	console.log('datos fetch', state);
+	//console.log('datos fetch', idcliente);
 
 	return state;
 };
