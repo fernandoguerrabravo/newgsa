@@ -284,7 +284,7 @@ const ComingSoon1 = () => {
                                                         <Grid item>
                                                             <ButtonBase
                                                                 component={Link}
-                                                                href="https://blog.berrydashboard.io/"
+                                                                href="https://www.gsasellers.com/"
                                                                 target="_blank"
                                                             >
                                                                 <Avatar

@@ -67,19 +67,19 @@ const FooterPage = () => {
                                 sx={{ justifyContent: 'flex-end', [theme.breakpoints.down('md')]: { justifyContent: 'center' } }}
                             >
                                 <Grid item>
-                                    <FooterLink href="https://blog.berrydashboard.io/" target="_blank" underline="hover">
+                                    <FooterLink href="https://www.gsasellers.com/" target="_blank" underline="hover">
                                         <InstagramIcon />
                                         Blog
                                     </FooterLink>
                                 </Grid>
                                 <Grid item>
-                                    <FooterLink href="https://www.facebook.com/codedthemes" target="_blank" underline="hover">
+                                    <FooterLink href="https://www.gsasellers.com/" target="_blank" underline="hover">
                                         <FacebookIcon />
                                         Facebook
                                     </FooterLink>
                                 </Grid>
                                 <Grid item>
-                                    <FooterLink href="https://twitter.com/codedthemes" target="_blank" underline="hover">
+                                    <FooterLink href="https://www.gsasellers.com/" target="_blank" underline="hover">
                                         <TwitterIcon />
                                         Twitter
                                     </FooterLink>
