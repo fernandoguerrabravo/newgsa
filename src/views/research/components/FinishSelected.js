@@ -3,10 +3,7 @@ import React, { useState } from "react";
 import Select from "react-select";
 import Swal from "sweetalert2";
 import { UpdateSku } from "../helpers/UpdateSku";
-import {
-  Button,
-  Grid,
-} from "@mui/material";
+import { Button, Grid } from "@mui/material";
 import { useGetSku } from "views/SkuList/hooks/useGetSku";
 
 /* const useStyles = makeStyles(theme => ({
@@ -48,8 +45,9 @@ const FinishSelected = ({
   min,
   setescondidoinicial,
   category,
+  idcliente,
 }) => {
-  const idcliente = "abcdef";
+  //const idcliente = "abcdef";
   const sku = useGetSku(idcliente);
   const skufinal = sku.data;
   const newJson1 = [];
@@ -101,8 +99,9 @@ const FinishSelected = ({
     <>
       <Grid container spacing={3}>
         <Grid item lg={6} md={6} sm={6} xs={6}>
-          <Select options={newJson1} onChange={handleInputChange} /><br />
-		  <strong>Seleccione un SKU</strong>
+          <Select options={newJson1} onChange={handleInputChange} />
+          <br />
+          <strong>Seleccione un SKU</strong>
         </Grid>
         <Grid item lg={6} md={6} sm={6} xs={6}>
           <Button onClick={updatesku} variant="contained" color="secondary">

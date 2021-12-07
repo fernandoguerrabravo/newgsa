@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
-import { useTheme, styled } from '@mui/material/styles';
+import { useTheme, styled } from "@mui/material/styles";
 import FinishSelected from "./FinishSelected";
 import DataTable from "react-data-table-component";
 import { star } from "../hooks/star";
@@ -93,6 +93,7 @@ const SelectedResearch = ({
   setescondidoinicial,
   selected,
   category,
+  idcliente,
 }) => {
   const [escondido, setescondido] = useState({
     escondido: true,
@@ -163,36 +164,33 @@ const SelectedResearch = ({
         <Grid item lg={2} md={2} sm={12} xs={12}>
           <MinCard min={max} tag={"Precio Máximo"}></MinCard>
         </Grid>
-       
+
         <Grid item lg={6} md={6} sm={12} xs={12}>
           {escondido.escondido ? (
             <Paper
-              sx = {{padding: 2,
-                backgroundColor: theme.palette.primary.light,
-              }}
+              sx={{ padding: 2, backgroundColor: theme.palette.primary.light }}
             >
-            <FinishSelected
-              setescondidoinicial={setescondidoinicial}
-              selected={seleccionado}
-              average={average}
-              max={max}
-              min={min}
-              category={category}
-            />
+              <FinishSelected
+                setescondidoinicial={setescondidoinicial}
+                selected={seleccionado}
+                average={average}
+                max={max}
+                min={min}
+                category={category}
+                idcliente={idcliente}
+              />
             </Paper>
           ) : null}
         </Grid>
 
         <Grid item xs={12}>
-         
-            <DataTable
-              style={{ zIndex: 0 }}
-              columns={columnas}
-              data={seleccionado}
-              striped
-              pagination
-            />
-      
+          <DataTable
+            style={{ zIndex: 0 }}
+            columns={columnas}
+            data={seleccionado}
+            striped
+            pagination
+          />
         </Grid>
       </Grid>
     </>

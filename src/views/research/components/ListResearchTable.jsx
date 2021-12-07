@@ -7,9 +7,9 @@ import PdfViewer from "./PdfViewer";
 import DataTable from "react-data-table-component";
 
 
-export default function ListResearchTable({ pdf, setpdf, setboton }) {
+export default function ListResearchTable({ pdf, setpdf, setboton, idcliente }) {
 
-  const idcliente = "abcdef";
+  
   const { data, loading } = useGetResearch(idcliente);
 
 

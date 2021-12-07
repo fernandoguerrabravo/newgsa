@@ -7,7 +7,7 @@ import {
 } from "@mui/material";
 import DataTable from "react-data-table-component";
 
-export default function SkuListTable({ oculto, setoculto, setskudetails }) {
+export default function SkuListTable({ oculto, setoculto, idcliente }) {
   const crearsku = () => {
     setoculto({
       ...oculto,
@@ -41,7 +41,7 @@ export default function SkuListTable({ oculto, setoculto, setskudetails }) {
         : theme.palette.grey[100],
   };  */
 
-  const idcliente = "abcdef";
+  
   // const { data, loading } = useGetResearch(idcliente)
 
  /*  const details = (event) => {

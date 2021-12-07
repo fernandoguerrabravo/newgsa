@@ -5,7 +5,7 @@ export const GetSku = async idcliente => {
 		headers: {
 			'Content-Type': 'application/json'
 		},
-		body: JSON.stringify({ id_cliente: 'abcdef' })
+		body: JSON.stringify({ id_cliente: idcliente })
 	};
 
 	const resp = await fetch(`https://vwat0hqjt0.execute-api.us-east-1.amazonaws.com/dev/getsku`, requestOptions);

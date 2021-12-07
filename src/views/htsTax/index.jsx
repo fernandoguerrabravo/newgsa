@@ -8,6 +8,7 @@ import Htsbegin from "./components/htsbegin";
 import ListHtsTools from "./components/ListHtsTools";
 import HtsGrid2 from "./components/HtsGrid2";
 import { gridSpacing } from "store/constant";
+import useAuth from "../../hooks/useAuth";
 /*const useStyles = makeStyles(theme => ({
 	root: {
 		flexGrow: 1
@@ -21,6 +22,8 @@ import { gridSpacing } from "store/constant";
 })); */
 
 export default function HtsTax() {
+  
+  const { logout, user } = useAuth();
   const [encabezado, setencabezado] = useState([
     {
       country: "",
