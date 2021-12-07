@@ -172,9 +172,14 @@ const HeaderPage = () => {
                       component="div"
                       color="inherit"
                       sx={{ fontWeight: 400, lineHeight: 1.4 }}
-                    >
+                    > Plataforma integral de servicios que facilita y acelera el
+                    proceso de mover inventarios desde el país de origen
+                    hasta los centros de distribución de Amazon en USA,
+                    para los Sellers foráneos que participan en el programa:
                       <b></b>
                     </Typography>
+                    <HeaderAnimationImage src="https://fotos-ecl.s3.amazonaws.com/Amazon_Global_Selling_Logo.png" alt="Berry" />
+
                   </Grid>
                 </Grid>
               </motion.div>
