@@ -12,7 +12,7 @@ import {
   Typography,
   Button,
 } from "@mui/material";
-import { Link, Redirect } from 'react-router-dom';
+import { Link, Redirect } from "react-router-dom";
 // project imports
 import { gridSpacing } from "store/constant";
 
@@ -70,9 +70,12 @@ const Dashboard = () => {
           </Grid>
         </Grid>
   </Grid> */}
-   <Grid item xs={12} lg={3}>
+      <Grid item xs={12} lg={3}>
         <Card sx={cardStyle}>
-          <CardHeader title="Perfil Usuarios" subheader="Crear/Editar Usuarios" />
+          <CardHeader
+            title="Perfil Usuarios"
+            subheader="Crear/Editar Usuarios"
+          />
           <CardMedia
             component="img"
             height="100"
@@ -88,10 +91,16 @@ const Dashboard = () => {
               </Grid>
             </Grid>
             <Grid container spacing={1}>
-            <Link role="button" to="/profile"> 
-              <Button variant="outlined" color="secondary">
-                Acceder...
-              </Button>
+              <Typography variant="subtitle2" display="block" gutterBottom>
+                Herramienta para registrar los datos corporativos y de contacto
+                del Seller. Esta información se utiliza para hacer el
+                pre-registro del estatus de Foreign Importer of Record (FIOR)
+                para el Seller
+              </Typography>
+              <Link role="button" to="/profile">
+                <Button variant="outlined" color="secondary">
+                  Acceder...
+                </Button>
               </Link>
             </Grid>
           </CardContent>
@@ -115,10 +124,15 @@ const Dashboard = () => {
               </Grid>
             </Grid>
             <Grid container spacing={1}>
-            <Link role="button" to="/skulist"> 
-              <Button variant="outlined" color="secondary">
-                Acceder...
-              </Button>
+              <Typography variant="subtitle2" display="block" gutterBottom>
+                Herramienta para registrar la información de cada producto del
+                Seller que se exportará a Amazon. Por favor subir archivos con
+                fichas técnicas y descripción de detalle de cada producto
+              </Typography>
+              <Link role="button" to="/skulist">
+                <Button variant="outlined" color="secondary">
+                  Acceder...
+                </Button>
               </Link>
             </Grid>
           </CardContent>
@@ -142,10 +156,15 @@ const Dashboard = () => {
               </Grid>
             </Grid>
             <Grid container spacing={1}>
-            <Link role="button" to="/research"> 
-              <Button variant="outlined" color="secondary">
-                Acceder...
-              </Button>
+              <Typography variant="subtitle2" display="block" gutterBottom>
+                Herramienta para obtener los precios de ventas en el Marketplace
+                de Amazon de productos similares a los productos del Seller.
+                Enntrega un benchmarking de precios de ventas al mercado de Usa.
+              </Typography>
+              <Link role="button" to="/research">
+                <Button variant="outlined" color="secondary">
+                  Acceder...
+                </Button>
               </Link>
             </Grid>
           </CardContent>
@@ -169,10 +188,16 @@ const Dashboard = () => {
               </Grid>
             </Grid>
             <Grid container spacing={1}>
-            <Link role="button" to="/htstaxlist"> 
-              <Button variant="outlined" color="secondary">
-                Acceder...
-              </Button>
+              <Typography variant="subtitle2" display="block" gutterBottom>
+                Herramienta que sugiere la clasificación y códigos HTS que mas
+                se ajustan a los productos. Una vez obtenida la clasificación de
+                HTS puede conocer los aranceles y tarifas especiales que se
+                aplican en USA.
+              </Typography>
+              <Link role="button" to="/htstaxlist">
+                <Button variant="outlined" color="secondary">
+                  Acceder...
+                </Button>
               </Link>
             </Grid>
           </CardContent>
@@ -196,10 +221,16 @@ const Dashboard = () => {
               </Grid>
             </Grid>
             <Grid container spacing={1}>
-            <Link role="button" to="/mxcalculadorarapida"> 
-              <Button variant="outlined" color="secondary">
-                Acceder...
-              </Button>
+              <Typography variant="subtitle2" display="block" gutterBottom>
+                Cálculo rápido del costo logístico desde México a los FBAs de
+                USA en pallets. Entrega todos los costos logísticos hasta el hub
+                de Laredo, TX. Para sensibilidad, a gruegue el costo de la
+                última milla en USA.
+              </Typography>
+              <Link role="button" to="/mxcalculadorarapida">
+                <Button variant="outlined" color="secondary">
+                  Acceder...
+                </Button>
               </Link>
             </Grid>
           </CardContent>
@@ -223,10 +254,15 @@ const Dashboard = () => {
               </Grid>
             </Grid>
             <Grid container spacing={1}>
-            <Link role="button" to="/normasdeorigen"> 
-              <Button variant="outlined" color="secondary">
-                Acceder...
-              </Button>
+              <Typography variant="subtitle2" display="block" gutterBottom>
+                Podrá encontrar la información sobre temas relacionados con el
+                proceso importación a USA y entrega en FBAs de Amazon Tales
+                como, regluaciones de origen, FDA, Packaging entre otros.
+              </Typography>
+              <Link role="button" to="/normasdeorigen">
+                <Button variant="outlined" color="secondary">
+                  Acceder...
+                </Button>
               </Link>
             </Grid>
           </CardContent>
