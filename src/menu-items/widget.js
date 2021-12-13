@@ -56,6 +56,14 @@ const widget = {
             url: '/htstaxlist',
             icon: icons.IconFileSearch
         },
+        {
+            id: 'fdatools',
+            title: <FormattedMessage id="Tools FDA" />,
+            type: 'item',
+            url: '/fda',
+            icon: icons.IconFileSearch
+        },
+
         
 
     ]

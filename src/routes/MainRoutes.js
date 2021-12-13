@@ -134,6 +134,9 @@ const FullWidthGrid  = Loadable(lazy(() => import('views/HtsList')));
 const HtsTax  = Loadable(lazy(() => import('views/htsTax')));
 const SellerListTable  = Loadable(lazy(() => import('views/profile')));
 const Normasdeorigen  = Loadable(lazy(() => import('views/origen')));
+const Fda = Loadable(lazy(() => import('views/fda')));
+
+
 // ==============================|| MAIN ROUTING ||============================== //
 
 const MainRoutes = {
@@ -533,6 +536,10 @@ const MainRoutes = {
         {
             path:'/normasdeorigen',
             element: <Normasdeorigen />
+        },
+        {
+            path:'/fda',
+            element: <Fda />
         }
     ]
 };
