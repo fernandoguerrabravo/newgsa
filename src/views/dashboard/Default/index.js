@@ -87,11 +87,11 @@ const Dashboard = () => {
           >
             <Grid container spacing={1}>
               <Grid item>
-                <Typography variant="h5" color="primary"></Typography>
+                <Typography color="primary" variant="h5"></Typography>
               </Grid>
             </Grid>
             <Grid container spacing={1}>
-              <Typography variant="subtitle2" display="block" gutterBottom>
+              <Typography color="primary" variant="subtitle2" display="block" gutterBottom>
                 Herramienta para registrar los datos corporativos y de contacto
                 del Seller. Esta información se utiliza para hacer el
                 pre-registro del estatus de Foreign Importer of Record (FIOR)
@@ -124,7 +124,7 @@ const Dashboard = () => {
               </Grid>
             </Grid>
             <Grid container spacing={1}>
-              <Typography variant="subtitle2" display="block" gutterBottom>
+              <Typography color="primary" variant="subtitle2" display="block" gutterBottom>
                 Herramienta para registrar la información de cada producto del
                 Seller que se exportará a Amazon. Por favor subir archivos con
                 fichas técnicas y descripción de detalle de cada producto
@@ -156,7 +156,7 @@ const Dashboard = () => {
               </Grid>
             </Grid>
             <Grid container spacing={1}>
-              <Typography variant="subtitle2" display="block" gutterBottom>
+              <Typography color="primary" variant="subtitle2" display="block" gutterBottom>
                 Herramienta para obtener los precios de ventas en el Marketplace
                 de Amazon de productos similares a los productos del Seller.
                 Enntrega un benchmarking de precios de ventas al mercado de Usa.
@@ -188,7 +188,7 @@ const Dashboard = () => {
               </Grid>
             </Grid>
             <Grid container spacing={1}>
-              <Typography variant="subtitle2" display="block" gutterBottom>
+              <Typography color="primary" variant="subtitle2" display="block" gutterBottom>
                 Herramienta que sugiere la clasificación y códigos HTS que mas
                 se ajustan a los productos. Una vez obtenida la clasificación de
                 HTS puede conocer los aranceles y tarifas especiales que se
@@ -221,7 +221,7 @@ const Dashboard = () => {
               </Grid>
             </Grid>
             <Grid container spacing={1}>
-              <Typography variant="subtitle2" display="block" gutterBottom>
+              <Typography color="primary" variant="subtitle2" display="block" gutterBottom>
                 Cálculo rápido del costo logístico desde México a los FBAs de
                 USA en pallets. Entrega todos los costos logísticos hasta el hub
                 de Laredo, TX. Para sensibilidad, a gruegue el costo de la
@@ -254,7 +254,7 @@ const Dashboard = () => {
               </Grid>
             </Grid>
             <Grid container spacing={1}>
-              <Typography variant="subtitle2" display="block" gutterBottom>
+              <Typography color="primary" variant="subtitle2" display="block" gutterBottom>
                 Podrá encontrar la información sobre temas relacionados con el
                 proceso importación a USA y entrega en FBAs de Amazon Tales
                 como, regluaciones de origen, FDA, Packaging entre otros.
