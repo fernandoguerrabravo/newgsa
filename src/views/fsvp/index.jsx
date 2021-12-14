@@ -13,6 +13,12 @@ import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import FaceTwoToneIcon from "@mui/icons-material/FaceTwoTone";
 import DomainTwoToneIcon from "@mui/icons-material/DomainTwoTone";
 import MonetizationOnTwoToneIcon from "@mui/icons-material/MonetizationOnTwoTone";
+import FastfoodIcon from "@mui/icons-material/Fastfood";
+import AccessTimeIcon from "@mui/icons-material/AccessTime";
+import AltRouteIcon from "@mui/icons-material/AltRoute";
+import HelpIcon from "@mui/icons-material/Help";
+
+
 
 const customContentData = [
   {
@@ -147,7 +153,7 @@ const customContentData = [
     id: "basic3",
     title: (
       <>
-        <MonetizationOnTwoToneIcon
+        <AltRouteIcon
           fontSize="small"
           color="secondary"
           sx={{ mr: 0.5 }}
@@ -204,7 +210,7 @@ const customContentData = [
     id: "basic4",
     title: (
       <>
-        <MonetizationOnTwoToneIcon
+        <FastfoodIcon
           fontSize="small"
           color="primary"
           sx={{ mr: 0.5 }}
@@ -272,7 +278,7 @@ const customContentData = [
     id: "basic5",
     title: (
       <>
-        <MonetizationOnTwoToneIcon
+        <AccessTimeIcon
           fontSize="small"
           color="info"
           sx={{ mr: 0.5 }}
@@ -320,7 +326,7 @@ const customContentData = [
     id: "basic6",
     title: (
       <>
-        <MonetizationOnTwoToneIcon
+        <HelpIcon
           fontSize="small"
           color="secondary"
           sx={{ mr: 0.5 }}
