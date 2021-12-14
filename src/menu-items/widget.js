@@ -1,10 +1,10 @@
 import { FormattedMessage } from 'react-intl';
 
 // assets
-import { IconChartArcs, IconClipboardList, IconChartInfographic , IconCalculator , IconTag, IconChartDots, IconFileSearch  } from '@tabler/icons';
+import { IconChartArcs, IconClipboardList, IconChartInfographic , IconCalculator , IconTag, IconChartDots, IconFileSearch, IconLemon  } from '@tabler/icons';
 
 // constant
-const icons = { IconChartArcs, IconClipboardList, IconChartInfographic, IconTag, IconChartDots , IconFileSearch};
+const icons = { IconChartArcs, IconClipboardList, IconChartInfographic, IconTag, IconChartDots , IconFileSearch,  IconLemon};
 
 // ===========================|| WIDGET MENU ITEMS ||=========================== //
 
@@ -58,10 +58,25 @@ const widget = {
         },
         {
             id: 'fdatools',
-            title: <FormattedMessage id="Tools FDA" />,
-            type: 'item',
-            url: '/fda',
-            icon: icons.IconFileSearch
+            title: <FormattedMessage id="FDA Regulatory Tools" />,
+            type: 'collapse',
+            icon: icons.IconLemon,
+            children: [
+                {
+                    id: 'tt-icons',
+                    title: <FormattedMessage id="Programa FVSP" />,
+                    type: 'item',
+                    url: '/fsvp',
+                    
+                },
+                {
+                    id: 'tt-icons',
+                    title: <FormattedMessage id="Prior Notice" />,
+                    type: 'item',
+                    url: '/fda',
+                    
+                }
+            ]
         },
 
         

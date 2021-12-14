@@ -135,6 +135,7 @@ const HtsTax  = Loadable(lazy(() => import('views/htsTax')));
 const SellerListTable  = Loadable(lazy(() => import('views/profile')));
 const Normasdeorigen  = Loadable(lazy(() => import('views/origen')));
 const Fda = Loadable(lazy(() => import('views/fda')));
+const Fsvp = Loadable(lazy(() => import('views/fsvp')));
 
 
 // ==============================|| MAIN ROUTING ||============================== //
@@ -540,7 +541,12 @@ const MainRoutes = {
         {
             path:'/fda',
             element: <Fda />
+        },
+        {
+            path:'/fsvp',
+            element: <Fsvp />
         }
+
     ]
 };
 
