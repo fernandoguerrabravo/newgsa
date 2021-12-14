@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { Divider, Grid, Typography } from "@mui/material";
+import { Divider, Grid, Typography, Button } from "@mui/material";
 
 // project imports
 import SubCard from "ui-component/cards/SubCard";
@@ -7,18 +7,16 @@ import Accordion from "ui-component/extended/Accordion";
 import MainCard from "ui-component/cards/MainCard";
 import SecondaryAction from "ui-component/cards/CardSecondaryAction";
 import { gridSpacing } from "store/constant";
-
 // assets
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import FaceTwoToneIcon from "@mui/icons-material/FaceTwoTone";
 import DomainTwoToneIcon from "@mui/icons-material/DomainTwoTone";
-import MonetizationOnTwoToneIcon from "@mui/icons-material/MonetizationOnTwoTone";
 import FastfoodIcon from "@mui/icons-material/Fastfood";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import AltRouteIcon from "@mui/icons-material/AltRoute";
 import HelpIcon from "@mui/icons-material/Help";
-
-
+import Center from "react-center";
+import Swal from 'sweetalert2'
 
 const customContentData = [
   {
@@ -153,11 +151,7 @@ const customContentData = [
     id: "basic3",
     title: (
       <>
-        <AltRouteIcon
-          fontSize="small"
-          color="secondary"
-          sx={{ mr: 0.5 }}
-        />
+        <AltRouteIcon fontSize="small" color="secondary" sx={{ mr: 0.5 }} />
         <Typography variant="subtitle1" color="secondary">
           ¿Cuándo se aplicarían requisitos modificados conforme a la regla de
           FSVP?
@@ -210,11 +204,7 @@ const customContentData = [
     id: "basic4",
     title: (
       <>
-        <FastfoodIcon
-          fontSize="small"
-          color="primary"
-          sx={{ mr: 0.5 }}
-        />
+        <FastfoodIcon fontSize="small" color="primary" sx={{ mr: 0.5 }} />
         <Typography variant="subtitle1" color="primary">
           ¿Qué alimentos y bebidas están exentos del FSVP?
         </Typography>
@@ -278,11 +268,7 @@ const customContentData = [
     id: "basic5",
     title: (
       <>
-        <AccessTimeIcon
-          fontSize="small"
-          color="info"
-          sx={{ mr: 0.5 }}
-        />
+        <AccessTimeIcon fontSize="small" color="info" sx={{ mr: 0.5 }} />
         <Typography variant="subtitle1" color="error">
           ¿Cuáles son las fechas de cumplimiento del FSVP?
         </Typography>
@@ -326,11 +312,7 @@ const customContentData = [
     id: "basic6",
     title: (
       <>
-        <HelpIcon
-          fontSize="small"
-          color="secondary"
-          sx={{ mr: 0.5 }}
-        />
+        <HelpIcon fontSize="small" color="secondary" sx={{ mr: 0.5 }} />
         <Typography variant="subtitle1" color="secondary">
           Para obtener más información
         </Typography>
@@ -338,16 +320,26 @@ const customContentData = [
     ),
     content: (
       <Grid container spacing={2}>
-        
         <Grid item>
           <Typography variant="body2" sx={{ textAlign: "justify" }}>
-            
             <ul>
               <li>
-			  <a target="_blank" href="http://www.fda.gov/downloads/Food/GuidanceRegulation/FSMA/UCM472461.pdf" rel="noreferrer">¿Estoy  sujeto  al FSVP?</a>
+                <a
+                  target="_blank"
+                  href="http://www.fda.gov/downloads/Food/GuidanceRegulation/FSMA/UCM472461.pdf"
+                  rel="noreferrer"
+                >
+                  ¿Estoy sujeto al FSVP?
+                </a>
               </li>
               <li>
-			  <a target="_blank" href= "http://www.fda.gov/Food/GuidanceRegulation/FSMA" rel="noreferrer">FSVP Information</a> 
+                <a
+                  target="_blank"
+                  href="http://www.fda.gov/Food/GuidanceRegulation/FSMA"
+                  rel="noreferrer"
+                >
+                  FSVP Information
+                </a>
               </li>
             </ul>
           </Typography>
@@ -357,6 +349,15 @@ const customContentData = [
   },
 ];
 
+const request = () => {
+
+  Swal.fire({
+    icon: 'success',
+  title: 'Thanks',
+  text: 'Tu requerimiento ha sido Recibido!',
+  footer: 'Un Agente se pondrá en contacto a la brevedad'
+  })
+} 
 // =============================|| UI ACCORDION ||============================= //
 
 const Fsvp = () => (
@@ -368,6 +369,33 @@ const Fsvp = () => (
             expandIcon={<ArrowDropDownIcon />}
             data={customContentData}
           />
+        </SubCard>
+      </Grid>
+      <Grid item xs={12} sm={6}>
+        <SubCard title="Ecommerce Logistics lo apoya con FSVP para Sellers (Small Foreing Import of Records)">
+          <Typography variant="body2" sx={{ textAlign: "justify" }}>
+            Necesitará un agente del FSVP si es un vendedor de Amazon que
+            exporta productos alimenticios/bebidas o suplementos dietéticos a
+            los Estados Unidos. Tras varias alarmas sanitarias relacionados con
+            productos importados, la FDA está tomando medidas enérgicas contra
+            el Programa de Verificación de Proveedores Extranjeros. Si se
+            descubre que incumple la normativa más reciente de la FDA, el
+            Reglamento de Controles Preventivos para Alimentos Humanos y
+            Animales de la FSMA y la Regla de Seguridad de Productos de la FSMA,
+            se puede prohibir la entrada de su producto en Estados Unidos, lo
+            que podría ser desastroso para su empresa. La Ley de Modernización
+            de la Seguridad Alimentaria (FSMA) ha dado la vuelta a las normas de
+            aplicación de la seguridad alimentaria para los vendedores de
+            alimentos de Amazon. Según lo declarado por la FDA : "Todos los
+            productos regulados por la FDA que se importan a los Estados Unidos
+            deben cumplir las mismas leyes y regulaciones que los productos
+            nacionales. Los alimentos importados deben ser puros, saludables,
+            seguros de consumir y producidos en condiciones sanitarias, y deben
+            contener un etiquetado informativo y veraz en inglés".
+          </Typography>
+          <Center>
+            <Button onClick={request} variant="contained">Solicitar Servicio</Button>
+          </Center>
         </SubCard>
       </Grid>
     </Grid>

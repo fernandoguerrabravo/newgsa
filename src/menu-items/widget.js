@@ -63,14 +63,21 @@ const widget = {
             icon: icons.IconLemon,
             children: [
                 {
-                    id: 'tt-icons',
-                    title: <FormattedMessage id="Programa FVSP" />,
+                    id: 'fdaregister',
+                    title: <FormattedMessage id="Registro FDA" />,
+                    type: 'item',
+                    url: '/fdaregister',
+                    
+                },
+                {
+                    id: 'fdafsvp',
+                    title: <FormattedMessage id="Programa FSVP" />,
                     type: 'item',
                     url: '/fsvp',
                     
                 },
                 {
-                    id: 'tt-icons',
+                    id: 'fda',
                     title: <FormattedMessage id="Prior Notice" />,
                     type: 'item',
                     url: '/fda',
