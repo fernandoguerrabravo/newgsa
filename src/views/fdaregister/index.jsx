@@ -1,103 +1,75 @@
-/* eslint-disable no-unused-vars */
 import React from "react";
 
-import Paper from "@mui/material/Paper";
-import Grid from "@mui/material/Grid";
-import ListItemText from "@mui/material/ListItemText";
-import { Typography } from "@mui/material";
 // import List from '@mui/material/List';
-import ListItem from "@mui/material/ListItem";
-import Link from "@mui/material/Link";
 import { gridSpacing } from "store/constant";
+
+import { Grid, Typography, Button } from "@mui/material";
+
+// project imports
+import SubCard from "ui-component/cards/SubCard";
+
+// assets
+import Center from "react-center";
+import Swal from "sweetalert2";
+
+const request = () => {
+  Swal.fire({
+    icon: "success",
+    title: "Gracias",
+    text: "Tu requerimiento ha sido Recibido!",
+    footer: "Un Agente se pondrá en contacto a la brevedad",
+  });
+};
 
 export default function FdaRegister() {
   return (
     <div>
       {" "}
       <Grid container spacing={gridSpacing}>
-        <Grid item >
-         
+        <Grid item xs={12} sm={6}>
+          <SubCard title="Paso 1: ¿Por qué necesita estar registrado en la FDA?">
+            <Typography variant="body2" sx={{ textAlign: "justify" }}>
+              Tanto las instalaciones estadounidenses como las extranjeras que
+              procesan, envasan o transportan alimentos humanos o animales para
+              su consumo en los Estados Unidos deben registrarse en la FDA como
+              Instalación Alimentaria Extranjera, según la normativa de la FDA.
+              Si una instalación alimentaria extranjera no tiene un consumidor o
+              importador estadounidense dispuesto, el proveedor extranjero
+              también debe designar a un agente en los Estados Unidos para que
+              actúe como punto de contacto para la FDA. Nuestra empresa apoyará
+              y actuará como su punto de contacto con la FDA, y podremos
+              registrarlo y comunicarnos con ellos en su nombre.
+            </Typography>
+            <Center></Center>
+          </SubCard>
         </Grid>
-        <Grid  item >
-         
+        <Grid item xs={12} sm={6}>
+          <SubCard title="Servicios de Obtención de Registro de Instalaciones (FFRN) ">
+            <Typography variant="body2" sx={{ textAlign: "justify" }}>
+              <ul>
+                <li>
+                  US Agent: representación y comunicaciones con FDA en temas
+                  relacionados con el producto exportado tales como envíos,
+                  detenciones, import alerts, warning letters, recalls, entre
+                  otros.
+                </li>
+                <li>
+                  Obtención de Registo FFRN (USD FDA Register Number)
+                </li>
+                <li>
+                  Apoyo en la Obtención de DUNS Number (Facility Register)
+                </li>
+               
+              </ul>
+            </Typography>
+            <Center>
+              <Button onClick={request} variant="contained">
+                Solicitar Servicio
+              </Button>
+            </Center>
+          </SubCard>
         </Grid>
-		</Grid>
-
-        {/*	<Grid alignItems="center" item xs={4}>
-						<Paper>
-							<Grid item xs={12} md={12}>
-								<Typography sx={{ mt: 4, mb: 2 }} variant="h6" component="div">
-									Links de Apoyo
-								</Typography>
-								<ListItem>
-									<ListItemText>
-										{' '}
-										<Link
-											href="http://www.sice.oas.org/trade/nafta_s/CAP04_1.asp#Cap.IV"
-											underline="none"
-											target="_blank"
-											rel="noreferrer"
-										>
-											Sice - Reglas de Origen - TLC USA
-										</Link>
-									</ListItemText>
-								</ListItem>
-								<ListItem>
-									<ListItemText>
-										{' '}
-										<Link
-											href="http://www.trade.gov/regional-value-content"
-											underline="none"
-											target="_blank"
-											rel="noreferrer"
-										>
-											Trade.gov - Sobre Contenido Regional - TLC USA
-										</Link>
-									</ListItemText>
-								</ListItem>
-								<ListItem>
-									<ListItemText>
-										{' '}
-										<Link
-											href="http://www2.aladi.org/SitioALADI/Reuniones/OMC/2019/PRESENTACIONORIGENOMC.pdf"
-											underline="none"
-											target="_blank"
-											rel="noreferrer"
-										>
-											Aladi.org - Sobre Reglas de Origen
-										</Link>
-									</ListItemText>
-								</ListItem>
-								<ListItem>
-									<ListItemText>
-										{' '}
-										<Link
-											href="https://www.trade.gov/fta-certificates-origin"
-											underline="none"
-											target="_blank"
-											rel="noreferrer"
-										>
-											Trade.gov - Sobre Reglas de Origen y Certificación de Origen
-										</Link>
-									</ListItemText>
-								</ListItem>
-								<ListItem>
-									<ListItemText>
-										{' '}
-										<Link
-											href="https://www.cbp.gov/document/guidance/certification-origin-template"
-											underline="none"
-											target="_blank"
-											rel="noreferrer"
-										>
-											cbp.gov - Modelo de Certificado de Origen
-										</Link>
-									</ListItemText>
-								</ListItem>
-							</Grid>
-						</Paper>
-	</Grid> */}
-  
+      </Grid>
     </div>
   );
 }

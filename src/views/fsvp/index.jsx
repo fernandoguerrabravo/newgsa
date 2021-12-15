@@ -353,7 +353,7 @@ const request = () => {
 
   Swal.fire({
     icon: 'success',
-  title: 'Thanks',
+  title: 'Gracias',
   text: 'Tu requerimiento ha sido Recibido!',
   footer: 'Un Agente se pondrá en contacto a la brevedad'
   })
