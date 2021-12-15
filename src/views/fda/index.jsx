@@ -1,103 +1,74 @@
-/* eslint-disable no-unused-vars */
 import React from "react";
 
-import Paper from "@mui/material/Paper";
-import Grid from "@mui/material/Grid";
-import ListItemText from "@mui/material/ListItemText";
-import { Typography } from "@mui/material";
 // import List from '@mui/material/List';
-import ListItem from "@mui/material/ListItem";
-import Link from "@mui/material/Link";
 import { gridSpacing } from "store/constant";
 
-export default function Fda() {
+import { Grid, Typography, Button } from "@mui/material";
+
+// project imports
+import SubCard from "ui-component/cards/SubCard";
+
+// assets
+import Center from "react-center";
+import Swal from "sweetalert2";
+
+const request = () => {
+  Swal.fire({
+    icon: "success",
+    title: "Gracias",
+    text: "Tu requerimiento ha sido Recibido!",
+    footer: "Un Agente se pondrá en contacto a la brevedad",
+  });
+};
+
+export default function FdaRegister() {
   return (
     <div>
       {" "}
       <Grid container spacing={gridSpacing}>
-        <Grid item >
-         
+        <Grid item xs={12} sm={6}>
+          <SubCard title="Paso 3:  Presente su Aviso Previo de la FDA">
+            <Typography variant="body2" sx={{ textAlign: "justify" }}>
+              La Administración de Alimentos y Medicamentos de los Estados
+              Unidos (FDA) exige legalmente la presentación de una Notificación
+              Previa para todos los envíos de alimentos, bebidas y suplementos
+              dietéticos que entren en los Estados Unidos. No notificar a la FDA
+              7 días antes de que su envío llegue a los EE.UU. puede resultar en
+              una detención del producto por parte de la FDA, costosas tasas de
+              retención y posibles prohibiciones de importación. La Interfaz del
+              Sistema de Notificación Previa (PNSI) de la FDA puede ser muy
+              difícil de navegar y completar correctamente. Nuestros Agentes se
+              asegurará de que su notificación previa sea fácil, rápida y se
+              presente correctamente. Una vez presentada, su notificación previa
+              será archivada inmediatamente por un profesional, asegurándose de
+              que toda la información se introduce correctamente y sin errores.
+              Reduciremos el tiempo de presentación de su notificación previa,
+              disminuiremos los errores y guardaremos su información de forma
+              segura para futuras presentaciones. Todas las solicitudes se
+              completan y aprueban normalmente en las 24 horas siguientes a su
+              presentación.
+            </Typography>
+            <Center></Center>
+          </SubCard>
         </Grid>
-        <Grid  item >
-         
+        <Grid item xs={12} sm={6}>
+          <SubCard title="Servicios de Obtención de Prior Notice ">
+            <Typography variant="body2" sx={{ textAlign: "justify" }}>
+              <ul>
+                <li>
+                  Solicitud de Prior Notice para Ingreso a USA de Embarque ante el FDA
+                </li>
+                <li>Revisión de los Documentos de Embarque</li>
+              </ul>
+            </Typography>
+            <Center>
+              <Button onClick={request} variant="contained">
+                Solicitar Servicio
+              </Button>
+            </Center>
+          </SubCard>
         </Grid>
-		</Grid>
-
-        {/*	<Grid alignItems="center" item xs={4}>
-						<Paper>
-							<Grid item xs={12} md={12}>
-								<Typography sx={{ mt: 4, mb: 2 }} variant="h6" component="div">
-									Links de Apoyo
-								</Typography>
-								<ListItem>
-									<ListItemText>
-										{' '}
-										<Link
-											href="http://www.sice.oas.org/trade/nafta_s/CAP04_1.asp#Cap.IV"
-											underline="none"
-											target="_blank"
-											rel="noreferrer"
-										>
-											Sice - Reglas de Origen - TLC USA
-										</Link>
-									</ListItemText>
-								</ListItem>
-								<ListItem>
-									<ListItemText>
-										{' '}
-										<Link
-											href="http://www.trade.gov/regional-value-content"
-											underline="none"
-											target="_blank"
-											rel="noreferrer"
-										>
-											Trade.gov - Sobre Contenido Regional - TLC USA
-										</Link>
-									</ListItemText>
-								</ListItem>
-								<ListItem>
-									<ListItemText>
-										{' '}
-										<Link
-											href="http://www2.aladi.org/SitioALADI/Reuniones/OMC/2019/PRESENTACIONORIGENOMC.pdf"
-											underline="none"
-											target="_blank"
-											rel="noreferrer"
-										>
-											Aladi.org - Sobre Reglas de Origen
-										</Link>
-									</ListItemText>
-								</ListItem>
-								<ListItem>
-									<ListItemText>
-										{' '}
-										<Link
-											href="https://www.trade.gov/fta-certificates-origin"
-											underline="none"
-											target="_blank"
-											rel="noreferrer"
-										>
-											Trade.gov - Sobre Reglas de Origen y Certificación de Origen
-										</Link>
-									</ListItemText>
-								</ListItem>
-								<ListItem>
-									<ListItemText>
-										{' '}
-										<Link
-											href="https://www.cbp.gov/document/guidance/certification-origin-template"
-											underline="none"
-											target="_blank"
-											rel="noreferrer"
-										>
-											cbp.gov - Modelo de Certificado de Origen
-										</Link>
-									</ListItemText>
-								</ListItem>
-							</Grid>
-						</Paper>
-	</Grid> */}
-  
+      </Grid>
     </div>
   );
 }

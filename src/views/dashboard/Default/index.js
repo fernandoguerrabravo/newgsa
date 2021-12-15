@@ -15,7 +15,7 @@ import {
 import { Link, Redirect } from "react-router-dom";
 // project imports
 import { gridSpacing } from "store/constant";
-import Stack from '@mui/material/Stack';
+import Stack from "@mui/material/Stack";
 
 // ==============================|| DEFAULT DASHBOARD ||============================== //
 
@@ -92,7 +92,12 @@ const Dashboard = () => {
               </Grid>
             </Grid>
             <Grid container spacing={1}>
-              <Typography color="primary" variant="subtitle2" display="block" gutterBottom>
+              <Typography
+                color="primary"
+                variant="subtitle2"
+                display="block"
+                gutterBottom
+              >
                 Herramienta para registrar los datos corporativos y de contacto
                 del Seller. Esta información se utiliza para hacer el
                 pre-registro del estatus de Foreign Importer of Record (FIOR)
@@ -125,7 +130,12 @@ const Dashboard = () => {
               </Grid>
             </Grid>
             <Grid container spacing={1}>
-              <Typography color="primary" variant="subtitle2" display="block" gutterBottom>
+              <Typography
+                color="primary"
+                variant="subtitle2"
+                display="block"
+                gutterBottom
+              >
                 Herramienta para registrar la información de cada producto del
                 Seller que se exportará a Amazon. Por favor subir archivos con
                 fichas técnicas y descripción de detalle de cada producto
@@ -157,7 +167,12 @@ const Dashboard = () => {
               </Grid>
             </Grid>
             <Grid container spacing={1}>
-              <Typography color="primary" variant="subtitle2" display="block" gutterBottom>
+              <Typography
+                color="primary"
+                variant="subtitle2"
+                display="block"
+                gutterBottom
+              >
                 Herramienta para obtener los precios de ventas en el Marketplace
                 de Amazon de productos similares a los productos del Seller.
                 Enntrega un benchmarking de precios de ventas al mercado de Usa.
@@ -189,7 +204,12 @@ const Dashboard = () => {
               </Grid>
             </Grid>
             <Grid container spacing={1}>
-              <Typography color="primary" variant="subtitle2" display="block" gutterBottom>
+              <Typography
+                color="primary"
+                variant="subtitle2"
+                display="block"
+                gutterBottom
+              >
                 Herramienta que sugiere la clasificación y códigos HTS que mas
                 se ajustan a los productos. Una vez obtenida la clasificación de
                 HTS puede conocer los aranceles y tarifas especiales que se
@@ -222,7 +242,12 @@ const Dashboard = () => {
               </Grid>
             </Grid>
             <Grid container spacing={1}>
-              <Typography color="primary" variant="subtitle2" display="block" gutterBottom>
+              <Typography
+                color="primary"
+                variant="subtitle2"
+                display="block"
+                gutterBottom
+              >
                 Cálculo rápido del costo logístico desde México a los FBAs de
                 USA en pallets. Entrega todos los costos logísticos hasta el hub
                 de Laredo, TX. Para sensibilidad, a gruegue el costo de la
@@ -255,7 +280,12 @@ const Dashboard = () => {
               </Grid>
             </Grid>
             <Grid container spacing={1}>
-              <Typography color="primary" variant="subtitle2" display="block" gutterBottom>
+              <Typography
+                color="primary"
+                variant="subtitle2"
+                display="block"
+                gutterBottom
+              >
                 Podrá encontrar la información sobre temas relacionados con el
                 proceso importación a USA y entrega en FBAs de Amazon Tales
                 como, regluaciones de origen, FDA, Packaging entre otros.
@@ -287,22 +317,34 @@ const Dashboard = () => {
               </Grid>
             </Grid>
             <Grid container spacing={1}>
-              <Typography color="primary" variant="subtitle2" display="block" gutterBottom>
-                Información y Servicios de Registro para Sellers con productos Alimenticios que requieren
-                vender en Amazon.  Asesória y Desarrollo del Programa FSVP para Sellers de Amazon.  Contacte
-                a nuestros agentes especializados.
+              <Typography
+                color="primary"
+                variant="subtitle2"
+                display="block"
+                gutterBottom
+              >
+                Información y Servicios de Registro para Sellers con productos
+                Alimenticios que requieren vender en Amazon. Asesória y
+                Desarrollo del Programa FSVP para Sellers de Amazon, como asi
+                asesoria en la obtención del Prior Notice. Contacte a nuestros
+                agentes especializados.
               </Typography>
               <Stack spacing={2} direction="row">
-              <Link role="button" to="/fdaregister">
-                <Button variant="outlined" color="secondary">
-                  Info Registros
-                </Button>
-              </Link>
-              <Link role="button" to="/fsvp">
-                <Button variant="outlined" color="secondary">
-                  Info FSVP
-                </Button>
-              </Link>
+                <Link role="button" to="/fdaregister">
+                  <Button variant="outlined" color="secondary">
+                    Info Registros
+                  </Button>
+                </Link>
+                <Link role="button" to="/fsvp">
+                  <Button variant="outlined" color="secondary">
+                    Info FSVP
+                  </Button>
+                </Link>{" "}
+                <Link role="button" to="/fda">
+                  <Button variant="outlined" color="secondary">
+                    Prior Notice
+                  </Button>
+                </Link>
               </Stack>
             </Grid>
           </CardContent>
