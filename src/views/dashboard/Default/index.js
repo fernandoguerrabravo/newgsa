@@ -15,6 +15,7 @@ import {
 import { Link, Redirect } from "react-router-dom";
 // project imports
 import { gridSpacing } from "store/constant";
+import Stack from '@mui/material/Stack';
 
 // ==============================|| DEFAULT DASHBOARD ||============================== //
 
@@ -264,6 +265,45 @@ const Dashboard = () => {
                   Acceder...
                 </Button>
               </Link>
+            </Grid>
+          </CardContent>
+        </Card>
+      </Grid>
+      <Grid item xs={12} lg={3}>
+        <Card sx={cardStyle}>
+          <CardHeader title="FDA Tools" subheader="Registros y Programa FSVP" />
+          <CardMedia
+            component="img"
+            height="100"
+            image="https://fotos-ecl.s3.amazonaws.com/34655511_l.jpg"
+            alt="Paella dish"
+          />
+          <CardContent
+            sx={{ minHeight: 20, color: theme.palette.common.black }}
+          >
+            <Grid container spacing={1}>
+              <Grid item>
+                <Typography variant="h5" color="primary"></Typography>
+              </Grid>
+            </Grid>
+            <Grid container spacing={1}>
+              <Typography color="primary" variant="subtitle2" display="block" gutterBottom>
+                Información y Servicios de Registro para Sellers con productos Alimenticios que requieren
+                vender en Amazon.  Asesória y Desarrollo del Programa FSVP para Sellers de Amazon.  Contacte
+                a nuestros agentes especializados.
+              </Typography>
+              <Stack spacing={2} direction="row">
+              <Link role="button" to="/fdaregister">
+                <Button variant="outlined" color="secondary">
+                  Info Registros
+                </Button>
+              </Link>
+              <Link role="button" to="/fsvp">
+                <Button variant="outlined" color="secondary">
+                  Info FSVP
+                </Button>
+              </Link>
+              </Stack>
             </Grid>
           </CardContent>
         </Card>
