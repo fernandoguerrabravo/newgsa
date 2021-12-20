@@ -19,7 +19,7 @@ const configuracion = {
     title: <FormattedMessage id="Configuración" />,
     type: 'group',
     children: [
-       /* {
+      /*  {
             id: 'perfil',
             title: <FormattedMessage id="Perfil Seller" />,
             type: 'item',
