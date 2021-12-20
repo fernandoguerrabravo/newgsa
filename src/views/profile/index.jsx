@@ -4,7 +4,7 @@ import Grid from "@mui/material/Grid";
 import SellerListTable from "./components/SellerListTable";
 import { gridSpacing } from "store/constant";
 import SellerListTools from "./components/SellerListTools";
-import SkuStoreForm from "./components/SkuStoreForm";
+import SellerStoreForm from './components/SellerStoreForm';
 import SellerStoreFiles from "./components/SellerStoreFiles";
 import Lister from "./components/SellerListFiles";
 /* const useStyles = makeStyles(theme => ({
@@ -51,7 +51,7 @@ export default function sellers() {
         { oculto.hiddenperfilform ?  (
           <>
             <Grid item xs={6}>
-              <SkuStoreForm />
+              <SellerStoreForm />
             </Grid>
             <Grid item xs={6}>
               <SellerStoreFiles skus="legales" idcliente="abcdef" />
