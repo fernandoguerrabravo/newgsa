@@ -58,6 +58,7 @@
         "react-draft-wysiwyg": "^1.14.6",
         "react-draggable": "^4.4.3",
         "react-google-autocomplete": "^2.6.1",
+        "react-google-places-autocomplete": "^3.3.2",
         "react-google-recaptcha": "^2.1.0",
         "react-hook-form": "^6.15.5",
         "react-images": "^1.2.0-beta.6",

@@ -4,7 +4,7 @@ import Grid from "@mui/material/Grid";
 import SellerListTable from "./components/SellerListTable";
 import { gridSpacing } from "store/constant";
 import SellerListTools from "./components/SellerListTools";
-import SellerStoreForm from './components/SellerStoreForm';
+import SellerStoreForm from "./components/SellerStoreForm";
 import SellerStoreFiles from "./components/SellerStoreFiles";
 import Lister from "./components/SellerListFiles";
 /* const useStyles = makeStyles(theme => ({
@@ -45,10 +45,10 @@ export default function sellers() {
         <Grid item lg={12} md={12} sm={12} xs={12}>
           <SellerListTools oculto={oculto} setoculto={setoculto} />
         </Grid>
-        <Grid item lg={12} md={12} sm={12} xs={12}>
-          { oculto.hiddentable ? <SellerListTable /> : null}
-        </Grid>
-        { oculto.hiddenperfilform ?  (
+        {/* <Grid item lg={12} md={12} sm={12} xs={12}>
+          {oculto.hiddentable ? <SellerListTable /> : null}
+  </Grid> */}
+        {oculto.hiddenperfilform ? (
           <>
             <Grid item xs={6}>
               <SellerStoreForm />
@@ -59,8 +59,8 @@ export default function sellers() {
             <Grid item lg={12} md={12} sm={12} xs={12}>
               <Lister idcliente="abcdef" codigo="legales" />
             </Grid>
-          </>) : null
-        }
+          </>
+        ) : null}
       </Grid>
     </div>
   );

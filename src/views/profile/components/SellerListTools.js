@@ -34,7 +34,7 @@ const SellerListTools = ({ oculto, setoculto }) => {
 		<>
 			{oculto.hiddenboton ? (
 				<Button  onClick={nuevoseller} variant="contained" color="secondary">
-					+ Agregar Seller
+					+ Configurar Perfil
 				</Button>
 			) : null}
 			{oculto.hiddenboton ? null : (

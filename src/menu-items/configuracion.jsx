@@ -19,14 +19,14 @@ const configuracion = {
     title: <FormattedMessage id="Configuración" />,
     type: 'group',
     children: [
-      /*  {
+       {
             id: 'perfil',
             title: <FormattedMessage id="Perfil Seller" />,
             type: 'item',
             url: '/profile',
             icon: icons.IconAlien,
             
-        }, */
+        },
         {
             id: 'skulist',
             title: <FormattedMessage id="Productos" />,
