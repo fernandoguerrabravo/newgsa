@@ -1,11 +1,12 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, { useState } from "react";
 import Grid from "@mui/material/Grid";
-import SellerListTable from "./components/SellerListTable";
+//import SellerListTable from "./components/SellerListTable";
 import { gridSpacing } from "store/constant";
 import SellerListTools from "./components/SellerListTools";
 import SellerStoreForm from "./components/SellerStoreForm";
 import SellerStoreFiles from "./components/SellerStoreFiles";
+import useAuth from "../../hooks/useAuth";
 import Lister from "./components/SellerListFiles";
 /* const useStyles = makeStyles(theme => ({
 	root: {
@@ -20,6 +21,8 @@ import Lister from "./components/SellerListFiles";
 })); */
 
 export default function sellers() {
+
+  const { logout, user } = useAuth();
   /* const [encabezado, setencabezado] = useState([
 		{
 			country: '',
@@ -50,14 +53,16 @@ export default function sellers() {
   </Grid> */}
         {oculto.hiddenperfilform ? (
           <>
-            <Grid item xs={6}>
+             <Grid item lg={6} md={6} sm={12} xs={12}>
               <SellerStoreForm />
             </Grid>
-            <Grid item xs={6}>
-              <SellerStoreFiles skus="legales" idcliente="abcdef" />
+            <Grid item lg={6} md={6} sm={12} xs={12}>
+              <SellerStoreFiles skus="legales" idcliente={user.id} />
+              
             </Grid>
+           
             <Grid item lg={12} md={12} sm={12} xs={12}>
-              <Lister idcliente="abcdef" codigo="legales" />
+              <Lister idcliente={user.id} codigo="legales" />
             </Grid>
           </>
         ) : null}

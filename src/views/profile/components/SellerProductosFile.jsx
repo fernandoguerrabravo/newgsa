@@ -65,7 +65,7 @@ const blobToBase64 = async (file) =>
   },
 })); */
 
-const SellerStoreFiles = ({ skus, idcliente }) => {
+const SellerProductosFile = ({ skus, idcliente }) => {
   
 
   const MAXIMUM_FILES_LIMIT = 5;
@@ -228,9 +228,10 @@ const SellerStoreFiles = ({ skus, idcliente }) => {
     <form onSubmit={handleFilesSubmit}>
      <Paper sx={{padding: 3}}>
       <Typography variant="h6" gutterBottom>
-        Adjunte Documentos de Negocios, Fichas Técnicas y Lista de Productos
-        <Tooltip title="You can later upload documents">
+        Suba Archivo Excel de Productos
+        <Tooltip title="Baje el Excel y subalo en el sistema">
           <Info fontSize="small" color="info" />
+          
         </Tooltip>
         <a href = 'https://fotos-ecl.s3.amazonaws.com/product_list.xlsx'>
         <img src={'https://fotos-ecl.s3.amazonaws.com/icons8-microsoft-excel-2019.svg'} width="100" height="50" alt ="hola2"/>
@@ -319,4 +320,4 @@ const SellerStoreFiles = ({ skus, idcliente }) => {
   );
 };
 
-export default SellerStoreFiles;
+export default SellerProductosFile;
