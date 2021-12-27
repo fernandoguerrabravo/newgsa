@@ -58,17 +58,17 @@ const Header = ({ handleLeftDrawerToggle }) => {
             </Box>
 
             {/* header search */}
-            <SearchSection />
+           { /* <SearchSection />  */ }
             <Box sx={{ flexGrow: 1 }} />
             <Box sx={{ flexGrow: 1 }} />
 
-            {/* live customization & localization */}
+            {/* live customization & localization 
             <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
                 <LocalizationSection />
-            </Box>
+            </Box> */ }
 
             {/* notification & profile */}
-            <NotificationSection />
+            {/*<NotificationSection /> */}
             <ProfileSection />
 
             {/* mobile header */}
