@@ -13,6 +13,22 @@ import Lister from "./components/SellerListFiles";
 export default function sellers() {
 
   const { logout, user } = useAuth();
+
+  const [profile, setprofile] = useState({
+    pickupaddress: [],
+    legaladdress: [],
+    idcliente: user.id,
+    legalname: "",
+    dbaname: "",
+    tipocorporacion: "",
+    tax_id: "",
+    contactname: "",
+    cargo: "",
+    email: "",
+    telefono: "",
+    ejecutivoamazon: "",
+    website: "",
+  });
   /* const [encabezado, setencabezado] = useState([
 		{
 			country: '',
@@ -29,24 +45,7 @@ export default function sellers() {
     //hiddendetails: false,
   });
 
-  const [profile, setprofile] = useState({
-
-    pickupaddress : [],
-    legaladdress: [],
-    id_cliente: user.id,
-    legalname: "",
-    dbaname: "",
-    tipocorporacion: "",
-    contactname: "",
-    email: "",
-    telefono: "",
-    legaladress: "",
-    estado: "",
-    zipcode: "",
-    country: "",
-    ejecutivoamazon: "",
-    website: "",
-  })
+  
   
 
   // Creo el estado del detalles de la cotizacion que se eligira , para mostrarlo
@@ -64,7 +63,7 @@ export default function sellers() {
         {oculto.hiddenperfilform ? (
           <>
              <Grid item lg={12} md={12} sm={12} xs={12}>
-              <SellerStoreForm profile={profile} setprofile={setprofile} />
+              <SellerStoreForm profile={profile} setprofile={setprofile}/>
             </Grid>
             <Grid item lg={12} md={12} sm={12} xs={12}>
               <SellerStoreFiles skus="legales" idcliente={user.id} />

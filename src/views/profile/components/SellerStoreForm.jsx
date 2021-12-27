@@ -24,7 +24,10 @@ import DataTable from "react-data-table-component";
 import IconButton from "@mui/material/IconButton";
 import Stack from "@mui/material/Stack";
 
-export default function SkuStoreForm(profile, setprofile) {
+
+export default function SkuStoreForm({profile, setprofile}) {
+  
+ 
   const [value, setValue] = useState(null);
   // console.log("direccion", value)
   const [pick, setpick] = useState(null);
@@ -37,6 +40,15 @@ export default function SkuStoreForm(profile, setprofile) {
     pickup: [],
   });
 
+  
+
+  const SellerChange = (event) => {
+    setprofile({
+      ...profile,
+      [event.target.name]: event.target.value,
+    });
+  };
+  
   useEffect(() => {
     if (value != null) {
       geocodeByPlaceId(value.value.place_id).then((results) =>
@@ -93,7 +105,7 @@ export default function SkuStoreForm(profile, setprofile) {
   const columns = [
     {
       name: "Dirección",
-      selector: (row) => row.calle + '  # ' + row.numero,
+      selector: (row) => row.calle + "  # " + row.numero,
     },
 
     {
@@ -118,11 +130,7 @@ export default function SkuStoreForm(profile, setprofile) {
       name: "Pais",
       selector: (row) => row.pais,
     },
-    {
-      name: "Id",
-      selector: (row) => row.idpick,
-    },
-
+    
 
     /* {
       name: "Qtys",
@@ -152,18 +160,33 @@ export default function SkuStoreForm(profile, setprofile) {
       ignoreRowClick: true,
       allowOverflow: true,
       cell: (row) => (
-        <ActionComponent
-          row={row.idpick}
-          onClick={deleterow}
-        ></ActionComponent>
+        <ActionComponent row={row.idpick} onClick={deleterow}></ActionComponent>
       ),
     },
   ];
 
-   const deleterow = (e) => {
+  const deleterow = (e) => {
     const newstate = lista.pickup.filter((item) => item.idpick !== e);
-    setlista({ pickup : newstate });
-  }; 
+    setlista({ pickup: newstate });
+  };
+
+  const guardar = () => {
+    setprofile({
+      ...profile,
+      
+    });
+    console.log("SELLERPICO", profile)
+  };
+
+  useEffect(() => {
+   
+        setprofile({
+          ...profile,
+          pickupaddress: lista,
+          legaladdress: direccion,
+        })
+    
+  }, [lista, direccion]);
 
   return (
     <div>
@@ -177,6 +200,7 @@ export default function SkuStoreForm(profile, setprofile) {
             size="small"
             variant="contained"
             color="secondary"
+            onClick={guardar}
           >
             Grabar Información
           </Button>
@@ -193,8 +217,8 @@ export default function SkuStoreForm(profile, setprofile) {
               variant="outlined"
               color="primary"
               type="text"
-              // value={guardarsku.sku}
-              // onChange={handlingChange}
+              value={profile.legalname}
+              onChange={SellerChange}
               fullWidth
             />
           </Grid>
@@ -207,8 +231,8 @@ export default function SkuStoreForm(profile, setprofile) {
               color="primary"
               type="text"
               fullWidth
-              // value={guardarsku.upc_number}
-              // onChange={handlingChange}
+              value={profile.dbname}
+              onChange={SellerChange}
             />{" "}
           </Grid>{" "}
           <Grid item lg={12} md={12} sm={12} xs={12}>
@@ -230,41 +254,41 @@ export default function SkuStoreForm(profile, setprofile) {
           <Grid item lg={6} md={6} sm={12} xs={12}>
             <TextField
               sx={{ zIndex: 0 }}
-              id="corporacion"
-              name="corporacion"
+              id="tipocorporacion"
+              name="tipocorporacion"
               label="Tipo de Corporación"
               color="primary"
               type="text"
               fullWidth
-              // value={guardarsku.upc_number}
-              // onChange={handlingChange}
+              value={profile.tipocorporacion}
+              onChange={SellerChange}
             />
           </Grid>
           <Grid item lg={6} md={6} sm={12} xs={12}>
             <TextField
               sx={{ zIndex: 0 }}
-              id="taxid"
-              name="taxid"
+              id="taxç_id"
+              name="tax_id"
               label="Nro. Identificación Fiscal"
               color="primary"
               type="text"
               fullWidth
-              // value={guardarsku.upc_number}
-              // onChange={handlingChange}
+              value={profile.tax_id}
+              onChange={SellerChange}
             />
           </Grid>
           <Grid item lg={6} md={6} sm={12} xs={12}>
             <TextField
               sx={{ zIndex: 0 }}
-              id="contacto"
-              name="contacto"
+              id="contactname"
+              name="contactname"
               label="Contacto"
               variant="outlined"
               color="primary"
               type="text"
               fullWidth
-              // value={guardarsku.upc_number}
-              // onChange={handlingChange}
+              value={profile.contactname}
+              onChange={SellerChange}
             />
           </Grid>
           <Grid item lg={6} md={6} sm={12} xs={12}>
@@ -277,9 +301,8 @@ export default function SkuStoreForm(profile, setprofile) {
               color="primary"
               type="text"
               fullWidth
-
-              // value={guardarsku.upc_number}
-              // onChange={handlingChange}
+              value={profile.cargo}
+              onChange={SellerChange}
             />
           </Grid>
           <Grid item lg={6} md={6} sm={12} xs={12}>
@@ -302,9 +325,8 @@ export default function SkuStoreForm(profile, setprofile) {
               color="primary"
               type="text"
               fullWidth
-
-              // value={guardarsku.upc_number}
-              // onChange={handlingChange}
+              value={profile.telefono}
+              onChange={SellerChange}
             />
           </Grid>
           <Grid item lg={6} md={6} sm={12} xs={12}>
@@ -317,36 +339,36 @@ export default function SkuStoreForm(profile, setprofile) {
               color="primary"
               type="email"
               fullWidth
-              // value={guardarsku.upc_number}
-              // onChange={handlingChange}
+              value={profile.email}
+              onChange={SellerChange}
             />
           </Grid>{" "}
           <Grid item lg={6} md={6} sm={12} xs={12}>
             <TextField
               sx={{ zIndex: 0 }}
-              id="webpage"
-              name="webpage"
+              id="website"
+              name="website"
               label="Página Web"
               variant="outlined"
               color="primary"
               type="text"
               fullWidth
-              // value={guardarsku.upc_number}
-              // onChange={handlingChange}
+              value={profile.website}
+              onChange={SellerChange}
             />
           </Grid>
           <Grid item lg={6} md={6} sm={12} xs={12}>
             <TextField
               sx={{ zIndex: 0 }}
-              id="ejecutivo"
-              name="ejecutivo"
+              id="ejecutivoamazon"
+              name="ejecutivoamazon"
               label="Ejecutivo Amazon"
               variant="outlined"
               color="primary"
               type="text"
               fullWidth
-              // value={guardarsku.upc_number}
-              // onChange={handlingChange}
+              value={profile.ejecutivoamazon}
+              onChange={SellerChange}
             />
           </Grid>
         </Grid>
