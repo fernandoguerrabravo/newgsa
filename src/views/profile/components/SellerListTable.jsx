@@ -6,39 +6,7 @@ import { Button, Paper } from "@mui/material";
 import DataTable from "react-data-table-component";
 
 export default function SellerListTable({ oculto, setoculto, setskudetails }) {
-  /* const crearsku = () => {
-    setoculto({
-      ...oculto,
-      hiddenstoreform: true,
-      hiddentable: false,
-      hiddenlistools: true,
-    });
-  }; */
-
-  /*	const useStyles = makeStyles(theme => ({
-		root: {
-			flexGrow: 1
-		},
-
-		paper: {
-			padding: theme.spacing(2),
-			color: theme.palette.text.secondary
-		}
-	})); */
-
-  // const theme = useTheme();
-  /* const cardStyle = {
-    background:
-      theme.palette.mode === "dark"
-        ? theme.palette.dark.main
-        : theme.palette.grey[50],
-    border: "1px solid",
-    borderColor:
-      theme.palette.mode === "dark"
-        ? theme.palette.dark.main
-        : theme.palette.grey[100],
-  };  */
-
+  
   const idcliente = "abcdef";
   // const { data, loading } = useGetResearch(idcliente)
 

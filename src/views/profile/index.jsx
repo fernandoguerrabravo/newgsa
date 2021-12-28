@@ -1,28 +1,18 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, { useState } from "react";
 import Grid from "@mui/material/Grid";
-//import SellerListTable from "./components/SellerListTable";
+import SellerListTable from "./components/SellerListTable";
 import { gridSpacing } from "store/constant";
 import SellerListTools from "./components/SellerListTools";
 import SellerStoreForm from "./components/SellerStoreForm";
 import SellerStoreFiles from "./components/SellerStoreFiles";
 import useAuth from "../../hooks/useAuth";
 import Lister from "./components/SellerListFiles";
-/* const useStyles = makeStyles(theme => ({
-	root: {
-		flexGrow: 1
-	},
-
-	paper: {
-		padding: theme.spacing(5),
-		color: theme.palette.text.secondary,
-		alignItems: 'center'
-	}
-})); */
 
 export default function sellers() {
-
   const { logout, user } = useAuth();
+
   /* const [encabezado, setencabezado] = useState([
 		{
 			country: '',
@@ -48,19 +38,17 @@ export default function sellers() {
         <Grid item lg={12} md={12} sm={12} xs={12}>
           <SellerListTools oculto={oculto} setoculto={setoculto} />
         </Grid>
-        {/* <Grid item lg={12} md={12} sm={12} xs={12}>
+        <Grid item lg={12} md={12} sm={12} xs={12}>
           {oculto.hiddentable ? <SellerListTable /> : null}
-  </Grid> */}
+        </Grid>
         {oculto.hiddenperfilform ? (
           <>
-             <Grid item lg={6} md={6} sm={12} xs={12}>
-              <SellerStoreForm />
+            <Grid item lg={12} md={12} sm={12} xs={12}>
+              <SellerStoreForm setoculto={setoculto} idcliente={user.id} />
             </Grid>
-            <Grid item lg={6} md={6} sm={12} xs={12}>
+            <Grid item lg={12} md={12} sm={12} xs={12}>
               <SellerStoreFiles skus="legales" idcliente={user.id} />
-              
             </Grid>
-           
             <Grid item lg={12} md={12} sm={12} xs={12}>
               <Lister idcliente={user.id} codigo="legales" />
             </Grid>

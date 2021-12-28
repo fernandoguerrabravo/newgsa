@@ -20,95 +20,51 @@ import { geocodeByPlaceId } from "react-google-places-autocomplete";
 import Checkbox from "@mui/material/Checkbox";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormGroup from "@mui/material/FormGroup";
+import DataTable from "react-data-table-component";
+import IconButton from "@mui/material/IconButton";
+import Stack from "@mui/material/Stack";
+import SaveSeller from "../helpers/SaveSeller";
 
-export default function SkuStoreForm(idcliente) {
-  const [guardarseller, setguardarsku] = useState({
-    id_cliente: "idcliente",
+export default function SkuStoreForm({
+  
+  setoculto,
+  idcliente
+}) {
+  
+  const [profile, setprofile] = useState({
+    pickupaddress: [],
+    legaladdress: [],
+    id_cliente: idcliente,
     legalname: "",
     dbaname: "",
     tipocorporacion: "",
+    tax_id: "",
     contactname: "",
+    cargo: "",
     email: "",
     telefono: "",
-    legaladress: "",
-    estado: "",
-    zipcode: "",
-    country: "",
     ejecutivoamazon: "",
     website: "",
   });
-
-  /*	const handlingChange = event => {
-		setguardarsku({
-			...guardarsku,
-			[event.target.name]: event.target.value
-		});  
-		console.log(guardarsku);
-	}; */
-
-  /*	const SelectChange = event => {
-		setguardarsku({
-			...guardarsku,
-			country_origin: event.value
-		});
-		console.log(guardarsku);
-	}; */
-
-  /*	const Save = async () => {
-		if (guardarsku.sku !== '' && guardarsku.shortdescription !== '' && guardarsku.country_origin !== '') {
-			SaveSku(guardarsku)
-				.then(
-					await Swal.fire({
-						position: 'top-end',
-						icon: 'success',
-						title: 'Your work has been saved',
-						showConfirmButton: false,
-						timer: 1500
-					})
-				)
-				.then(result => {
-					setoculto({
-						hiddenlistools: false,
-						hiddenstoreform: false,
-						hiddentable: true,
-						hiddendetails: false
-					});
-				});
-		} else {
-			Swal.fire({
-				title: 'oops!',
-				text: 'Please complete all fields!!',
-				icon: 'warning'
-			});
-		}
-	}; */
-
-  // const country = UseGetCountry();
-  // const countryfinal = country.data;
-
-  /*	const newJson1 = [];
-	countryfinal.forEach(pais => {
-		newJson1.push({
-			value: pais.Name,
-			label: pais.Name
-		});
-	}); */
-  /*
-	const [hidden, sethidden] = useState({
-		escondido: false
-	});
-	const [clas, useclas] = useState({
-		datos: ''
-	});
-	const buscarhts = () => {
-		sethidden({ escondido: true });
-		useclas({ datos: guardarsku.shortdescription });
-	}; */
-
+  
   const [value, setValue] = useState(null);
   // console.log("direccion", value)
-  const [pick, setPick] = useState(null);
+  const [pick, setpick] = useState(null);
+
+  const [direccion1, setdireccion1] = useState(null);
+
   const [direccion, setdireccion] = useState(null);
+
+  const [lista, setlista] = useState({
+    pickup: [],
+  });
+
+  const SellerChange = (event) => {
+    setprofile({
+      ...profile,
+      [event.target.name]: event.target.value,
+    });
+  };
 
   useEffect(() => {
     if (value != null) {
@@ -118,7 +74,144 @@ export default function SkuStoreForm(idcliente) {
     }
   }, [value]);
 
-  //console.log("PERRO", direccion)
+  useEffect(() => {
+    if (pick != null) {
+      geocodeByPlaceId(pick.value.place_id).then((results) =>
+        setdireccion1(results[0].address_components)
+      );
+    }
+  }, [pick]);
+
+  console.log("PERRO", direccion);
+  console.log("perro2", direccion1);
+
+  const agregar = () => {
+    setlista({
+      pickup: [
+        ...lista.pickup,
+        {
+          idpick: lista.pickup.length,
+          numero: direccion1[0]["long_name"],
+          calle: direccion1[1]["long_name"],
+          barrio: direccion1[2]["long_name"],
+          ciudad: direccion1[3]["long_name"],
+          estado: direccion1[4]["long_name"],
+          pais: direccion1[5]["long_name"],
+          zip: direccion1[6]["long_name"],
+        },
+      ],
+    });
+
+    console.log("ejecutivo", lista);
+  };
+
+  const ActionComponent = ({ row, onClick }) => {
+    const clickHandler = () => onClick(row);
+    return (
+      <IconButton onClick={clickHandler}>
+        <img
+          src="https://fotos-ecl.s3.amazonaws.com/icons8-eliminar-64.png"
+          alt="edit"
+          width="20"
+          height="20"
+        />
+      </IconButton>
+    );
+  };
+
+  const columns = [
+    {
+      name: "Dirección",
+      selector: (row) => row.calle + "  # " + row.numero,
+    },
+
+    {
+      name: "Barrio",
+      selector: (row) => row.barrio,
+    },
+
+    {
+      name: "Ciudad",
+      selector: (row) => row.ciudad,
+    },
+
+    {
+      name: "Estado",
+      selector: (row) => row.estado,
+    },
+    {
+      name: "Zip Code",
+      selector: (row) => row.zip,
+    },
+    {
+      name: "Pais",
+      selector: (row) => row.pais,
+    },
+
+    /* {
+      name: "Qtys",
+      selector: (row) => row.qtyout,
+    },
+    {
+      name: "Rates",
+      selector: (row) =>
+        row.tipo === "Pallets"
+          ? 7.48 * row.qtyout < 46
+            ? new Intl.NumberFormat("en-US", {
+                style: "currency",
+                currency: "USD",
+              }).format(46 + 34.5)
+            : new Intl.NumberFormat("en-US", {
+                style: "currency",
+                currency: "USD",
+              }).format(7.48 * row.qtyout + 34.5)
+          : new Intl.NumberFormat("en-US", {
+              style: "currency",
+              currency: "USD",
+            }).format(2.9 * row.qtyout + 34.5),
+    },*/
+    {
+      name: "Actions",
+      button: true,
+      ignoreRowClick: true,
+      allowOverflow: true,
+      cell: (row) => (
+        <ActionComponent row={row.idpick} onClick={deleterow}></ActionComponent>
+      ),
+    },
+  ];
+
+  const deleterow = (e) => {
+    const newstate = lista.pickup.filter((item) => item.idpick !== e);
+    setlista({ pickup: newstate });
+  };
+
+  const guardar = async () => {
+    SaveSeller(profile)
+      .then(
+        await Swal.fire({
+          icon: "success",
+          title: "Your work has been saved",
+          showConfirmButton: false,
+          timer: 1500,
+        })
+      )
+      .then((result) => {
+        setoculto({
+          hiddenboton: true,
+          hiddenperfilform: false,
+          hiddentable: true,
+        });
+      });
+  };
+
+  useEffect(() => {
+    setprofile({
+      ...profile,
+      pickupaddress: lista,
+      legaladdress: direccion,
+    });
+  }, [lista, direccion]);
 
   return (
     <div>
@@ -132,6 +225,7 @@ export default function SkuStoreForm(idcliente) {
             size="small"
             variant="contained"
             color="secondary"
+            onClick={guardar}
           >
             Grabar Información
           </Button>
@@ -139,7 +233,6 @@ export default function SkuStoreForm(idcliente) {
         <br />
         <Divider />
         <br />
-
         <Grid container spacing={gridSpacing}>
           <Grid item lg={6} md={6} sm={12} xs={12}>
             <TextField
@@ -149,8 +242,8 @@ export default function SkuStoreForm(idcliente) {
               variant="outlined"
               color="primary"
               type="text"
-              // value={guardarsku.sku}
-              // onChange={handlingChange}
+              value={profile.legalname}
+              onChange={SellerChange}
               fullWidth
             />
           </Grid>
@@ -163,8 +256,8 @@ export default function SkuStoreForm(idcliente) {
               color="primary"
               type="text"
               fullWidth
-              // value={guardarsku.upc_number}
-              // onChange={handlingChange}
+              value={profile.dbname}
+              onChange={SellerChange}
             />{" "}
           </Grid>{" "}
           <Grid item lg={12} md={12} sm={12} xs={12}>
@@ -186,41 +279,41 @@ export default function SkuStoreForm(idcliente) {
           <Grid item lg={6} md={6} sm={12} xs={12}>
             <TextField
               sx={{ zIndex: 0 }}
-              id="corporacion"
-              name="corporacion"
+              id="tipocorporacion"
+              name="tipocorporacion"
               label="Tipo de Corporación"
               color="primary"
               type="text"
               fullWidth
-              // value={guardarsku.upc_number}
-              // onChange={handlingChange}
+              value={profile.tipocorporacion}
+              onChange={SellerChange}
             />
           </Grid>
           <Grid item lg={6} md={6} sm={12} xs={12}>
             <TextField
               sx={{ zIndex: 0 }}
-              id="taxid"
-              name="taxid"
+              id="taxç_id"
+              name="tax_id"
               label="Nro. Identificación Fiscal"
               color="primary"
               type="text"
               fullWidth
-              // value={guardarsku.upc_number}
-              // onChange={handlingChange}
+              value={profile.tax_id}
+              onChange={SellerChange}
             />
           </Grid>
           <Grid item lg={6} md={6} sm={12} xs={12}>
             <TextField
               sx={{ zIndex: 0 }}
-              id="contacto"
-              name="contacto"
+              id="contactname"
+              name="contactname"
               label="Contacto"
               variant="outlined"
               color="primary"
               type="text"
               fullWidth
-              // value={guardarsku.upc_number}
-              // onChange={handlingChange}
+              value={profile.contactname}
+              onChange={SellerChange}
             />
           </Grid>
           <Grid item lg={6} md={6} sm={12} xs={12}>
@@ -233,9 +326,8 @@ export default function SkuStoreForm(idcliente) {
               color="primary"
               type="text"
               fullWidth
-
-              // value={guardarsku.upc_number}
-              // onChange={handlingChange}
+              value={profile.cargo}
+              onChange={SellerChange}
             />
           </Grid>
           <Grid item lg={6} md={6} sm={12} xs={12}>
@@ -258,9 +350,8 @@ export default function SkuStoreForm(idcliente) {
               color="primary"
               type="text"
               fullWidth
-
-              // value={guardarsku.upc_number}
-              // onChange={handlingChange}
+              value={profile.telefono}
+              onChange={SellerChange}
             />
           </Grid>
           <Grid item lg={6} md={6} sm={12} xs={12}>
@@ -273,42 +364,42 @@ export default function SkuStoreForm(idcliente) {
               color="primary"
               type="email"
               fullWidth
-              // value={guardarsku.upc_number}
-              // onChange={handlingChange}
+              value={profile.email}
+              onChange={SellerChange}
             />
           </Grid>{" "}
           <Grid item lg={6} md={6} sm={12} xs={12}>
             <TextField
               sx={{ zIndex: 0 }}
-              id="webpage"
-              name="webpage"
+              id="website"
+              name="website"
               label="Página Web"
               variant="outlined"
               color="primary"
               type="text"
               fullWidth
-              // value={guardarsku.upc_number}
-              // onChange={handlingChange}
+              value={profile.website}
+              onChange={SellerChange}
             />
           </Grid>
           <Grid item lg={6} md={6} sm={12} xs={12}>
             <TextField
               sx={{ zIndex: 0 }}
-              id="ejecutivo"
-              name="ejecutivo"
+              id="ejecutivoamazon"
+              name="ejecutivoamazon"
               label="Ejecutivo Amazon"
               variant="outlined"
               color="primary"
               type="text"
               fullWidth
-              // value={guardarsku.upc_number}
-              // onChange={handlingChange}
+              value={profile.ejecutivoamazon}
+              onChange={SellerChange}
             />
           </Grid>
         </Grid>
         <br />
         <Divider />
-        <FormControlLabel
+       {/* <FormControlLabel
           control={<Checkbox color="secondary" name="jason" />}
           label="Despachante Mexico"
         />
@@ -319,11 +410,14 @@ export default function SkuStoreForm(idcliente) {
         <FormControlLabel
           control={<Checkbox color="secondary" />}
           label="Servicios y Consultoria FDA"
-        />
+       /> */ }
+        <Divider />
+        <br />
         <Grid item lg={12} md={12} sm={12} xs={12}>
           <Typography variant="caption">
-            Ingrese Dirección Retiro Carga
+            Agregar Direcciónes Origen Carga
           </Typography>
+
           <GooglePlacesAutocomplete
             autocompletionRequest={{
               componentRestrictions: {
@@ -332,11 +426,23 @@ export default function SkuStoreForm(idcliente) {
             }}
             selectProps={{
               pick,
-              onChange: setPick,
+              onChange: setpick,
             }}
           />
         </Grid>
+        <br></br>
+        <Grid item lg={12} md={12} sm={12} xs={12}>
+          <Button
+            onClick={agregar}
+            size="small"
+            variant="contained"
+            color="secondary"
+          >
+            Agregar Recogida
+          </Button>
+        </Grid>
         <br />
+        <DataTable columns={columns} data={lista.pickup} />
       </Paper>
       <br />
     </div>

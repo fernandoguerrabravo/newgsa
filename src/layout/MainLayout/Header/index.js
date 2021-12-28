@@ -6,11 +6,11 @@ import { Avatar, Box, ButtonBase } from '@mui/material';
 
 // project imports
 import LogoSection from '../LogoSection';
-import SearchSection from './SearchSection';
-import LocalizationSection from './LocalizationSection';
+//import SearchSection from './SearchSection';
+//import LocalizationSection from './LocalizationSection';
 import MobileSection from './MobileSection';
 import ProfileSection from './ProfileSection';
-import NotificationSection from './NotificationSection';
+//import NotificationSection from './NotificationSection';
 
 // assets
 import { IconMenu2 } from '@tabler/icons';
@@ -58,17 +58,17 @@ const Header = ({ handleLeftDrawerToggle }) => {
             </Box>
 
             {/* header search */}
-            <SearchSection />
+           { /* <SearchSection />  */ }
             <Box sx={{ flexGrow: 1 }} />
             <Box sx={{ flexGrow: 1 }} />
 
-            {/* live customization & localization */}
+            {/* live customization & localization 
             <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
                 <LocalizationSection />
-            </Box>
+            </Box> */ }
 
             {/* notification & profile */}
-            <NotificationSection />
+            {/*<NotificationSection /> */}
             <ProfileSection />
 
             {/* mobile header */}
