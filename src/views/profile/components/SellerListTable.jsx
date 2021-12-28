@@ -1,13 +1,14 @@
+/* eslint-disable no-unused-expressions */
 /* eslint-disable no-unused-vars */
-// import { useGetSku } from "../hooks/useGetSku";
+import  useGetSeller  from "../hooks/UseGetSeller";
 import React from "react";
 // import { useTheme } from "@mui/material/styles";
 import { Button, Paper } from "@mui/material";
 import DataTable from "react-data-table-component";
 
-export default function SellerListTable({ oculto, setoculto, setskudetails }) {
+export default function SellerListTable(idcliente) {
   
-  const idcliente = "abcdef";
+  
   // const { data, loading } = useGetResearch(idcliente)
 
   /*  const details = (event) => {
@@ -25,27 +26,31 @@ export default function SellerListTable({ oculto, setoculto, setskudetails }) {
     });
   }; */
 
-  //const { data } = useGetSku(idcliente);
-  const data = [];
-  //console.log("datos para tabla:", data);
+  
+  const { data } = useGetSeller(idcliente);
+
+  //const data = [];
+  console.log("datos para tabla:", data);
+  
 
   const columnas = [
     {
-      name: "Id",
-      selector: (row) => row.sku,
+      name: "Seller Name",
+      selector: (row) => row.legalname,
     },
     {
-      name: "Seller",
-      selector: (row) => row.shortdescription,
+      name: "Contacto",
+      selector: (row) => row.contactname,
+       
     },
     {
-      name: "Country",
-      selector: (row) => row.country_origin,
+      name: "Email",
+      selector: (row) => row.email,
     },
 
     {
-      name: "Date Creation",
-      selector: (row) => row.fecha_creacion,
+      name: "Telefono",
+      selector: (row) => '+52' + row.telefono,
     },
   ];
 

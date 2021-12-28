@@ -5,6 +5,7 @@ const SaveSeller = async event => {
 	const fecha = new Date();
 	const fecha1 = fecha.toDateString();
 	event.fecha_creacion = fecha1;
+	event.activo = true;
 	const raw = JSON.stringify(event);
 
 	const requestOptions = {

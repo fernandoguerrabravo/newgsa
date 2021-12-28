@@ -11,6 +11,8 @@ import useAuth from "../../hooks/useAuth";
 import Lister from "./components/SellerListFiles";
 
 export default function sellers() {
+  
+  
   const { logout, user } = useAuth();
 
   /* const [encabezado, setencabezado] = useState([
@@ -39,7 +41,7 @@ export default function sellers() {
           <SellerListTools oculto={oculto} setoculto={setoculto} />
         </Grid>
         <Grid item lg={12} md={12} sm={12} xs={12}>
-          {oculto.hiddentable ? <SellerListTable /> : null}
+          {oculto.hiddentable ? <SellerListTable idcliente={user.id} /> : null}
         </Grid>
         {oculto.hiddenperfilform ? (
           <>
