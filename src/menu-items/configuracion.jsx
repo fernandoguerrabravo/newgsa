@@ -26,7 +26,7 @@ const configuracion = {
             url: '/profile',
             icon: icons.IconAlien,
             
-        },
+        }, 
         {
             id: 'skulist',
             title: <FormattedMessage id="Productos" />,
