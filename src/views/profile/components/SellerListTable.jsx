@@ -39,13 +39,21 @@ export default function SellerListTable(idcliente) {
       selector: (row) => row.legalname,
     },
     {
-      name: "Contacto",
-      selector: (row) => row.contactname,
+      name: "Dirección",
+      selector: (row) => row.legaladdress.numero + ' ' + row.legaladdress.calle + ' ' + row.legaladdress.barrio
        
     },
     {
-      name: "Email",
-      selector: (row) => row.email,
+      name: "Ciudad, Estado",
+      selector: (row) => row.legaladdress.ciudad + ' , ' + row.legaladdress.estado
+    },
+    {
+      name: "Zip Code",
+      selector: (row) => row.legaladdress.zip
+    },
+    {
+      name: "Pais",
+      selector: (row) => row.legaladdress.pais
     },
 
     {

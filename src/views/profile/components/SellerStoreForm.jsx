@@ -25,12 +25,7 @@ import IconButton from "@mui/material/IconButton";
 import Stack from "@mui/material/Stack";
 import SaveSeller from "../helpers/SaveSeller";
 
-export default function SkuStoreForm({
-  
-  setoculto,
-  idcliente
-}) {
-  
+export default function SkuStoreForm({ setoculto, idcliente }) {
   const [profile, setprofile] = useState({
     pickupaddress: [],
     legaladdress: [],
@@ -46,7 +41,7 @@ export default function SkuStoreForm({
     ejecutivoamazon: "",
     website: "",
   });
-  
+
   const [value, setValue] = useState(null);
   // console.log("direccion", value)
   const [pick, setpick] = useState(null);
@@ -57,6 +52,10 @@ export default function SkuStoreForm({
 
   const [lista, setlista] = useState({
     pickup: [],
+  });
+
+  const [lista1, setlista1] = useState({
+    address: [],
   });
 
   const SellerChange = (event) => {
@@ -82,10 +81,22 @@ export default function SkuStoreForm({
     }
   }, [pick]);
 
+  useEffect(() => {}, [lista1]);
+
   console.log("PERRO", direccion);
   console.log("perro2", direccion1);
 
   const agregar = () => {
+    setlista1({
+      numero: direccion[0]["long_name"],
+      calle: direccion[1]["long_name"],
+      barrio: direccion[2]["long_name"],
+      ciudad: direccion[3]["long_name"],
+      estado: direccion[4]["long_name"],
+      pais: direccion[5]["long_name"],
+      zip: direccion[6]["long_name"],
+    });
+
     setlista({
       pickup: [
         ...lista.pickup,
@@ -102,7 +113,7 @@ export default function SkuStoreForm({
       ],
     });
 
-    console.log("ejecutivo", lista);
+    console.log("ejecutivo", lista1);
   };
 
   const ActionComponent = ({ row, onClick }) => {
@@ -209,9 +220,9 @@ export default function SkuStoreForm({
     setprofile({
       ...profile,
       pickupaddress: lista,
-      legaladdress: direccion,
+      legaladdress: lista1,
     });
-  }, [lista, direccion]);
+  }, [lista, lista1]);
 
   return (
     <div>
@@ -399,7 +410,7 @@ export default function SkuStoreForm({
         </Grid>
         <br />
         <Divider />
-       {/* <FormControlLabel
+        {/* <FormControlLabel
           control={<Checkbox color="secondary" name="jason" />}
           label="Despachante Mexico"
         />
@@ -410,7 +421,7 @@ export default function SkuStoreForm({
         <FormControlLabel
           control={<Checkbox color="secondary" />}
           label="Servicios y Consultoria FDA"
-       /> */ }
+       /> */}
         <Divider />
         <br />
         <Grid item lg={12} md={12} sm={12} xs={12}>
