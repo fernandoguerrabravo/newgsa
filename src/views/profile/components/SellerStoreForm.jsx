@@ -27,8 +27,8 @@ import SaveSeller from "../helpers/SaveSeller";
 
 export default function SkuStoreForm({ setoculto, idcliente }) {
   const [profile, setprofile] = useState({
-    pickupaddress: [],
-    legaladdress: [],
+    pickupaddress: "",
+    legaladdress: "",
     id_cliente: idcliente,
     legalname: "",
     dbaname: "",
@@ -46,9 +46,9 @@ export default function SkuStoreForm({ setoculto, idcliente }) {
   // console.log("direccion", value)
   const [pick, setpick] = useState(null);
 
-  const [direccion1, setdireccion1] = useState(null);
+  const [direccion1, setdireccion1] = useState('');
 
-  const [direccion, setdireccion] = useState(null);
+  const [direccion, setdireccion] = useState('');
 
   const [lista, setlista] = useState({
     pickup: [],
@@ -68,7 +68,7 @@ export default function SkuStoreForm({ setoculto, idcliente }) {
   useEffect(() => {
     if (value != null) {
       geocodeByPlaceId(value.value.place_id).then((results) =>
-        setdireccion(results[0].address_components)
+      setdireccion(results[0].address_components),
       );
     }
   }, [value]);
@@ -81,22 +81,34 @@ export default function SkuStoreForm({ setoculto, idcliente }) {
     }
   }, [pick]);
 
-  useEffect(() => {}, [lista1]);
+  useEffect(() => {
+
+    if(direccion.length > 0 ) {
+    setlista1({
+      numero: direccion[0]["long_name"] ?? "",
+      calle: direccion[1]["long_name"] ?? "",
+      barrio: direccion[2]["long_name"] ?? "",
+      ciudad: direccion[3]["long_name"] ?? "",
+      estado: direccion[4]["long_name"] ?? "",
+      pais: direccion[5]["long_name"] ?? "",
+      zip: direccion[6]["long_name"] ?? "",
+    })
+  }
+  }, [direccion]);
 
   console.log("PERRO", direccion);
   console.log("perro2", direccion1);
 
-  const agregar = () => {
-    setlista1({
-      numero: direccion[0]["long_name"],
-      calle: direccion[1]["long_name"],
-      barrio: direccion[2]["long_name"],
-      ciudad: direccion[3]["long_name"],
-      estado: direccion[4]["long_name"],
-      pais: direccion[5]["long_name"],
-      zip: direccion[6]["long_name"],
-    });
+  const agregar1 = () => {
+   
+   
 
+
+  };
+
+  const agregar = () => {
+    
+    if(direccion1.length > 0 ) {
     setlista({
       pickup: [
         ...lista.pickup,
@@ -112,8 +124,16 @@ export default function SkuStoreForm({ setoculto, idcliente }) {
         },
       ],
     });
+  } else {
 
-    console.log("ejecutivo", lista1);
+    Swal.fire({
+      icon: "warning",
+      title: "Atención...",
+      text: "Ingrese Dirección de Retiro!",
+      footer: "Por favor Agregue Dirección de Retiro Válida",
+    });
+  }
+    
   };
 
   const ActionComponent = ({ row, onClick }) => {
@@ -166,7 +186,7 @@ export default function SkuStoreForm({ setoculto, idcliente }) {
     {
       name: "Rates",
       selector: (row) =>
-        row.tipo === "Pallets"
+        row.tipo ==== "Pallets"
           ? 7.48 * row.qtyout < 46
             ? new Intl.NumberFormat("en-US", {
                 style: "currency",
@@ -198,22 +218,44 @@ export default function SkuStoreForm({ setoculto, idcliente }) {
   };
 
   const guardar = async () => {
-    SaveSeller(profile)
-      .then(
-        await Swal.fire({
-          icon: "success",
-          title: "Your work has been saved",
-          showConfirmButton: false,
-          timer: 1500,
-        })
-      )
-      .then((result) => {
-        setoculto({
-          hiddenboton: true,
-          hiddenperfilform: false,
-          hiddentable: true,
-        });
+    if (
+      lista1.length === 0 ||
+      lista.pickup.length === 0 ||
+      profile.legalname === "" ||
+      profile.dbaname === "" ||
+      profile.tipocorporacionv === "" ||
+      profile.tax_id === "" ||
+      profile.contactname === "" ||
+      profile.cargo === "" ||
+      profile.email === "" ||
+      profile.telefono === "" ||
+      profile.ejecutivoamazon === "" ||
+      profile.website === ""
+    ) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Something went wrong!",
+        footer: "Por favor complete toda la Información",
       });
+    } else {
+      SaveSeller(profile)
+        .then(
+          await Swal.fire({
+            icon: "success",
+            title: "Your work has been saved",
+            showConfirmButton: false,
+            timer: 1500,
+          })
+        )
+        .then((result) => {
+          setoculto({
+            hiddenboton: true,
+            hiddenperfilform: false,
+            hiddentable: true,
+          });
+        });
+    }
   };
 
   useEffect(() => {
@@ -230,6 +272,7 @@ export default function SkuStoreForm({ setoculto, idcliente }) {
         <Typography variant="h5" gutterBottom>
           <strong>Perfil del Seller</strong>
         </Typography>
+
         <Typography style={{ textAlign: "center" }} gutterBottom>
           <Button
             startIcon={<Save />}
