@@ -31,8 +31,10 @@ export default function sellers() {
     //hiddendetails: false,
   });
 
+  const [update, setupdate] = useState('')
+  console.log("PICOOOO", update)
   // Creo el estado del detalles de la cotizacion que se eligira , para mostrarlo
-
+  
   return (
     <div>
       {" "}
@@ -41,12 +43,12 @@ export default function sellers() {
           <SellerListTools oculto={oculto} setoculto={setoculto} />
         </Grid>
         <Grid item lg={12} md={12} sm={12} xs={12}>
-          {oculto.hiddentable ? <SellerListTable idcliente={user.id} /> : null}
+          {oculto.hiddentable ? <SellerListTable  setupdate={setupdate} idcliente={user.id} /> : null}
         </Grid>
         {oculto.hiddenperfilform ? (
           <>
             <Grid item lg={12} md={12} sm={12} xs={12}>
-              <SellerStoreForm setoculto={setoculto} idcliente={user.id} />
+              <SellerStoreForm update={update} setoculto={setoculto} idcliente={user.id} />
             </Grid>
             <Grid item lg={12} md={12} sm={12} xs={12}>
               <SellerStoreFiles skus="legales" idcliente={user.id} />

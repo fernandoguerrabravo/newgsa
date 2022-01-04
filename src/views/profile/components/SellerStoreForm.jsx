@@ -11,7 +11,7 @@ import InputAdornment from "@mui/material/InputAdornment";
 import InputLabel from "@mui/material/InputLabel";
 import Select from "react-select";
 import Swal from "sweetalert2";
-import { Divider, Grid, Input } from "@mui/material";
+import { Divider, Grid, Input, Box } from "@mui/material";
 import Paper from "@mui/material/Paper";
 import { gridSpacing } from "store/constant";
 import { Save } from "@mui/icons-material";
@@ -25,7 +25,7 @@ import IconButton from "@mui/material/IconButton";
 import Stack from "@mui/material/Stack";
 import SaveSeller from "../helpers/SaveSeller";
 
-export default function SkuStoreForm({ setoculto, idcliente }) {
+export default function SkuStoreForm({ update, setoculto, idcliente }) {
   const [profile, setprofile] = useState({
     pickupaddress: "",
     legaladdress: "",
@@ -42,13 +42,15 @@ export default function SkuStoreForm({ setoculto, idcliente }) {
     website: "",
   });
 
+  console.log("PICO PAL QUE LEE", update.activo);
+
   const [value, setValue] = useState(null);
   // console.log("direccion", value)
   const [pick, setpick] = useState(null);
 
-  const [direccion1, setdireccion1] = useState('');
+  const [direccion1, setdireccion1] = useState("");
 
-  const [direccion, setdireccion] = useState('');
+  const [direccion, setdireccion] = useState("");
 
   const [lista, setlista] = useState({
     pickup: [],
@@ -68,7 +70,7 @@ export default function SkuStoreForm({ setoculto, idcliente }) {
   useEffect(() => {
     if (value != null) {
       geocodeByPlaceId(value.value.place_id).then((results) =>
-      setdireccion(results[0].address_components),
+        setdireccion(results[0].address_components)
       );
     }
   }, [value]);
@@ -82,58 +84,47 @@ export default function SkuStoreForm({ setoculto, idcliente }) {
   }, [pick]);
 
   useEffect(() => {
-
-    if(direccion.length > 0 ) {
-    setlista1({
-      numero: direccion[0]["long_name"] ?? "",
-      calle: direccion[1]["long_name"] ?? "",
-      barrio: direccion[2]["long_name"] ?? "",
-      ciudad: direccion[3]["long_name"] ?? "",
-      estado: direccion[4]["long_name"] ?? "",
-      pais: direccion[5]["long_name"] ?? "",
-      zip: direccion[6]["long_name"] ?? "",
-    })
-  }
+    if (direccion.length > 0) {
+      setlista1({
+        numero: direccion[0]["long_name"] ?? "",
+        calle: direccion[1]["long_name"] ?? "",
+        barrio: direccion[2]["long_name"] ?? "",
+        ciudad: direccion[3]["long_name"] ?? "",
+        estado: direccion[4]["long_name"] ?? "",
+        pais: direccion[5]["long_name"] ?? "",
+        zip: direccion[6]["long_name"] ?? "",
+      });
+    }
   }, [direccion]);
 
   console.log("PERRO", direccion);
   console.log("perro2", direccion1);
 
-  const agregar1 = () => {
-   
-   
-
-
-  };
-
   const agregar = () => {
-    
-    if(direccion1.length > 0 ) {
-    setlista({
-      pickup: [
-        ...lista.pickup,
-        {
-          idpick: lista.pickup.length,
-          numero: direccion1[0]["long_name"],
-          calle: direccion1[1]["long_name"],
-          barrio: direccion1[2]["long_name"],
-          ciudad: direccion1[3]["long_name"],
-          estado: direccion1[4]["long_name"],
-          pais: direccion1[5]["long_name"],
-          zip: direccion1[6]["long_name"],
-        },
-      ],
-    });
-  } else {
-
-    Swal.fire({
-      icon: "warning",
-      title: "Atención...",
-      text: "Ingrese Dirección de Retiro!",
-      footer: "Por favor Agregue Dirección de Retiro Válida",
-    });
-  }
-    
+    if (direccion1.length > 0) {
+      setlista({
+        pickup: [
+          ...lista.pickup,
+          {
+            idpick: lista.pickup.length,
+            numero: direccion1[0]["long_name"],
+            calle: direccion1[1]["long_name"],
+            barrio: direccion1[2]["long_name"],
+            ciudad: direccion1[3]["long_name"],
+            estado: direccion1[4]["long_name"],
+            pais: direccion1[5]["long_name"],
+            zip: direccion1[6]["long_name"],
+          },
+        ],
+      });
+    } else {
+      Swal.fire({
+        icon: "warning",
+        title: "Atención...",
+        text: "Ingrese Dirección de Retiro!",
+        footer: "Por favor Agregue Dirección de Retiro Válida",
+      });
+    }
   };
 
   const ActionComponent = ({ row, onClick }) => {
@@ -272,7 +263,6 @@ export default function SkuStoreForm({ setoculto, idcliente }) {
         <Typography variant="h5" gutterBottom>
           <strong>Perfil del Seller</strong>
         </Typography>
-
         <Typography style={{ textAlign: "center" }} gutterBottom>
           <Button
             startIcon={<Save />}
@@ -315,6 +305,9 @@ export default function SkuStoreForm({ setoculto, idcliente }) {
             />{" "}
           </Grid>{" "}
           <Grid item lg={12} md={12} sm={12} xs={12}>
+            <br />
+            <Divider />
+            <br />
             <Typography variant="caption">
               Ingrese su Dirección Legal
             </Typography>
@@ -329,6 +322,91 @@ export default function SkuStoreForm({ setoculto, idcliente }) {
                 onChange: setValue,
               }}
             />
+            <br />
+
+            <Box
+              component="div"
+              sx={{
+                display: "inline",
+                p: 0,
+                m: 1,
+                bgcolor: "background.paper",
+              }}
+            >
+              {update.legaladdress.numero}
+            </Box>
+            <Box
+              component="div"
+              sx={{
+                display: "inline",
+                p: 0,
+                m: 1,
+                bgcolor: "background.paper",
+              }}
+            >
+              {update.legaladdress.calle},
+            </Box>
+            <Box
+              component="div"
+              sx={{
+                display: "inline",
+                p: 0,
+                m: 1,
+                bgcolor: "background.paper",
+              }}
+            >
+              {update.legaladdress.barrio},
+            </Box>
+            <Box
+              component="div"
+              sx={{
+                display: "inline",
+                p: 0,
+                m: 1,
+                bgcolor: "background.paper",
+              }}
+            >
+              {update.legaladdress.ciudad}
+            </Box>
+            <Box
+              component="div"
+              sx={{
+                display: "inline",
+                p: 0,
+                m: 1,
+                bgcolor: "background.paper",
+              }}
+            >
+              {update.legaladdress.estado}
+            </Box>
+            <Box
+              component="div"
+              sx={{
+                display: "inline",
+                p: 0,
+                m: 1,
+                bgcolor: "background.paper",
+              }}
+            >
+              {update.legaladdress.zip}
+            </Box>
+            <Box
+              component="div"
+              sx={{
+                display: "inline",
+                p: 0,
+                m: 1,
+                bgcolor: "background.paper",
+              }}
+            >
+              {update.legaladdress.pais}
+            
+            </Box>
+
+            <br />
+            <br />
+            <Divider />
+            <br />
           </Grid>
           <Grid item lg={6} md={6} sm={12} xs={12}>
             <TextField
@@ -346,7 +424,7 @@ export default function SkuStoreForm({ setoculto, idcliente }) {
           <Grid item lg={6} md={6} sm={12} xs={12}>
             <TextField
               sx={{ zIndex: 0 }}
-              id="taxç_id"
+              id="tax_id"
               name="tax_id"
               label="Nro. Identificación Fiscal"
               color="primary"
@@ -385,11 +463,7 @@ export default function SkuStoreForm({ setoculto, idcliente }) {
             />
           </Grid>
           <Grid item lg={6} md={6} sm={12} xs={12}>
-            <FormControl
-              textPrimary="Mr"
-              placeholder="demo@company.com"
-              sx={{ zIndex: 0 }}
-            />
+            <FormControl sx={{ zIndex: 0 }} />
             <TextField
               InputProps={{
                 startAdornment: (

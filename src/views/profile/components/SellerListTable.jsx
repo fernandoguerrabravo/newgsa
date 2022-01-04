@@ -1,12 +1,13 @@
 /* eslint-disable no-unused-expressions */
 /* eslint-disable no-unused-vars */
 import  useGetSeller  from "../hooks/UseGetSeller";
-import React from "react";
+import {React, useEffect} from "react";
 // import { useTheme } from "@mui/material/styles";
 import { Button, Paper } from "@mui/material";
 import DataTable from "react-data-table-component";
+import { SecurityUpdate } from "@mui/icons-material";
 
-export default function SellerListTable(idcliente) {
+export default function SellerListTable({setupdate,idcliente}) {
   
   
   // const { data, loading } = useGetResearch(idcliente)
@@ -28,10 +29,11 @@ export default function SellerListTable(idcliente) {
 
   
   const { data } = useGetSeller(idcliente);
-
-  //const data = [];
-  console.log("datos para tabla:", data);
   
+  setupdate(data[0])
+  
+  
+  //setupdate({activo})
 
   const columnas = [
     {
