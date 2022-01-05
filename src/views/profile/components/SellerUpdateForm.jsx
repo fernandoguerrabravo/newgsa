@@ -1,5 +1,5 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable no-unused-vars */
+
+
 import React, { useEffect, useState } from "react";
 import { withStyles, makeStyles } from "@mui/material/styles";
 import Button from "@mui/material/Button";
@@ -24,8 +24,13 @@ import DataTable from "react-data-table-component";
 import IconButton from "@mui/material/IconButton";
 import Stack from "@mui/material/Stack";
 import SaveSeller from "../helpers/SaveSeller";
+import useGetSeller from "../hooks/UseGetSeller";
 
-export default function SkuStoreForm({ update, setoculto, idcliente }) {
+export default function SellerUpdateForm({setupdate,update, idcliente }) {
+  
+
+  console.log("pico enfermo", update)
+
   const [profile, setprofile] = useState({
     pickupaddress: "",
     legaladdress: "",
@@ -41,8 +46,6 @@ export default function SkuStoreForm({ update, setoculto, idcliente }) {
     ejecutivoamazon: "",
     website: "",
   });
-
- 
 
   const [value, setValue] = useState(null);
   // console.log("direccion", value)
@@ -67,6 +70,15 @@ export default function SkuStoreForm({ update, setoculto, idcliente }) {
     });
   };
 
+  
+  useEffect(() => {
+    setprofile(update);
+    setlista(update.pickupaddress);
+    setlista1(update.legaladdress)
+    console.log("DIN CAgaZO", profile);
+    console.log("DIN CAgaZO2", lista1);
+  }, [lista1, profile, update]);
+ 
   useEffect(() => {
     if (value != null) {
       geocodeByPlaceId(value.value.place_id).then((results) =>
@@ -96,9 +108,6 @@ export default function SkuStoreForm({ update, setoculto, idcliente }) {
       });
     }
   }, [direccion]);
-
-  console.log("PERRO", direccion);
-  console.log("perro2", direccion1);
 
   const agregar = () => {
     if (direccion1.length > 0) {
@@ -230,22 +239,21 @@ export default function SkuStoreForm({ update, setoculto, idcliente }) {
         footer: "Por favor complete toda la Información",
       });
     } else {
-      SaveSeller(profile)
-        .then(
-          await Swal.fire({
-            icon: "success",
-            title: "Your work has been saved",
-            showConfirmButton: false,
-            timer: 1500,
-          })
-        )
-        .then((result) => {
+      SaveSeller(profile).then(
+        await Swal.fire({
+          icon: "success",
+          title: "Your work has been saved",
+          showConfirmButton: false,
+          timer: 1500,
+        })
+      );
+      /*.then((result) => {
           setoculto({
             hiddenboton: true,
             hiddenperfilform: false,
             hiddentable: true,
           });
-        });
+        }); */
     }
   };
 
@@ -256,6 +264,8 @@ export default function SkuStoreForm({ update, setoculto, idcliente }) {
       legaladdress: lista1,
     });
   }, [lista, lista1]);
+  
+  const data = [];
 
   return (
     <div>
@@ -271,7 +281,7 @@ export default function SkuStoreForm({ update, setoculto, idcliente }) {
             color="secondary"
             onClick={guardar}
           >
-            Grabar Información
+            Update Profile
           </Button>
         </Typography>
         <br />
@@ -300,7 +310,7 @@ export default function SkuStoreForm({ update, setoculto, idcliente }) {
               color="primary"
               type="text"
               fullWidth
-              value={profile.dbname}
+              value={profile.dbaname}
               onChange={SellerChange}
             />{" "}
           </Grid>{" "}
@@ -323,7 +333,6 @@ export default function SkuStoreForm({ update, setoculto, idcliente }) {
               }}
             />
             <br />
-
             <Box
               component="div"
               sx={{
@@ -332,77 +341,7 @@ export default function SkuStoreForm({ update, setoculto, idcliente }) {
                 m: 1,
                 bgcolor: "background.paper",
               }}
-            >
-              {update.legaladdress.numero}
-            </Box>
-            <Box
-              component="div"
-              sx={{
-                display: "inline",
-                p: 0,
-                m: 1,
-                bgcolor: "background.paper",
-              }}
-            >
-              {update.legaladdress.calle},
-            </Box>
-            <Box
-              component="div"
-              sx={{
-                display: "inline",
-                p: 0,
-                m: 1,
-                bgcolor: "background.paper",
-              }}
-            >
-              {update.legaladdress.barrio},
-            </Box>
-            <Box
-              component="div"
-              sx={{
-                display: "inline",
-                p: 0,
-                m: 1,
-                bgcolor: "background.paper",
-              }}
-            >
-              {update.legaladdress.ciudad}
-            </Box>
-            <Box
-              component="div"
-              sx={{
-                display: "inline",
-                p: 0,
-                m: 1,
-                bgcolor: "background.paper",
-              }}
-            >
-              {update.legaladdress.estado}
-            </Box>
-            <Box
-              component="div"
-              sx={{
-                display: "inline",
-                p: 0,
-                m: 1,
-                bgcolor: "background.paper",
-              }}
-            >
-              {update.legaladdress.zip}
-            </Box>
-            <Box
-              component="div"
-              sx={{
-                display: "inline",
-                p: 0,
-                m: 1,
-                bgcolor: "background.paper",
-              }}
-            >
-              {update.legaladdress.pais}
-            
-            </Box>
-
+            ></Box>
             <br />
             <br />
             <Divider />
@@ -508,6 +447,7 @@ export default function SkuStoreForm({ update, setoculto, idcliente }) {
               fullWidth
               value={profile.website}
               onChange={SellerChange}
+              required
             />
           </Grid>
           <Grid item lg={6} md={6} sm={12} xs={12}>
@@ -570,7 +510,8 @@ export default function SkuStoreForm({ update, setoculto, idcliente }) {
           </Button>
         </Grid>
         <br />
-        <DataTable columns={columns} data={lista.pickup} />
+
+         <DataTable columns={columns} data={data} />  
       </Paper>
       <br />
     </div>

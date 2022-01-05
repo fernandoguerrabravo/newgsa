@@ -16,7 +16,8 @@ const SellerListTools = ({ oculto, setoculto }) => {
 			...oculto,
 			hiddentable: false,
 			hiddenboton: false,
-			hiddenperfilform: true
+			hiddenperfilform: true,
+			hiddenupdate: false
 		});
 	};
 
@@ -25,16 +26,33 @@ const SellerListTools = ({ oculto, setoculto }) => {
 			...oculto,
 			hiddentable: true,
 			hiddenboton: true,
-			hiddenperfilform: false
+			hiddenperfilform: false,
+			hiddenupdate: false
 		});
 
 	};
+
+	const editar = () => {
+
+		setoculto({
+			...oculto,
+			hiddentable: false,
+			hiddenboton: true,
+			hiddenperfilform: false,
+			hiddenupdate: true
+		});
+	}
 
 	return (
 		<>
 			{oculto.hiddenboton ? (
 				<Button  onClick={nuevoseller} variant="contained" color="secondary">
 					+ Configurar Perfil
+				</Button>
+			) : null}
+			{oculto.hiddenboton ? (
+				<Button  onClick={editar} variant="contained" color="secondary">
+					+ Editar Perfil
 				</Button>
 			) : null}
 			{oculto.hiddenboton ? null : (

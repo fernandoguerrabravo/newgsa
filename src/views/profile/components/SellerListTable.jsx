@@ -7,38 +7,21 @@ import { Button, Paper } from "@mui/material";
 import DataTable from "react-data-table-component";
 import { SecurityUpdate } from "@mui/icons-material";
 
-export default function SellerListTable({setupdate,idcliente}) {
-  
-  
-  // const { data, loading } = useGetResearch(idcliente)
-
-  /*  const details = (event) => {
-    setskudetails({
-      idcliente: "abcdef",
-      skunumber: event,
-      skudetail: data,
-    }); 
-
-    setoculto({
-      hiddenlistools: true,
-      hiddenstoreform: false,
-      hiddentable: false,
-      hiddendetails: true,
-    });
-  }; */
-
+export default function SellerListTable({idcliente, setupdate}) {
   
   const { data } = useGetSeller(idcliente);
+
+  useEffect( () => {
+
+    setupdate(data);
+
+  }, [data, setupdate])
   
-  setupdate(data[0])
-  
-  
-  //setupdate({activo})
 
   const columnas = [
     {
       name: "Seller Name",
-      selector: (row) => row.legalname,
+      selector: (row) => row.legalname
     },
     {
       name: "Dirección",
@@ -64,19 +47,9 @@ export default function SellerListTable({setupdate,idcliente}) {
     },
   ];
 
-  /*const actions = [
-    {
-      icon: () => (
-        <RemoveRedEyeIcon style={{ color: "#e39d3b" }} fontSize="large" />
-      ),
-      tooltip: "View Details",
-      onClick: (event, rowData) => details(rowData.sku),
-    },
-  ]; */
-
   return (
     <>
-      <DataTable striped pagination columns={columnas} data={data} />
+     <DataTable striped  columns={columnas} data={data} />
     </>
   );
 }
