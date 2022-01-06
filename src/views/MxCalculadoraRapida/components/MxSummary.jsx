@@ -12,8 +12,13 @@ import {
   TableContainer,
   TableHead,
   TableRow,
+  Button,
+  Box,
 } from "@mui/material";
 import SubCard from "ui-component/cards/SubCard";
+import GetZipMx from "../helpers/GetZipMx";
+import Swal from "sweetalert2";
+
 
 /*
 const useStyles = makeStyles(theme => ({
@@ -118,6 +123,36 @@ const MxSummary = ({ finales, handout }) => {
 
     setlastmile({
       valor: parseInt(valores),
+    });
+  };
+
+  const [zip, setzip] = useState({ origin: "" });
+
+  const ZipChange = (event) => {
+    setzip({
+      origin: event.target.value,
+    });
+  };
+
+  const verificar = () => {
+    GetZipMx(zip.origin).then((result) => {
+      if (result === 1) {
+        Swal.fire({
+          icon: "success",
+          title: "Felicitaciones",
+          text: "Felicitacines, su Código Postal Inclue Retiro en Origen",
+          footer: "Retiro dentro del Area Metropolitana de Bodega Seleccionada",
+          showConfirmButton: true,
+        });
+      } else {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text:
+            "Lo Sentimos, el Codigo Postal Ingresado no Incluye Retiro en Origen!",
+          footer: "Contactar para Cotización y Consultas a jaime@wtcfl.com",
+        });
+      }
     });
   };
 
@@ -239,6 +274,46 @@ const MxSummary = ({ finales, handout }) => {
                                 0 + handout.out + finales.total + lastmile.valor
                               )}
                         </strong>
+                      </Typography>
+                    </TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell component="th" scope="row">
+                      <strong>Verique Servicio Incluye Pick-Up</strong>
+                    </TableCell>
+                    <TableCell component="th" scope="row">
+                      <Typography>
+                        <Box
+                          sx={{
+                            display: "inline",
+                            p: 0,
+                            m: 1,
+                            bgcolor: "background.paper",
+                          }}
+                        >
+                          <TextField
+                            id="zipcodemx"
+                            name="zipxcodemx"
+                            label="Ingrese ZipCode Origen"
+                            variant="outlined"
+                            color="primary"
+                            type="text"
+                            value={zip.origin}
+                            onChange={ZipChange}
+                          />
+                        </Box>
+                        <Box
+                          sx={{
+                            display: "inline",
+                            p: 0,
+                            m: 1,
+                            bgcolor: "background.paper",
+                          }}
+                        >
+                          <Button onClick={verificar} variant="contained">
+                            Verificar
+                          </Button>
+                        </Box>
                       </Typography>
                     </TableCell>
                   </TableRow>
