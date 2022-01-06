@@ -140,8 +140,8 @@ const MxSummary = ({ finales, handout }) => {
         Swal.fire({
           icon: "success",
           title: "Felicitaciones",
-          text: "Felicitacines, su Código Postal Inclue Retiro en Origen",
-          footer: "Retiro dentro del Area Metropolitana de Bodega Seleccionada",
+          text: "Código Postal Incluye Retiro en Origen",
+          footer: "Considerado dentro Area Metropolitana de Bodega Seleccionada",
           showConfirmButton: true,
         });
       } else {
