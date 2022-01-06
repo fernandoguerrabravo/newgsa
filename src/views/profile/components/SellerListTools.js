@@ -50,11 +50,11 @@ const SellerListTools = ({ oculto, setoculto }) => {
 					+ Configurar Perfil
 				</Button>
 			) : null}
-			{oculto.hiddenboton ? (
+			{ /* oculto.hiddenboton ? (
 				<Button  onClick={editar} variant="contained" color="secondary">
 					+ Editar Perfil
 				</Button>
-			) : null}
+			) : null */}
 			{oculto.hiddenboton ? null : (
 				<Button  onClick={volver} variant="contained" color="secondary">
 					Volver

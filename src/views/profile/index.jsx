@@ -10,7 +10,6 @@ import SellerStoreForm from "./components/SellerStoreForm";
 import SellerStoreFiles from "./components/SellerStoreFiles";
 import useAuth from "../../hooks/useAuth";
 import Lister from "./components/SellerListFiles";
-import SellerUpdateForm from "./components/SellerUpdateForm";
 import useGetSeller from "./hooks/UseGetSeller";
 import { constant } from "lodash";
 
@@ -50,9 +49,7 @@ export default function sellers() {
         <Grid item lg={12} md={12} sm={12} xs={12}>
           {oculto.hiddentable ? <SellerListTable  idcliente={user.id} setupdate={setupdate} /> : null}
         </Grid>
-        <Grid item lg={12} md={12} sm={12} xs={12}>
-          {oculto.hiddenupdate ? <SellerUpdateForm  setupdate={setupdate} update={update} idcliente={user.id} /> : null}
-        </Grid>
+       
 
         {oculto.hiddenperfilform ? (
           <>
