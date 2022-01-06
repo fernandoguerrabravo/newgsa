@@ -141,7 +141,7 @@ const MxSummary = ({ finales, handout }) => {
           icon: "success",
           title: "Felicitaciones",
           text: "Código Postal Incluye Retiro en Origen",
-          footer: "Considerado dentro Area Metropolitana de Bodega Seleccionada",
+          footer: "Considera dentro de Área Metropolitana de Bodega Seleccionada",
           showConfirmButton: true,
         });
       } else {
@@ -149,7 +149,7 @@ const MxSummary = ({ finales, handout }) => {
           icon: "error",
           title: "Oops...",
           text:
-            "Lo Sentimos, el Codigo Postal Ingresado no Incluye Retiro en Origen!",
+            "Lo Sentimos, el Código Postal Ingresado no Incluye Retiro en Origen!",
           footer: "Contactar para Cotización y Consultas a jaime@wtcfl.com",
         });
       }
