@@ -79,7 +79,7 @@ const FinishSelected = ({
   };
 
   const updatesku = async () => {
-    console.log("A grabar: ", final);
+   // console.log("A grabar: ", final);
 
     UpdateSku(final)
       .then(

@@ -47,7 +47,7 @@ export default function RecipeReviewCard({ event }) {
 	const handleExpandClick = () => {
 		setExpanded(!expanded);
 	};
-	console.log(event.imagen);
+//	console.log(event.imagen);
 
 	return (
 		<Card className={classes.root}>

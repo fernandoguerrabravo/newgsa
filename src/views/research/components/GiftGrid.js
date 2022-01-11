@@ -35,7 +35,7 @@ export const GiftGrid = ({ category }) => {
     const { data, loading } = useFetchGifs(category)
     //{loading && <p>Loading Results...</p>}
     const classes = useStyles();
-    console.log(category)
+    //console.log(category)
     return (
         <>
             <br></br>

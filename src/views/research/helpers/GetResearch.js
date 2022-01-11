@@ -19,7 +19,7 @@ export const GetResearch = async idcliente => {
 				.catch(reason => console.warn('Axios error:', reason))
 		).data;
 
-		console.log('API response:', response);
+		//console.log('API response:', response);
 
 		return response;
 	} catch (reason) {

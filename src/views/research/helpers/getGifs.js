@@ -38,7 +38,7 @@ const getGifs = async category => {
 
    }) */
 
-	console.log('respuesta API', data);
+	//console.log('respuesta API', data);
 
 	return data;
 };

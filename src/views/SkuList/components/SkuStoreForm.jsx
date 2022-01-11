@@ -66,7 +66,7 @@ export default function SkuStoreForm({ setoculto, idcliente }) {
       ...guardarsku,
       [event.target.name]: event.target.value,
     });
-    console.log(guardarsku);
+  //  console.log(guardarsku);
   };
 
   const SelectChange = (event) => {
@@ -74,7 +74,7 @@ export default function SkuStoreForm({ setoculto, idcliente }) {
       ...guardarsku,
       country_origin: event.value,
     });
-    console.log(guardarsku);
+ //   console.log(guardarsku);
   };
 
   const Save = async () => {

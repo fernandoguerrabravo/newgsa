@@ -18,7 +18,7 @@ const UseGetPdf = sku => {
 		});
 	}, [sku]);
 
-	console.log('que pasa con el pdf use:', state);
+	//console.log('que pasa con el pdf use:', state);
 
 	return state;
 };

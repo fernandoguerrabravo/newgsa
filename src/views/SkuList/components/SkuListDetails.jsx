@@ -37,7 +37,7 @@ export default function PreviewCard({ skudetails }) {
 
 	const detalles = useGetSkuDetails(detallestotales, skudetails.skunumber);
 	const codigo = skudetails.skunumber;
-	console.log(detalles);
+	//console.log(detalles);
 
 	return (
 		<div>

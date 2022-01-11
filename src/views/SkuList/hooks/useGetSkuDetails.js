@@ -45,7 +45,7 @@ const useGetSkuDetails = (detallestotales, skunumber) => {
 		});
 	}, [skunumber]);
 
-	console.log('FetchSKuDetails', state);
+//	console.log('FetchSKuDetails', state);
 	return state;
 };
 

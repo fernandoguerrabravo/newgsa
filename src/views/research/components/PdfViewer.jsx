@@ -6,7 +6,7 @@ import UseGetPdf from '../hooks/UseGetPdf';
 
 const PdfViewer = ({ pdf }) => {
 	const { data, load } = UseGetPdf(pdf.sku);
-	console.log('quye pasa con el pdf:', data);
+	//console.log('quye pasa con el pdf:', data);
 	return (
 		<>
 			{load ? (

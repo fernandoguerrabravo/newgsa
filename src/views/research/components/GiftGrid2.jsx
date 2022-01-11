@@ -123,7 +123,7 @@ export const GiftGrid2 = ({ setseleccionado, setCategories, category, categories
     setseleccionado(state.selectedRows);
   }, []);
 
-  console.log("Seleccionadas", selectedRows);
+  //console.log("Seleccionadas", selectedRows);
 
   const botonseleccionar = () => {
 

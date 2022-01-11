@@ -97,8 +97,8 @@ export default function SkuStoreForm({ update, setoculto, idcliente }) {
     }
   }, [direccion]);
 
-  console.log("PERRO", direccion);
-  console.log("perro2", direccion1);
+  //console.log("PERRO", direccion);
+  //console.log("perro2", direccion1);
 
   const agregar = () => {
     if (direccion1.length > 0) {
@@ -241,7 +241,7 @@ export default function SkuStoreForm({ update, setoculto, idcliente }) {
         )
         .then((result) => {
           setoculto({
-            hiddenboton: true,
+            hiddenboton: false,
             hiddenperfilform: false,
             hiddentable: true,
           });

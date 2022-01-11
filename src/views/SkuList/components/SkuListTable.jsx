@@ -61,7 +61,7 @@ export default function SkuListTable({ oculto, setoculto, idcliente }) {
 
   const { data } = useGetSku(idcliente);
 
-  console.log("datos para tabla:", data);
+  // console.log("datos para tabla:", data);
 
   const columnas = [
     {

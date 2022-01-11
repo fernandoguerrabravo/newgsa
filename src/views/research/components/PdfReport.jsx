@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
 });
 
 const SampleDocument = ({ contenido, pdf }) => {
-  console.log("contenido", contenido);
+  //console.log("contenido", contenido);
 
   const min = new Intl.NumberFormat("en-US", {
     style: "currency",

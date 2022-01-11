@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import  {GetSeller} from '../helpers/GetSeller';
 
-export const useGetSeller = idcliente => {
+export const useGetSeller = ({idcliente}) => {
 	const [state, setState] = useState({
 		data: []
 	});

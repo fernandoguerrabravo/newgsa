@@ -35,7 +35,7 @@ const ResearchReport = ({
       sku,
     });
 
-    console.log("enviado a la api:", raw);
+    //console.log("enviado a la api:", raw);
 
     const requestOptions = {
       method: "POST",
@@ -66,8 +66,8 @@ const ResearchReport = ({
       average,
       max,
     });
-    console.log(sku);
-    console.log(report);
+   // console.log(sku);
+   // console.log(report);
   };
 
   return (

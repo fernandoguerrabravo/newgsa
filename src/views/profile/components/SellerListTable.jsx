@@ -1,55 +1,110 @@
 /* eslint-disable no-unused-expressions */
 /* eslint-disable no-unused-vars */
-import  useGetSeller  from "../hooks/UseGetSeller";
-import {React, useEffect} from "react";
+import useGetSeller from "../hooks/UseGetSeller";
+import { React, useEffect, useState } from "react";
 // import { useTheme } from "@mui/material/styles";
-import { Button, Paper } from "@mui/material";
+import { Button, Paper, Grid } from "@mui/material";
 import DataTable from "react-data-table-component";
-import { SecurityUpdate } from "@mui/icons-material";
+import { gridSpacing } from "store/constant";
 
-export default function SellerListTable({idcliente, setupdate}) {
-  
-  const { data } = useGetSeller(idcliente);
+export default function SellerListTable({ idcliente, oculto, setoculto }) {
+  const { data } = useGetSeller({ idcliente });
+  const datafinal = data[0];
 
-  useEffect( () => {
+  //console.log("pico del data", datafinal)
 
-    setupdate(data);
+  const [botoncito, setbotoncito] = useState({
+    activo: true,
+  });
 
-  }, [data, setupdate])
-  
+  useEffect(() => {
+    setbotoncito(datafinal);
+  }, [botoncito, datafinal]);
+
+//  console.log("botonncito", botoncito);
 
   const columnas = [
     {
       name: "Seller Name",
-      selector: (row) => row.legalname
+      selector: (row) => row.legalname,
     },
     {
       name: "Dirección",
-      selector: (row) => row.legaladdress.numero + ' ' + row.legaladdress.calle + ' ' + row.legaladdress.barrio
-       
+      selector: (row) =>
+        row.legaladdress.numero +
+        " " +
+        row.legaladdress.calle +
+        " " +
+        row.legaladdress.barrio,
     },
     {
       name: "Ciudad, Estado",
-      selector: (row) => row.legaladdress.ciudad + ' , ' + row.legaladdress.estado
+      selector: (row) =>
+        row.legaladdress.ciudad + " , " + row.legaladdress.estado,
     },
     {
       name: "Zip Code",
-      selector: (row) => row.legaladdress.zip
+      selector: (row) => row.legaladdress.zip,
     },
     {
       name: "Pais",
-      selector: (row) => row.legaladdress.pais
+      selector: (row) => row.legaladdress.pais,
     },
 
     {
       name: "Telefono",
-      selector: (row) => '+52' + row.telefono,
+      selector: (row) => "+52" + row.telefono,
     },
   ];
 
+  const nuevoseller = () => {
+    setoculto({
+      ...oculto,
+      hiddentable: false,
+      hiddenboton: true,
+      hiddenperfilform: true,
+      hiddenupdate: false,
+    });
+  };
+
+  const editar = () => {
+    setoculto({
+      ...oculto,
+      hiddentable: false,
+      hiddenboton: true,
+      hiddenperfilform: false,
+      hiddenupdate: true,
+    });
+  };
+
   return (
     <>
-     <DataTable striped  columns={columnas} data={data} />
+      <Grid container spacing={gridSpacing}>
+        <Grid item lg={12} md={12} sm={12} xs={12}>
+          {botoncito ? (
+            <Button
+              size="small"
+              variant="contained"
+              color="secondary"
+              onClick={editar}
+            >
+              <strong>Editar Perfil</strong>
+            </Button>
+          ) : null}
+          {botoncito ? null : (
+            <Button
+              size="small"
+              variant="contained"
+              color="secondary"
+              onClick={nuevoseller}
+            >
+              Configurar Perfil
+            </Button>
+          )}
+        </Grid>
+      </Grid>
+      <br></br>
+      <DataTable striped columns={columnas} data={data} />
     </>
   );
 }

@@ -11,6 +11,6 @@ export const GetSku = async idcliente => {
 	const resp = await fetch(`https://vwat0hqjt0.execute-api.us-east-1.amazonaws.com/dev/getsku`, requestOptions);
 	const sku = await resp.json();
 
-	console.log('perro', sku);
+	// console.log('perro', sku);
 	return sku;
 };
