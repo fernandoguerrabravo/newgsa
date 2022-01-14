@@ -14,10 +14,8 @@ import SellerUpdateForm from "./components/SellerUpdateForm";
 import { Button, Paper } from "@mui/material";
 
 export default function sellers() {
-
-
   const { logout, user } = useAuth();
-  
+
   const [oculto, setoculto] = useState({
     hiddenperfilform: false,
     hiddentable: true,
@@ -66,18 +64,17 @@ export default function sellers() {
           ) : null}
         </Grid>
         {oculto.hiddenperfilform ? (
-          <>
-            <Grid item lg={12} md={12} sm={12} xs={12}>
-              <SellerStoreForm setoculto={setoculto} idcliente={user.id} />
-            </Grid>
-            <Grid item lg={12} md={12} sm={12} xs={12}>
-              <SellerStoreFiles skus="legales" idcliente={user.id} />
-            </Grid>
-            <Grid item lg={12} md={12} sm={12} xs={12}>
-              <Lister idcliente={user.id} codigo="legales" />
-            </Grid>
-          </>
+          <Grid item lg={12} md={12} sm={12} xs={12}>
+            <SellerStoreForm setoculto={setoculto} idcliente={user.id} />
+          </Grid>
         ) : null}
+
+        <Grid item lg={12} md={12} sm={12} xs={12}>
+          <SellerStoreFiles skus="legales" idcliente={user.id} />
+        </Grid>
+        <Grid item lg={12} md={12} sm={12} xs={12}>
+          <Lister idcliente={user.id} codigo="legales" />
+        </Grid>
       </Grid>
     </div>
   );
