@@ -181,7 +181,7 @@ const SellerUpdateForm2 = ({profile, setprofile, idcliente, lista, setlista, lis
 
   const guardar = async () => {
     if (
-    
+      
       profile.legalname === "" ||
       profile.dbaname === "" ||
       profile.tipocorporacionv === "" ||
@@ -284,7 +284,7 @@ const SellerUpdateForm2 = ({profile, setprofile, idcliente, lista, setlista, lis
             <GooglePlacesAutocomplete
               autocompletionRequest={{
                 componentRestrictions: {
-                  country: ["mx", "us"],
+                  country: ["mx", ],
                 },
               }}
               selectProps={{
@@ -434,7 +434,7 @@ const SellerUpdateForm2 = ({profile, setprofile, idcliente, lista, setlista, lis
         <br />
         <Grid item lg={12} md={12} sm={12} xs={12}>
           <Typography variant="caption">
-            Agregar Direcciónes Origen Carga
+            Agregar Direcciónes Origen Carga <strong>(OPCIONAL)</strong>
           </Typography>
 
           <GooglePlacesAutocomplete

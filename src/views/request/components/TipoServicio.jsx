@@ -18,6 +18,7 @@ import { gridSpacing } from "store/constant";
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import LocalCafeIcon from "@mui/icons-material/LocalCafe";
 import PolicyIcon from "@mui/icons-material/Policy";
+import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 import { green, pink, orange, white } from "@mui/material/colors";
 
 const TipoServicio = ({ hidden, sethidden }) => {
@@ -78,7 +79,7 @@ const TipoServicio = ({ hidden, sethidden }) => {
                 <Grid item xs={12} lg={12} md={12}>
                   <Stack direction="row" spacing={2}>
                     <Avatar sx={{ bgcolor: orange[500] }}>
-                      <PolicyIcon sx={{ color: "#ffffff" }} />
+                      <AdminPanelSettingsIcon sx={{ color: "#ffffff" }} />
                     </Avatar>
 
                     <FormControlLabel
@@ -106,7 +107,6 @@ const TipoServicio = ({ hidden, sethidden }) => {
                     <Avatar sx={{ bgcolor: orange[500] }}>
                       <LocalCafeIcon sx={{ color: "#ffffff" }} />
                     </Avatar>
-
                     <FormControlLabel
                       value="c"
                       control={<Radio />}
@@ -119,7 +119,6 @@ const TipoServicio = ({ hidden, sethidden }) => {
                     <Avatar sx={{ bgcolor: orange[500] }}>
                       <PolicyIcon sx={{ color: "#ffffff" }} />
                     </Avatar>
-
                     <FormControlLabel
                       value="d"
                       control={<Radio />}

@@ -18,7 +18,9 @@ import { gridSpacing } from "store/constant";
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import LocalCafeIcon from "@mui/icons-material/LocalCafe";
 import PolicyIcon from "@mui/icons-material/Policy";
-import { green, pink, orange, white } from "@mui/material/colors";
+import { green, pink, orange } from "@mui/material/colors";
+import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
+
 
 const Fior = ({ hidden, sethidden }) => {
   const theme = useTheme();
@@ -63,7 +65,7 @@ const Fior = ({ hidden, sethidden }) => {
 */
   return (
     <div>
-      <SubCard title="Seleccione Requerimiento a Solicitar">
+      <SubCard title="FOREIGN IMPORT OF RECORD REQUEST">
         <Card sx={cardStyle}>
           <CardContent
             sx={{ minHeight: 240, color: theme.palette.common.black }}
@@ -72,7 +74,7 @@ const Fior = ({ hidden, sethidden }) => {
               <Grid item xs={12} lg={12} md={12}>
                 <Stack direction="row" spacing={2}>
                   <Avatar sx={{ bgcolor: orange[500] }}>
-                    <PolicyIcon sx={{ color: "#ffffff" }} />
+                    <AdminPanelSettingsIcon sx={{ color: "#ffffff" }} />
                   </Avatar>
                 </Stack>
               </Grid>

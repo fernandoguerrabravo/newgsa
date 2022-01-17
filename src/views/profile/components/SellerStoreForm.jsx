@@ -210,7 +210,6 @@ export default function SkuStoreForm({ update, setoculto, idcliente }) {
 
   const guardar = async () => {
     if (
-    
       
       profile.legalname === "" ||
       profile.dbaname === "" ||
@@ -464,7 +463,7 @@ export default function SkuStoreForm({ update, setoculto, idcliente }) {
         <br />
         <Grid item lg={12} md={12} sm={12} xs={12}>
           <Typography variant="caption">
-            Agregar Direcciónes Origen Carga
+            Agregar Direcciónes Origen Carga <strong>(OPCIONAL)</strong>
           </Typography>
 
           <GooglePlacesAutocomplete
