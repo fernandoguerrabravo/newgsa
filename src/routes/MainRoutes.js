@@ -137,7 +137,7 @@ const Normasdeorigen  = Loadable(lazy(() => import('views/origen')));
 const Fda = Loadable(lazy(() => import('views/fda')));
 const Fsvp = Loadable(lazy(() => import('views/fsvp')));
 const FdaRegister = Loadable(lazy(() => import('views/fdaregister')));
-
+const Request = Loadable(lazy(() => import('views/request')));
 // ==============================|| MAIN ROUTING ||============================== //
 
 const MainRoutes = {
@@ -544,11 +544,15 @@ const MainRoutes = {
         },
         {
             path:'/fsvp',
-            element: <Fsvp />
+            element: <Fsvp /> 
         },
         {
             path:'/fdaregister',
             element: <FdaRegister />
+        },
+        {
+            path:'/request',
+            element: <Request />
         }
 
     ]

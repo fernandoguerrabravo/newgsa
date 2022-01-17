@@ -1,6 +1,7 @@
 import baseconocimientos from './baseconocimientos';
 import configuracion from './configuracion';
 import dashboard from './dashboard';
+import servicios from './servicios';
 import widget from './widget';
 
 //import application from './application';
@@ -14,7 +15,7 @@ import widget from './widget';
 // ==============================|| MENU ITEMS ||============================== //
 
 const menuItems = {
-    items: [dashboard, configuracion, widget, baseconocimientos]
+    items: [dashboard, configuracion,  widget, baseconocimientos]
 };
 
 export default menuItems;

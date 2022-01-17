@@ -314,7 +314,7 @@ export default function SkuStoreForm({ update, setoculto, idcliente }) {
             <GooglePlacesAutocomplete
               autocompletionRequest={{
                 componentRestrictions: {
-                  country: ["mx"],
+                  country: ["mx","us"],
                 },
               }}
               selectProps={{
