@@ -15,7 +15,7 @@ import widget from './widget';
 // ==============================|| MENU ITEMS ||============================== //
 
 const menuItems = {
-    items: [dashboard, configuracion,  widget, baseconocimientos]
+    items: [dashboard, configuracion, servicios, widget, baseconocimientos]
 };
 
 export default menuItems;

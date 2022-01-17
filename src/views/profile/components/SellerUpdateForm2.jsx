@@ -181,7 +181,7 @@ const SellerUpdateForm2 = ({profile, setprofile, idcliente, lista, setlista, lis
 
   const guardar = async () => {
     if (
-      lista1.length === 0 ||
+     
       lista.pickup.length === 0 ||
       profile.legalname === "" ||
       profile.dbaname === "" ||

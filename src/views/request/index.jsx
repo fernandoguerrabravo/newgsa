@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Grid } from "@mui/material";
 import { gridSpacing } from "store/constant";
 import TipoServicio from "./components/TipoServicio";
+import Fior from "./components/fior";
 
 const Request = () => {
   const [finales, setfinales] = useState({
@@ -36,7 +37,7 @@ const Request = () => {
         <br />
 
         <Grid item xs={12} lg={8} md={8}>
-        <TipoServicio></TipoServicio>
+       <Fior></Fior>
         </Grid>
 
         <br />
