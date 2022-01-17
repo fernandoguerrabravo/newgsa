@@ -211,7 +211,7 @@ export default function SkuStoreForm({ update, setoculto, idcliente }) {
   const guardar = async () => {
     if (
     
-      lista.pickup.length === 0 ||
+      
       profile.legalname === "" ||
       profile.dbaname === "" ||
       profile.tipocorporacionv === "" ||
