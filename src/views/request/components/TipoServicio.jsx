@@ -81,7 +81,6 @@ const TipoServicio = ({ hidden, sethidden }) => {
                     <Avatar sx={{ bgcolor: orange[500] }}>
                       <AdminPanelSettingsIcon sx={{ color: "#ffffff" }} />
                     </Avatar>
-
                     <FormControlLabel
                       value="a"
                       control={<Radio />}
@@ -94,7 +93,6 @@ const TipoServicio = ({ hidden, sethidden }) => {
                     <Avatar sx={{ bgcolor: orange[500] }}>
                       <LocalShippingIcon sx={{ color: "#ffffff" }} />
                     </Avatar>
-
                     <FormControlLabel
                       value="b"
                       control={<Radio />}
@@ -131,7 +129,6 @@ const TipoServicio = ({ hidden, sethidden }) => {
                     <Avatar sx={{ bgcolor: orange[500] }}>
                       <PolicyIcon sx={{ color: "#ffffff" }} />
                     </Avatar>
-
                     <FormControlLabel
                       value="e"
                       control={<Radio />}

@@ -1,5 +1,6 @@
 /* eslint-disable no-alert */
 import React from "react";
+import useAuth from "../../../hooks/useAuth";
 import { useTheme } from "@mui/material/styles";
 import SubCard from "ui-component/cards/SubCard";
 import {
@@ -13,14 +14,21 @@ import {
   Avatar,
   Box,
   Stack,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
+  Divider,
 } from "@mui/material";
+
 import { gridSpacing } from "store/constant";
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import LocalCafeIcon from "@mui/icons-material/LocalCafe";
 import PolicyIcon from "@mui/icons-material/Policy";
 import { green, pink, orange } from "@mui/material/colors";
-import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
-
+import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
+import Sellerdocuments from "./sellerdocuments";
 
 const Fior = ({ hidden, sethidden }) => {
   const theme = useTheme();
@@ -63,60 +71,67 @@ const Fior = ({ hidden, sethidden }) => {
     }
   };
 */
+const { logout, user } = useAuth();
+
   return (
     <div>
-      <SubCard title="FOREIGN IMPORT OF RECORD REQUEST">
-        <Card sx={cardStyle}>
-          <CardContent
-            sx={{ minHeight: 240, color: theme.palette.common.black }}
-          >
-            <Grid container spacing={gridSpacing}>
-              <Grid item xs={12} lg={12} md={12}>
-                <Stack direction="row" spacing={2}>
-                  <Avatar sx={{ bgcolor: orange[500] }}>
-                    <AdminPanelSettingsIcon sx={{ color: "#ffffff" }} />
-                  </Avatar>
-                </Stack>
-              </Grid>
-              <Grid item xs={12} lg={12} md={12}>
-                <Stack direction="row" spacing={2}>
-                  <Avatar sx={{ bgcolor: orange[500] }}>
-                    <LocalShippingIcon sx={{ color: "#ffffff" }} />
-                  </Avatar>
-                </Stack>
-              </Grid>
-              <Grid item xs={12} lg={12} md={12}>
-                <Stack direction="row" spacing={2}>
-                  <Avatar sx={{ bgcolor: orange[500] }}>
-                    <LocalCafeIcon sx={{ color: "#ffffff" }} />
-                  </Avatar>
-                </Stack>
-              </Grid>
-              <Grid item xs={12} lg={12} md={12}>
-                <Stack direction="row" spacing={2}>
-                  <Avatar sx={{ bgcolor: orange[500] }}>
-                    <PolicyIcon sx={{ color: "#ffffff" }} />
-                  </Avatar>
-                </Stack>
-              </Grid>
-              <Grid item xs={12} lg={12} md={12}>
-                <Stack direction="row" spacing={2}>
-                  <Avatar sx={{ bgcolor: orange[500] }}>
-                    <PolicyIcon sx={{ color: "#ffffff" }} />
-                  </Avatar>
-                </Stack>
-              </Grid>
-              <Grid item xs={12} lg={12} md={12}>
-                <Stack direction="row" spacing={2}>
-                  <Avatar sx={{ bgcolor: orange[500] }}>
-                    <PolicyIcon sx={{ color: "#ffffff" }} />
-                  </Avatar>
-                </Stack>
-              </Grid>
-            </Grid>
-          </CardContent>
-        </Card>
-      </SubCard>
+      <Box
+        sx={{
+          border: "1px solid",
+          borderColor: theme.palette.primary.main,
+          width: "100%",
+          bgcolor: "background.paper",
+          borderRadius: '0%'
+        }}
+      >
+        <nav aria-label="main mailbox folders">
+          <List>
+            <ListItem disablePadding>
+              <ListItemButton>
+                <ListItemText primary="Foreign Import of Record and Customs Bond Services include: " />
+              </ListItemButton>
+            </ListItem>
+            <ListItem disablePadding >
+              <ListItemButton>
+                <ListItemIcon>
+                  <PolicyIcon color="secondary"/>
+                </ListItemIcon>
+                <ListItemText primary="Número de Registro de Aduanas en USA como Importador Extranjero" />
+              </ListItemButton>
+            </ListItem>
+            <ListItem disablePadding>
+              <ListItemButton>
+                <ListItemIcon>
+                  <PolicyIcon color="secondary"/>
+                </ListItemIcon>
+                <ListItemText primary="Continuos Bond - For 1 Year" />
+              </ListItemButton>
+            </ListItem>
+            <ListItem disablePadding>
+              <ListItemButton>
+                <ListItemIcon>
+                  <PolicyIcon color="secondary"/>
+                </ListItemIcon>
+                <ListItemText primary="Power Attorney Despachante Aduanas Amazon (USA) - For 1 Year" />
+                <ListItemText primary="* Clareo de Aduanas se cotizan independiente" />
+              </ListItemButton>
+            </ListItem>
+          </List>
+        </nav>
+        <Divider />
+        <nav aria-label="secondary mailbox folders">
+          <List>
+            <ListItem>
+           <Sellerdocuments skus="legales" idcliente={user.id}></Sellerdocuments>
+            </ListItem>
+            <ListItem disablePadding>
+              <ListItemButton component="a" href="#simple-list">
+                <ListItemText primary="Enviar Requerimiento" />
+              </ListItemButton>
+            </ListItem>
+          </List>
+        </nav>
+      </Box>
     </div>
   );
 };
