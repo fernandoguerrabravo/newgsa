@@ -76,7 +76,7 @@ const HeaderPage = () => {
                     lineHeight: 1.4,
                   }}
                 >
-                  Global Selling 
+                  Global Selling
                   <Box
                     component="span"
                     sx={{ ml: 2, color: theme.palette.primary.main }}
@@ -172,14 +172,27 @@ const HeaderPage = () => {
                       component="div"
                       color="inherit"
                       sx={{ fontWeight: 400, lineHeight: 1.4 }}
-                    > Plataforma integral de servicios que facilita y acelera el
-                    proceso de mover inventarios desde el país de origen
-                    hasta los centros de distribución de Amazon en USA,
-                    para los Sellers foráneos que participan en el programa:
-                      <b></b>
+                    >
+                      {" "}
+                      Plataforma integral de servicios que facilita y acelera el
+                      proceso de mover inventarios desde el país de origen hasta
+                      los centros de distribución de Amazon en USA. para los
+                      Sellers foráneos que venden en la plataforma de Amazon
+                      Estados Unidos
+                      <p></p>
+                      <strong>Powered by</strong>
+                      <p></p>
                     </Typography>
-                    <HeaderAnimationImage src="https://fotos-ecl.s3.amazonaws.com/Amazon_Global_Selling_Logo.png" alt="Berry" />
-
+                    <HeaderAnimationImage
+                      src="https://fotos-ecl.s3.amazonaws.com/ecl-logo-transparent-light.svg"
+                      alt="Berry"
+                    />
+                    <HeaderAnimationImage
+                      src="https://fotos-ecl.s3.amazonaws.com/amazon-spn.png"
+                      alt="spn"
+                      width="80" 
+                      height="20"
+                    />
                   </Grid>
                 </Grid>
               </motion.div>
@@ -208,7 +221,7 @@ const HeaderPage = () => {
                   delay: 0.2,
                 }}
               >
-                <HeaderAnimationImage src={widget2}  alt="Berry" />
+                <HeaderAnimationImage src={widget2} alt="Berry" />
               </motion.div>
             </Box>
             <Box
@@ -231,7 +244,10 @@ const HeaderPage = () => {
                   delay: 0.4,
                 }}
               >
-                <HeaderAnimationImage src="https://fotos-ecl.s3.amazonaws.com/logos-global-selling/logo_transparent_background.png" alt="Berry" />
+                <HeaderAnimationImage
+                  src="https://fotos-ecl.s3.amazonaws.com/logos-global-selling/logo_transparent_background.png"
+                  alt="Berry"
+                />
               </motion.div>
             </Box>
           </Box>
