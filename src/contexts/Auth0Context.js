@@ -15,6 +15,7 @@ import config from 'config';
 // constant
 let auth0Client;
 
+
 const initialState = {
     isLoggedIn: false,
     isInitialized: false,
@@ -35,13 +36,14 @@ export const Auth0Provider = ({ children }) => {
                     redirect_uri: window.location.origin,
                     ...config.auth0
                 });
+               
 
                 await auth0Client.checkSession();
                 const isLoggedIn = await auth0Client.isAuthenticated();
 
                 if (isLoggedIn) {
-                    const user = await auth0Client.getUser();
-
+                    const user = await auth0Client.getUser()
+                   
                     dispatch({
                         type: LOGIN,
                         payload: {
@@ -73,6 +75,7 @@ export const Auth0Provider = ({ children }) => {
 
         if (isLoggedIn) {
             const user = await auth0Client.getUser();
+            
             dispatch({
                 type: LOGIN,
                 payload: {

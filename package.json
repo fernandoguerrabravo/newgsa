@@ -36,6 +36,7 @@
         "formik": "^2.2.6",
         "framer-motion": "^4.1.13",
         "history": "^5.0.0",
+        "iso-country-codes": "^0.0.5",
         "jsonwebtoken": "^8.5.1",
         "jss": "^10.7.1",
         "jss-rtl": "^0.3.0",

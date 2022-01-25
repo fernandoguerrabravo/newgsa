@@ -1,9 +1,11 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 // import { useTheme } from "@mui/material/styles";
 import { Grid } from "@mui/material";
 import { gridSpacing } from "store/constant";
 import TipoServicio from "./components/TipoServicio";
 import Fior from "./components/fior";
+import ServicesListTable from "./components/ServicesListTable";
 
 const Request = () => {
   const [finales, setfinales] = useState({
@@ -15,36 +17,29 @@ const Request = () => {
     totaltotal: 0,
   });
 
-  var [handout, sethandout] = useState({
-    out: 0,
-  });
-  const [outlista, setoutlista] = useState({
-    lista: [],
+  var [hidden, sethidden] = useState({
+    lista: true,
+    servicios: false,
   });
 
-  var [hidden, sethidden] = useState({
-    ltl: false,
-    ftl: false,
-    expo: false,
-    summary: false,
-  });
+  
+
+   
   return (
     <div>
       <Grid container spacing={gridSpacing}>
-        <Grid item xs={12} lg={4} md={4}>
-          <TipoServicio></TipoServicio>
+        <Grid item xs={12} lg={12} md={12}>
+          {hidden.lista ? <ServicesListTable sethidden={sethidden} hidden={hidden}></ServicesListTable> : null}
+        </Grid>
+        <Grid item xs={12} lg={12} md={12}>
+          {hidden.servicios ? <TipoServicio></TipoServicio> : null}
         </Grid>
         <br />
-
-        <Grid item xs={12} lg={8} md={8}>
-       <Fior></Fior>
-        </Grid>
-
         <br />
 
-        <Grid item xs={12} lg={4} md={4}>
-          {" "}
-        </Grid>
+        <Grid item xs={12} lg={8} md={8}></Grid>
+
+        <br />
 
         <br />
 

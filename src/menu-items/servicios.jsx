@@ -22,6 +22,14 @@ const servicios = {
     type: 'group',
     children: [
         {
+            id: 'courier',
+            title: <FormattedMessage id="International Courier" />,
+            type: 'item',
+            url: '/courier',
+            icon: icons.IconRuler2
+        },
+       
+        {
             id: 'requerimientos',
             title: <FormattedMessage id="Nuevo Servicio" />,
             type: 'item',

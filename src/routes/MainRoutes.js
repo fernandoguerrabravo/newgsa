@@ -138,6 +138,7 @@ const Fda = Loadable(lazy(() => import('views/fda')));
 const Fsvp = Loadable(lazy(() => import('views/fsvp')));
 const FdaRegister = Loadable(lazy(() => import('views/fdaregister')));
 const Request = Loadable(lazy(() => import('views/request')));
+const Courier = Loadable(lazy(() => import('views/courier')));
 // ==============================|| MAIN ROUTING ||============================== //
 
 const MainRoutes = {
@@ -553,6 +554,10 @@ const MainRoutes = {
         {
             path:'/request',
             element: <Request />
+        },
+        {
+            path:'/courier',
+            element: <Courier />
         }
 
     ]

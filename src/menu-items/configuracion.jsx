@@ -34,6 +34,20 @@ const configuracion = {
             url: '/skulist',
             icon: icons.IconTag
         },
+        {
+            id: 'carriers',
+            title: <FormattedMessage id="Your Parcel Carriers" />,
+            type: 'item',
+            url: '/',
+            icon: icons.IconTag
+        },
+        {
+            id: 'pickup',
+            title: <FormattedMessage id="Pickup Address" />,
+            type: 'item',
+            url: '/',
+            icon: icons.IconTag
+        },
        /* {
             id: 'analytics',
             title: <FormattedMessage id="analytics" />,

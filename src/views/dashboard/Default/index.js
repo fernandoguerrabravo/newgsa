@@ -16,11 +16,14 @@ import { Link, Redirect } from "react-router-dom";
 // project imports
 import { gridSpacing } from "store/constant";
 import Stack from "@mui/material/Stack";
+import useAuth from "../../../hooks/useAuth";
 
 // ==============================|| DEFAULT DASHBOARD ||============================== //
 
 const Dashboard = () => {
   // eslint-disable-next-line no-unused-vars
+  
+  
   const [isLoading, setLoading] = useState(true);
   useEffect(() => {
     setLoading(false);

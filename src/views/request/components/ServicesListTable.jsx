@@ -1,4 +1,3 @@
-import { useGetSku } from "../hooks/useGetSku";
 import React, {  } from "react";
 // import { useTheme } from "@mui/material/styles";
 import {
@@ -7,15 +6,16 @@ import {
 } from "@mui/material";
 import DataTable from "react-data-table-component";
 
-export default function SkuListTable({ oculto, setoculto, idcliente }) {
-  const crearsku = () => {
+export default function ServicesListTable({ sethidden, hidden }) {
+  
+  /*const crearsku = () => {
     setoculto({
       ...oculto,
       hiddenstoreform: true,
       hiddentable: false,
       hiddenlistools: true,
     });
-  };
+  }; */
   
 /*	const useStyles = makeStyles(theme => ({
 		root: {
@@ -59,9 +59,19 @@ export default function SkuListTable({ oculto, setoculto, idcliente }) {
     });
   }; */
 
-  const { data } = useGetSku(idcliente);
+ // const { data } = useGetSku(idcliente);
 
   // console.log("datos para tabla:", data);
+
+  const crearservicios = () =>{
+
+    sethidden({
+      ...hidden,
+      lista: false,
+      servicios: true
+    })
+    console.log("pico del oculto", hidden)
+};
 
   const columnas = [
     {
@@ -92,11 +102,11 @@ export default function SkuListTable({ oculto, setoculto, idcliente }) {
       onClick: (event, rowData) => details(rowData.sku),
     },
   ]; */
-
+  const data = [];
   return (
     <>
-      <Button onClick={crearsku} variant="contained" color="secondary">
-        Agregar Producto
+      <Button  onClick={crearservicios} variant="contained" color="secondary">
+        New Service Request
       </Button>
       <br />
       <br />

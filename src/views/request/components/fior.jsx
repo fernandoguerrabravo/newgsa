@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-alert */
 import React from "react";
 import useAuth from "../../../hooks/useAuth";
@@ -112,8 +113,7 @@ const { logout, user } = useAuth();
                 <ListItemIcon>
                   <PolicyIcon color="secondary"/>
                 </ListItemIcon>
-                <ListItemText primary="Power Attorney Despachante Aduanas Amazon (USA) - For 1 Year" />
-                <ListItemText primary="* Clareo de Aduanas se cotizan independiente" />
+                <ListItemText primary="Power Attorney Despachante Aduanas Amazon (USA) - For 1 Year - (Clareo de Aduanas se cotizan independiente)" />
               </ListItemButton>
             </ListItem>
           </List>

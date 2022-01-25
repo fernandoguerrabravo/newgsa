@@ -284,7 +284,7 @@ const SellerUpdateForm2 = ({profile, setprofile, idcliente, lista, setlista, lis
             <GooglePlacesAutocomplete
               autocompletionRequest={{
                 componentRestrictions: {
-                  country: ["mx", ],
+                  country: ["mx","us"],
                 },
               }}
               selectProps={{
