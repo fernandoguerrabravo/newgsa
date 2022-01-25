@@ -184,14 +184,13 @@ const HeaderPage = () => {
                       <p></p>
                     </Typography>
                     <HeaderAnimationImage
-                      src="https://fotos-ecl.s3.amazonaws.com/ecl-logo-transparent-light.svg"
+                      src="https://fotos-ecl.s3.amazonaws.com/Remove+background.png"
                       alt="Berry"
                     />
                     <HeaderAnimationImage
                       src="https://fotos-ecl.s3.amazonaws.com/amazon-spn.png"
                       alt="spn"
-                      width="80" 
-                      height="20"
+                      
                     />
                   </Grid>
                 </Grid>
