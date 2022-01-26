@@ -74,7 +74,10 @@ const AppBar = ({ ...others }) => {
                                 Home
                             </Button>
                             <Button color="inherit" component={RouterLink} to="login" target="_blank">
-                                Acceso
+                                Login
+                            </Button>
+                            <Button color="inherit" component={Link} href="https://master.d330rjd99d7ubu.amplifyapp.com/" target="_blank">
+                              Amazon Admin
                             </Button>
                         </Stack>
                         <Box sx={{ display: { xs: 'block', sm: 'none' } }}>
@@ -104,7 +107,15 @@ const AppBar = ({ ...others }) => {
                                                 <ListItemIcon>
                                                     <IconDashboard />
                                                 </ListItemIcon>
-                                                <ListItemText primary="Acceso" />
+                                                <ListItemText primary="Login" />
+                                            </ListItemButton>
+                                        </Link>
+                                        <Link style={{ textDecoration: 'none' }} href="https://master.d330rjd99d7ubu.amplifyapp.com/" target="_blank">
+                                            <ListItemButton component="a">
+                                                <ListItemIcon>
+                                                    <IconDashboard />
+                                                </ListItemIcon>
+                                                <ListItemText primary="Admin System" />
                                             </ListItemButton>
                                         </Link>
                                     </List>

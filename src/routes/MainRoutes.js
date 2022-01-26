@@ -139,6 +139,8 @@ const Fsvp = Loadable(lazy(() => import('views/fsvp')));
 const FdaRegister = Loadable(lazy(() => import('views/fdaregister')));
 const Request = Loadable(lazy(() => import('views/request')));
 const Courier = Loadable(lazy(() => import('views/courier')));
+const  PriorNotice= Loadable(lazy(() => import('views/priornotice')));
+
 // ==============================|| MAIN ROUTING ||============================== //
 
 const MainRoutes = {
@@ -558,6 +560,10 @@ const MainRoutes = {
         {
             path:'/courier',
             element: <Courier />
+        },
+        {
+            path:'/priornotice',
+            element: <PriorNotice />
         }
 
     ]

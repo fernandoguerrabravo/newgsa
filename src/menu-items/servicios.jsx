@@ -35,7 +35,14 @@ const servicios = {
             type: 'item',
             url: '/request',
             icon: icons.IconRuler2
-        }
+        },
+        {
+            id: 'priornotice',
+            title: <FormattedMessage id="FDA Prior Notice" />,
+            type: 'item',
+            url: '/priornotice',
+            icon: icons.IconRuler2
+        },
         
        /* {
             id: 'analytics',
