@@ -29,7 +29,7 @@ import { codes, byAlpha2, byAlpha3, byNumeric } from "iso-country-codes";
 import CircularProgress from "@mui/material/CircularProgress";
 
 const Shipperform = ({ shipper, from, setfrom, de, setde }) => {
-  const pais = shipper.country;
+  //const pais = shipper.country;
   const theme = useTheme();
   const cardStyle = {
     background:
@@ -275,7 +275,6 @@ const Shipperform = ({ shipper, from, setfrom, de, setde }) => {
               subheader="Shipper/Enviador"
             ></CardHeader>
             <CardContent>
-              {shipper ? (
                 <Grid sx={{ p: 1 }} item lg={12} md={12} sm={12} xs={12}>
                   <InputLabel id="Country">Country</InputLabel>
                   <Select
@@ -300,9 +299,6 @@ const Shipperform = ({ shipper, from, setfrom, de, setde }) => {
                     })}
                   </Select>
                 </Grid>
-              ) : (
-                <CircularProgress></CircularProgress>
-              )}
               <Grid sx={{ p: 1 }} item lg={12} md={12} sm={12} xs={12}>
                 <TextField
                   id="company"
@@ -461,7 +457,7 @@ const Shipperform = ({ shipper, from, setfrom, de, setde }) => {
               subheader="Consignee/Destinatario"
             ></CardHeader>
             <CardContent>
-              {shipper ? (
+             
                 <Grid sx={{ p: 1 }} item lg={12} md={12} sm={12} xs={12}>
                   <InputLabel id="Country">Country</InputLabel>
                   <Select
@@ -485,9 +481,6 @@ const Shipperform = ({ shipper, from, setfrom, de, setde }) => {
                     })}
                   </Select>
                 </Grid>
-              ) : (
-                <CircularProgress></CircularProgress>
-              )}
               <Grid sx={{ p: 1 }} item lg={12} md={12} sm={12} xs={12}>
                 <TextField
                   id="company"

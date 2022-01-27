@@ -101,7 +101,7 @@ const Courier = () => {
   //const {data} = UseGetSellers(idcliente)
   //const finaldata = data[0]
 
-  useEffect(() => {
+  /* useEffect(() => {
     GetSeller(idcliente).then((data) =>
       setshipper({
         name: data[0].contactname,
@@ -119,7 +119,7 @@ const Courier = () => {
         is_residential: null,
       })
     );
-  }, []);
+  }, []); */
 
   console.log("shipper2", shipper);
 
@@ -156,7 +156,6 @@ const Courier = () => {
         <Step>
           <StepLabel>Shipper and Consignne Information</StepLabel>
           <StepContent>
-            {shipper ? (
              <Box sx={{ mb: 2 }}>
               <Shipperform shipper={shipper} from={from} setfrom={setfrom} de={de} setde={setde}></Shipperform>              
               <br></br>
@@ -169,9 +168,7 @@ const Courier = () => {
                   Continue
                 </Button>
               </Box>
-            ) : (
-              <CircularProgress color="secondary" />
-            )}
+            
           </StepContent>
         </Step>
         <Step>
