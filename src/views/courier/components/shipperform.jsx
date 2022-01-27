@@ -232,7 +232,7 @@ const Shipperform = ({ shipper, from, setfrom, de, setde }) => {
 
   
 
-  useEffect(() => {
+ /* useEffect(() => {
     setfrom({
       object_purpose: "PURCHASE",
       name: shipper.name,
@@ -249,7 +249,7 @@ const Shipperform = ({ shipper, from, setfrom, de, setde }) => {
       email: shipper.email,
       is_residential: null,
     });
-  }, [shipper.name]);
+  }, [shipper.name]); */
 
   const handleChange = (event) => {
     setfrom({

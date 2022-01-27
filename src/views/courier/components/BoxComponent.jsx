@@ -55,8 +55,9 @@ const BoxComponent = ({box, setbox}) => {
    const handleInputChange2 = (event) => {
 
         setcajas({
-          qty: event.target.value,
-          fob: event.target.value
+          
+          [event.target.name]: event.target.value,
+       
         })
 
   }
