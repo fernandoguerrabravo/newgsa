@@ -23,7 +23,7 @@ const servicios = {
     children: [
         {
             id: 'courier',
-            title: <FormattedMessage id="International Courier" />,
+            title: <FormattedMessage id="Courier Internacional" />,
             type: 'item',
             url: '/courier',
             icon: icons.IconRuler2

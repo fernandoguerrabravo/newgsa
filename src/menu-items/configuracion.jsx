@@ -36,9 +36,9 @@ const configuracion = {
         },
         {
             id: 'carriers',
-            title: <FormattedMessage id="Your Parcel Carriers" />,
+            title: <FormattedMessage id="Carrier Connection" />,
             type: 'item',
-            url: '/',
+            url: '/carrier',
             icon: icons.IconTag
         },
         {

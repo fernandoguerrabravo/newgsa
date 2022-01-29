@@ -87,7 +87,7 @@ const Courier = () => {
   });
 
   const [box, setbox] = useState({
-      weight: "",
+      weight: 1,
       length: "60",
       width: "60",
       height: "60",
@@ -168,7 +168,6 @@ const Courier = () => {
                   Continue
                 </Button>
               </Box>
-            
           </StepContent>
         </Step>
         <Step>

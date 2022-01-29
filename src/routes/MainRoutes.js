@@ -5,6 +5,7 @@ import MainLayout from 'layout/MainLayout';
 import Loadable from 'ui-component/Loadable';
 import AuthGuard from 'utils/route-guard/AuthGuard';
 
+
 // dashboard routing
 const DashboardDefault = Loadable(lazy(() => import('views/dashboard/Default')));
 const DashboardAnalytics = Loadable(lazy(() => import('views/dashboard/Analytics')));
@@ -140,6 +141,7 @@ const FdaRegister = Loadable(lazy(() => import('views/fdaregister')));
 const Request = Loadable(lazy(() => import('views/request')));
 const Courier = Loadable(lazy(() => import('views/courier')));
 const  PriorNotice= Loadable(lazy(() => import('views/priornotice')));
+const  Carrier = Loadable(lazy(() => import('views/carriers')));
 
 // ==============================|| MAIN ROUTING ||============================== //
 
@@ -564,6 +566,10 @@ const MainRoutes = {
         {
             path:'/priornotice',
             element: <PriorNotice />
+        },
+        {
+            path:'/carrier',
+            element: <Carrier />
         }
 
     ]

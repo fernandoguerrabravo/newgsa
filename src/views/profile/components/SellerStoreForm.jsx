@@ -85,21 +85,17 @@ export default function SkuStoreForm({ update, setoculto, idcliente }) {
 
   useEffect(() => {
     if (direccion.length > 0) {
-      setlista1({
-        numero: direccion[0]["long_name"] ?? "",
-        calle: direccion[1]["long_name"] ?? "",
-        barrio: direccion[2]["long_name"] ?? "",
-        ciudad: direccion[3]["long_name"] ?? "",
-        estado: direccion[4]["long_name"] ?? "",
-        pais: direccion[5]["long_name"] ?? "",
-        zip: direccion[6]["long_name"] ?? "",
-      });
+      setprofile({
+        ...profile,
+        legaladdress: direccion
+      }
+       );
     }
   }, [direccion]);
 
-  //console.log("PERRO", direccion);
-  //console.log("perro2", direccion1);
+  console.log("direccion del pico", direccion)
 
+/*
   const agregar = () => {
     if (direccion1.length > 0) {
       setlista({
@@ -125,8 +121,9 @@ export default function SkuStoreForm({ update, setoculto, idcliente }) {
         footer: "Por favor Agregue Dirección de Retiro Válida",
       });
     }
-  };
-
+  }; */
+   
+  /*
   const ActionComponent = ({ row, onClick }) => {
     const clickHandler = () => onClick(row);
     return (
@@ -140,7 +137,8 @@ export default function SkuStoreForm({ update, setoculto, idcliente }) {
       </IconButton>
     );
   };
-
+*/
+/*
   const columns = [
     {
       name: "Dirección",
@@ -191,7 +189,7 @@ export default function SkuStoreForm({ update, setoculto, idcliente }) {
               style: "currency",
               currency: "USD",
             }).format(2.9 * row.qtyout + 34.5),
-    },*/
+    },
     {
       name: "Actions",
       button: true,
@@ -202,11 +200,12 @@ export default function SkuStoreForm({ update, setoculto, idcliente }) {
       ),
     },
   ];
-
+ 
   const deleterow = (e) => {
     const newstate = lista.pickup.filter((item) => item.idpick !== e);
     setlista({ pickup: newstate });
   };
+*/
 
   const guardar = async () => {
     if (
@@ -248,13 +247,13 @@ export default function SkuStoreForm({ update, setoculto, idcliente }) {
     }
   };
 
-  useEffect(() => {
+  /*useEffect(() => {
     setprofile({
       ...profile,
       pickupaddress: lista,
       legaladdress: lista1,
     });
-  }, [lista, lista1]);
+  }, [lista, lista1]); */
 
   return (
     <div>
@@ -462,7 +461,7 @@ export default function SkuStoreForm({ update, setoculto, idcliente }) {
        /> */}
         <Divider />
         <br />
-        <Grid item lg={12} md={12} sm={12} xs={12}>
+      {/*  <Grid item lg={12} md={12} sm={12} xs={12}>
           <Typography variant="caption">
             Agregar Direcciónes Origen Carga <strong>(OPCIONAL)</strong>
           </Typography>
@@ -491,7 +490,7 @@ export default function SkuStoreForm({ update, setoculto, idcliente }) {
           </Button>
         </Grid>
         <br />
-        <DataTable columns={columns} data={lista.pickup} />
+          <DataTable columns={columns} data={lista.pickup} /> */}
       </Paper>
       <br />
     </div>

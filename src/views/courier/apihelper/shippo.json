@@ -1,0 +1,15 @@
+{
+    "carrier": "fedex",
+    "object_id": "a2d1d304e5d14265b9de79d060a6ecdf",
+    "object_owner": "guerrafernandob@gmail.com",
+    "account_id": "321123",
+    "parameters": {
+        "meter": "******"
+    },
+    "test": true,
+    "active": true,
+    "is_shippo_account": false,
+    "metadata": "",
+    "is_manifestable": true
+
+}

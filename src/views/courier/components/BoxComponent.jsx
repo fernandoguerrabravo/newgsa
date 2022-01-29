@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
-import Select from "react-select";
+//import Select from "react-select";
 import { useTheme } from "@mui/material/styles";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
@@ -18,6 +18,8 @@ import ListItemText from "@mui/material/ListItemText";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import DoDisturbIcon from "@mui/icons-material/DoDisturb";
 import { red } from "@mui/material/colors";
+import Select from "@mui/material/Select";
+import Slider from "@mui/material/Slider";
 
 import {
   Checkbox,
@@ -28,8 +30,7 @@ import {
 } from "@mui/material";
 const listabox = [];
 
-const BoxComponent = ({box, setbox}) => {
-  
+const BoxComponent = ({ box, setbox }) => {
   const theme = useTheme();
   const cardStyle = {
     background:
@@ -45,31 +46,73 @@ const BoxComponent = ({box, setbox}) => {
 
   const newJson = [];
   const handleInputChange = (event) => {
+    setbox({
+      ...box,
+      weight: event.target.value,
+    });
+    console.log("PICOOOO", box.weight);
+  };
 
-      setbox({
-        ...box,
-        weight: event.target.value,
-      })
-    }
+  const marks2 = [
+    {
+      value: 1,
+      label: "1usd",
+    },
 
-   const handleInputChange2 = (event) => {
+    {
+      value: 200,
+      label: "200usd",
+    },
+    {
+      value: 400,
+      label: "400usd",
+    },
+    {
+      value: 600,
+      label: "600usd",
+    },
+    {
+      value: 800,
+      label: "800usd",
+    },
+  ];
 
-        setcajas({
-          
-          [event.target.name]: event.target.value,
-       
-        })
-
-  }
+  const marks = [
+    {
+      value: 1,
+      label: "1kg",
+    },
+    {
+      value: 20,
+      label: "20kg",
+    },
+    {
+      value: 40,
+      label: "40kg",
+    },
+    {
+      value: 60,
+      label: "60kg",
+    },
+    {
+      value: 80,
+      label: "80kg",
+    },
+  ];
 
   const [cajas, setcajas] = useState({
-
-      qty:'',
-      fob: ''
-
+    qty: 1,
+    fob: 1,
   });
-  
-  // Aviso que debe seleccionar un FBA
+  const handleInputChange2 = (event) => {
+    setcajas({
+      [event.target.name]: event.target.value,
+    });
+  };
+
+  function valuetext(value) {
+    return `${value}Kg`;
+  }
 
   return (
     <>
@@ -79,41 +122,57 @@ const BoxComponent = ({box, setbox}) => {
           subheader="Parcel Information"
         ></CardHeader>
         <CardContent>
-          <Stack spacing={2} direction="row">
-            <TextField
-              id="qty"
-              name="qty"
-              label="Qty Box"
-              variant="outlined"
-              color="secondary"
-              type="number"
-              value={cajas.qty}
-              onChange={handleInputChange2}
-              fullWidth
-            />
-            <TextField
-              id="weight"
-              name="weight"
-              label="Shippping Weight"
-              variant="outlined"
-              color="secondary"
-              type="number"
-              fullWidth
-              value={box.weight}
-              onChange={handleInputChange}
-            />
-            <TextField
-              id="fob"
-              name="fob"
-              label="Shipping Declared Value (USD)"
-              variant="outlined"
-              color="secondary"
-              type="number"
-              fullWidth
-              value={cajas.fob}
-              onChange={handleInputChange2}
-            />
-          </Stack>
+          <Grid container sx={{ p: 2 }} spacing={3}>
+            <Grid item lg={3} md={3} sm={12} xs={12}>
+              <Select
+                id="qty"
+                name="qty"
+                value={cajas.qty || ""}
+                onChange={handleInputChange2}
+                fullWidth
+              >
+                <MenuItem value={1}>1</MenuItem>
+                <MenuItem value={2}>2</MenuItem>
+                <MenuItem value={3}>3</MenuItem>
+                <MenuItem value={4}>4</MenuItem>
+                <MenuItem value={5}>5</MenuItem>
+              </Select>
+            </Grid>
+            <Grid item lg={12} md={12} sm={12} xs={12}>
+              <br></br>
+              <br></br>
+              <Slider
+                aria-label="Always visible"
+                //defaultValue={1}
+                getAriaValueText={valuetext}
+                //step={5}
+                marks={marks}
+                max={80}
+                min={1}
+                valueLabelDisplay="on"
+                value={box.weight}
+                onChange={handleInputChange}
+              />
+              <br></br>
+            </Grid>
+
+            <Grid item lg={12} md={12} sm={12} xs={12}>
+              <br></br>
+              <Slider
+                aria-label="Always visible"
+                //defaultValue={1}
+                getAriaValueText={valuetext}
+                name="fob"
+                marks={marks2}
+                max={800}
+                min={1}
+                valueLabelDisplay="on"
+                value={cajas.fob}
+                onChange={handleInputChange2}
+                color="secondary"
+              />
+            </Grid>
+          </Grid>
           <br></br>
           <List dense>
             <ListItem>
@@ -135,7 +194,7 @@ const BoxComponent = ({box, setbox}) => {
               <ListItemIcon>
                 <DoDisturbIcon sx={{ color: red[500] }} />
               </ListItemIcon>
-              <ListItemText primary="Max Shipping Weight 70 Kg" />
+              <ListItemText primary="Max Shipping Weight 80 Kg" />
             </ListItem>
           </List>
         </CardContent>

@@ -50,13 +50,13 @@ export default function sellers() {
           ) : null}
         </Grid>
         <Grid item lg={12} md={12} sm={12} xs={12}>
-          {oculto.hiddentable ? (
+          { oculto.hiddentable ? (
             <SellerListTable
               idcliente={user.id}
               oculto={oculto}
               setoculto={setoculto}
             />
-          ) : null}
+          ) : null }
         </Grid>
         <Grid item lg={12} md={12} sm={12} xs={12}>
           {oculto.hiddenupdate ? (
