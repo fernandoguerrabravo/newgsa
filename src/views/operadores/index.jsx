@@ -1,56 +1,108 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
-import React, { useState, useEffect } from "react";
-import { useTheme } from "@mui/material/styles";
-import { gridSpacing } from "store/constant";
+
+
+//import PreviewCard from './components/SkuListDetails';
+
+//import SkuListTools from "./components/SkuListTools";
 import useAuth from "../../hooks/useAuth";
+import React, { useState } from "react";
+
+import { useTheme } from "@mui/material/styles";
 import {
-  Button,
   Card,
-  CardActions,
   CardContent,
-  CardHeader,
-  CardMedia,
-  Divider,
-  Grid,
-  Typography,
-  FormControl,
 } from "@mui/material";
-import Stack from "@mui/material/Stack";
-import { Checkbox, FormControlLabel, TextField, Box } from "@mui/material";
-import CircularProgress from "@mui/material/CircularProgress";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
-import InputLabel from "@mui/material/InputLabel";
-import {GetOperadores} from "./helpers/GetOperadores"
-import { useGetOperadores } from "./hooks/useGetOperadores";
+import SubCard from "ui-component/cards/SubCard";
+import SkuListTools from "./componentes/SkuListTools";
+import SkuListTable from "./componentes/SkuListTable";
+import SkuStoreFiles from "./componentes/SkuStoreFiles";
+import SkuStoreForm from "./componentes/SkuStoreForm";
 
+export const SkuListApp = () => {
+  /* const useStyles = makeStyles(theme => ({
+		root: {
+			flexGrow: 1
+		},
 
-const Operadores = () => {
-  
+		paper: {
+			padding: theme.spacing(3),
+			color: theme.palette.text.secondary
+		}
+	}));
+    */
   const theme = useTheme();
+
   const cardStyle = {
     background:
       theme.palette.mode === "dark"
         ? theme.palette.dark.main
         : theme.palette.grey[50],
     border: "1px solid",
-    borderColor:
-      theme.palette.mode === "dark"
-        ? theme.palette.dark.main
-        : theme.palette.grey[100],
+    borderColor: theme.palette.primary.main
+    
   };
-
   const { logout, user } = useAuth();
-  const idcliente = user.id;
-  var data = useGetOperadores(idcliente)
- 
-  console.log("PICO DEL DATa" , data)
-  //Envio de datos de la API
 
-  return <div>
-      {idcliente}
-  </div>
-     
-}
-export default Operadores;
+  // eslint-disable-next-line no-unused-vars
+  const [skudetails, setskudetails] = useState({
+    skunumber: "",
+    idcliente: user.id,
+    skudetalle: [],
+  });
+ 
+  const [oculto, setoculto] = useState({
+    //hiddenlistools: false,
+    //hiddenstoreform: false,
+    hiddentable: true,
+    //hiddendetails: false,
+  });
+
+  
+
+  return (
+    <>
+      <SubCard  title="Productos">
+        <Card sx={cardStyle}>
+          <CardContent
+            sx={{ minHeight: 240, color: theme.palette.common.black }}
+          >
+            {oculto.hiddentable ? (
+              <SkuListTable
+                oculto={oculto}
+                setoculto={setoculto}
+                idcliente={user.id}
+               
+              />
+            ) : null}
+
+         {oculto.hiddenstoreform ? (
+              <SkuStoreForm setoculto={setoculto}  idcliente={user.id} /> 
+			) : null }
+          </CardContent>
+        </Card>
+      </SubCard>
+
+      {/* <Grid container spacing={3}>
+        <Grid item xs={12}>
+         {oculto.hiddenlistools
+            ? 
+               <SkuListTools setoculto={setoculto} />
+              
+			  : null}
+        </Grid>
+        <Grid item xs={12}>
+          {oculto.hiddendetails
+            ? 
+                <PreviewCard skudetails={skudetails} /> 
+              
+            : null}
+        </Grid>
+        <Grid item xs={12}>
+          
+        </Grid>
+		  </Grid> */}
+    </>
+  );
+};
+
+export default SkuListApp;

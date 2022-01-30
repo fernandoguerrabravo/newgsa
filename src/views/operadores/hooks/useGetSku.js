@@ -1,14 +1,14 @@
+/* eslint-disable import/prefer-default-export */
 import { useState, useEffect } from 'react';
-import  GetOperadores  from '../helpers/GetOperadores';
+import { GetSku } from '../helpers/GetSku';
 
-
-export const useGetOperadores = (idcliente) => {
+export const useGetSku = idcliente => {
 	const [state, setState] = useState({
 		data: []
 	});
 
 	useEffect(() => {
-		GetOperadores(idcliente).then(imgs => {
+		GetSku(idcliente).then(imgs => {
 			setState({
 				data: imgs
 			});
