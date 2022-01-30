@@ -1,9 +1,9 @@
 /* eslint-disable import/prefer-default-export */
 import { useState, useEffect } from 'react';
-import { GetCarrier } from '../helpers/GetCarrier';
+import GetCarrier  from '../helpers/GetCarrier';
 
 
-export const useGetCarrier = (idcliente) => {
+export const useGetCarrier = idcliente => {
 	const [state, setState] = useState({
 		data: []
 	});

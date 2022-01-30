@@ -29,13 +29,13 @@ const servicios = {
             icon: icons.IconRuler2
         },
        
-        {
+     /*   {
             id: 'requerimientos',
             title: <FormattedMessage id="Nuevo Servicio" />,
             type: 'item',
             url: '/request',
             icon: icons.IconRuler2
-        },
+        }, */
         {
             id: 'priornotice',
             title: <FormattedMessage id="FDA Prior Notice" />,

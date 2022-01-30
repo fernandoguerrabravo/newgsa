@@ -8,13 +8,18 @@ import DataTable from "react-data-table-component";
 import { gridSpacing } from "store/constant";
 import useGetCarrier from "../hooks/useGetCarrier";
 
+import useAuth from "../../../hooks/useAuth";
+import { GetCarrier } from "../helpers/GetAccount";
 
-export default function AccountList(idcliente) {
+export default function AccountList({idcliente}) {
   
- 
-   const { data } = useGetCarrier(idcliente);
+  const { logout, user } = useAuth();
+  idcliente = user.id
+  
+   
+   const { data } = GetCarrier(idcliente);
    //const datafinal = data[0];
-   console.log("PICOOO del PERRO", data)
+   console.log("PICOOO del PERRO", user.id)
   //console.log("pico del data", datafinal)
 
   const [botoncito, setbotoncito] = useState({
@@ -84,7 +89,7 @@ export default function AccountList(idcliente) {
         </Grid>
       </Grid>
       <br></br>
-      <DataTable striped columns={columnas} data={pico} />
+      <DataTable striped columns={columnas} data={data} />
     </>
   );
 }

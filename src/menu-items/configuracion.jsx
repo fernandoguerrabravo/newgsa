@@ -41,13 +41,13 @@ const configuracion = {
             url: '/carrier',
             icon: icons.IconTag
         },
-        {
+      /*  {
             id: 'pickup',
             title: <FormattedMessage id="Pickup Address" />,
             type: 'item',
             url: '/',
             icon: icons.IconTag
-        },
+        }, */
        /* {
             id: 'analytics',
             title: <FormattedMessage id="analytics" />,

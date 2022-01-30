@@ -571,6 +571,7 @@ const MainRoutes = {
             path:'/carrier',
             element: <Carrier />
         }
+       
 
     ]
 };
