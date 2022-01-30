@@ -1,3 +1,12 @@
+
+{
+    "carrier": "fedex",
+    "account_id": "321123",
+    "parameters": {"meter": ""},
+    "active": true
+  },
+
+
 {
     "carrier": "fedex",
     "object_id": "a2d1d304e5d14265b9de79d060a6ecdf",
@@ -12,4 +21,132 @@
     "metadata": "",
     "is_manifestable": true
 
+},
+
+
+
+{
+    "carrier": "dhlexpress",
+    "account_id": "673149767",
+    "parameters": {
+        "site_id": "fernando@eclprojects.net",
+        "password":"logisticA$123$"
+    },
+    "active": true
+  }
+
+{
+    "carrier": "dhl_express",
+    "object_id": "0d052bdb809542d0a23b992828e68b96",
+    "object_owner": "guerrafernandob@gmail.com",
+    "account_id": "******9767",
+    "parameters": {
+        "password": "******",
+        "site_id": "******.net"
+    },
+    "test": true,
+    "active": true,
+    "is_shippo_account": false,
+    "metadata": "",
+    "is_manifestable": true
 }
+
+
+
+{
+    "carrier": "ups",
+    "account_id": "123456",
+    "parameters": {
+        "account_number": "123456",
+        "password": "123456"
+    },
+    "active": true
+  }
+
+  {
+    "carrier": "ups",
+    "object_id": "2fa2fe4f1e47443ca03ae3cb99a4da98",
+    "object_owner": "guerrafernandob@gmail.com",
+    "account_id": "******",
+    "parameters": {
+        "password": "******",
+        "account_number": "123456"
+    },
+    "test": true,
+    "active": true,
+    "is_shippo_account": false,
+    "metadata": "",
+    "is_manifestable": true
+}
+
+def crearcuenta(event):
+    
+    inputParams = {
+        "id_cliente": idcliente,
+        "sku": sku
+    }
+    response = client.invoke(
+        FunctionName='arn:aws:lambda:us-east-1:850033265654:function:asin_search',
+        InvocationType='RequestResponse',
+        Payload=json.dumps(inputParams)
+    )
+    responseFromChild = json.load(response['Payload'])
+    return responseFromChild
+
+
+def addObject(event):
+    response = client.invoke(
+        FunctionName='arn:aws:lambda:us-east-1:850033265654:function:SearchDetailsReportAddobject-python',
+        InvocationType='RequestResponse',
+        Payload=json.dumps(event)
+    )
+    responseFromChild = json.load(response['Payload'])
+    return responseFromChild
+
+
+
+    
+    #llama a la funcion asins para obtener todos los asin del research del sku que a buscar 
+    asins = getasins(event)
+    #asigna el valor tru a la variable report para indicar que se realizo la gneracion de detalles para este sku
+    response = client.invoke(
+        FunctionName='arn:aws:lambda:us-east-1:850033265654:function:SearchDetailReportAddTrue-python',
+        InvocationType='RequestResponse',
+        Payload=json.dumps({"sku": event['sku']})
+    )
+    #con los asin buscamos uno por uno al detalle y los metemos a la base de datos para guardarlos
+    for x in asins:
+      response = client.invoke(
+        FunctionName='arn:aws:lambda:us-east-1:850033265654:function:product_details',
+        InvocationType='RequestResponse',
+        Payload=json.dumps({"asin": x})
+      )
+      responseFromChild = json.load(response['Payload'])
+      #guardo los resultados en la base de datos de cada detalle
+      object = {
+        "idcliente" : event['idcliente'],
+        "sku" : event['sku'],
+        "asin" : x,
+        "detalles": responseFromChild
+      }
+      addObject(object)
+      print(responseFromChild)
+
+    return asins
+
+
+como tendria que ir a la API de LAMBDA 
+
+{
+    "idcliente": "123456",
+    "operador": {
+      "carrier": "fedex",
+      "account_id": "888973445",
+      "parameters": {
+        "meter": "789987"
+      },
+      "active": true
+    }
+  }
+
+ 
