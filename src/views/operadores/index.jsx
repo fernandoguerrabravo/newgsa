@@ -107,6 +107,8 @@ export const Operadores = () => {
                 ups={ups}
                 setups={setups}
                 idcliente={user.id}
+                oculto={oculto}
+                setoculto = {setoculto}
               ></Validarups>
             ) : null}
           </CardContent>
