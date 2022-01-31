@@ -1,19 +1,20 @@
 /* eslint-disable import/prefer-default-export */
 import { useState, useEffect } from 'react';
-import { GetSku } from '../helpers/GetSku';
+import SaveAccount from '../helpers/SaveCarrier';
 
-export const useGetSku = idcliente => {
+
+export const UseValidarups = ({ups, idcliente}) => {
 	const [state, setState] = useState({
 		data: []
 	});
 
 	useEffect(() => {
-		GetSku(idcliente).then(imgs => {
+		SaveAccount({ups,idcliente}).then(imgs => {
 			setState({
 				data: imgs
 			});
 		});
-	}, [idcliente]);
+	}, [idcliente, ups]);
     console.log("el state", state)
 	return state;
 };

@@ -11,9 +11,8 @@ export default function SkuListTable({ oculto, setoculto, idcliente }) {
   const crearsku = () => {
     setoculto({
       ...oculto,
-      hiddenstoreform: true,
       hiddentable: false,
-      hiddenlistools: true,
+    hiddenform: true,
     });
   };
   
@@ -61,26 +60,24 @@ export default function SkuListTable({ oculto, setoculto, idcliente }) {
 
   const { data } = useGetSku(idcliente);
 
-  // console.log("datos para tabla:", data);
-
+  console.log("datos para tabla:", data);
+  ;
   const columnas = [
     {
-      name: "SKU",
-      selector: (row) => row.sku,
+      name: "Id",
+      selector: (row) => row.body['object_id'],
     },
+    
     {
-      name: "Short Description",
-      selector: (row) => row.shortdescription,
-    },
-    {
-      name: "Country Origin",
-      selector: (row) => row.country_origin,
-    },
+      name: "Operador",
+      selector: (row) => row.body['carrier'],
 
+     }, 
     {
-      name: "Date Creation",
-      selector: (row) => row.fecha_creacion,
+      name: "Nro. Cuenta ",
+      selector: (row) => row.body['account_id'],
     },
+    
   ];
 
   /*const actions = [
@@ -96,7 +93,7 @@ export default function SkuListTable({ oculto, setoculto, idcliente }) {
   return (
     <>
       <Button onClick={crearsku} variant="contained" color="secondary">
-        Agregar Producto
+        Conecte Nueva Cuenta
       </Button>
       <br />
       <br />

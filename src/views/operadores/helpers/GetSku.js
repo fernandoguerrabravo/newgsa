@@ -1,23 +1,25 @@
 /* eslint-disable import/prefer-default-export */
 export const GetSku = async (idcliente) => {
 	
-	var raw = JSON.stringify({
-		id_cliente: "amazon|amzn1.account.AHG4S7Q35E4KB5DZGK6BENXDZ6IQ6"
-	  });
-	const requestOptions = {
-		method: 'POST',
-		
-		headers: {
-			'Content-Type': 'application/json'
-		},
-		body: raw,
-		redirect: 'follow',
-		
-	};
+	var myHeaders = new Headers();
+myHeaders.append("Content-Type", "application/json");
 
-	const resp = await fetch(`https://4clo6vn4y4.execute-api.us-east-1.amazonaws.com/default/shippo-get-account-byseller`, requestOptions);
-	const sku = await resp.json();
+var raw = JSON.stringify({
+  "id_cliente": idcliente
+});
 
-	console.log('perro', sku);
-	return sku;
+var requestOptions = {
+  method: 'POST',
+  headers: myHeaders,
+  body: raw,
+  redirect: 'follow'
+};
+
+var respuesta = await fetch("https://03k8qgnms8.execute-api.us-east-1.amazonaws.com/dev/getoperadores", requestOptions)
+var res = respuesta.json()
+console.log("perro", res)
+return res;
+//   .then(response => response.json())
+//   .then(result => console.log(result))
+//   .catch(error => console.log('error', error));
 };

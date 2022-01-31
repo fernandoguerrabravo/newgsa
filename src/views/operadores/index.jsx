@@ -1,35 +1,17 @@
 /* eslint-disable no-unused-vars */
 
-
 //import PreviewCard from './components/SkuListDetails';
 
 //import SkuListTools from "./components/SkuListTools";
 import useAuth from "../../hooks/useAuth";
 import React, { useState } from "react";
-
 import { useTheme } from "@mui/material/styles";
-import {
-  Card,
-  CardContent,
-} from "@mui/material";
+import { Card, CardContent } from "@mui/material";
 import SubCard from "ui-component/cards/SubCard";
-import SkuListTools from "./componentes/SkuListTools";
 import SkuListTable from "./componentes/SkuListTable";
-import SkuStoreFiles from "./componentes/SkuStoreFiles";
-import SkuStoreForm from "./componentes/SkuStoreForm";
+import Carrierform from "./componentes/carrierform";
 
 export const SkuListApp = () => {
-  /* const useStyles = makeStyles(theme => ({
-		root: {
-			flexGrow: 1
-		},
-
-		paper: {
-			padding: theme.spacing(3),
-			color: theme.palette.text.secondary
-		}
-	}));
-    */
   const theme = useTheme();
 
   const cardStyle = {
@@ -38,8 +20,7 @@ export const SkuListApp = () => {
         ? theme.palette.dark.main
         : theme.palette.grey[50],
     border: "1px solid",
-    borderColor: theme.palette.primary.main
-    
+    borderColor: theme.palette.primary.main,
   };
   const { logout, user } = useAuth();
 
@@ -49,19 +30,18 @@ export const SkuListApp = () => {
     idcliente: user.id,
     skudetalle: [],
   });
- 
+
   const [oculto, setoculto] = useState({
     //hiddenlistools: false,
     //hiddenstoreform: false,
     hiddentable: true,
+    hiddenform: false,
     //hiddendetails: false,
   });
 
-  
-
   return (
     <>
-      <SubCard  title="Productos">
+      <SubCard title="Operadores Conectados">
         <Card sx={cardStyle}>
           <CardContent
             sx={{ minHeight: 240, color: theme.palette.common.black }}
@@ -71,36 +51,18 @@ export const SkuListApp = () => {
                 oculto={oculto}
                 setoculto={setoculto}
                 idcliente={user.id}
-               
               />
             ) : null}
-
-         {oculto.hiddenstoreform ? (
-              <SkuStoreForm setoculto={setoculto}  idcliente={user.id} /> 
-			) : null }
+            {oculto.hiddenform ? (
+              <Carrierform
+                oculto={oculto}
+                setoculto={setoculto}
+                idcliente={user.id}
+              ></Carrierform>
+            ) : null}
           </CardContent>
         </Card>
       </SubCard>
-
-      {/* <Grid container spacing={3}>
-        <Grid item xs={12}>
-         {oculto.hiddenlistools
-            ? 
-               <SkuListTools setoculto={setoculto} />
-              
-			  : null}
-        </Grid>
-        <Grid item xs={12}>
-          {oculto.hiddendetails
-            ? 
-                <PreviewCard skudetails={skudetails} /> 
-              
-            : null}
-        </Grid>
-        <Grid item xs={12}>
-          
-        </Grid>
-		  </Grid> */}
     </>
   );
 };

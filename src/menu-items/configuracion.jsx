@@ -35,10 +35,10 @@ const configuracion = {
             icon: icons.IconTag
         },
         {
-            id: 'carriers',
+            id: 'operadores',
             title: <FormattedMessage id="Conecta tu Operador" />,
             type: 'item',
-            url: '/carrier',
+            url: '/operadores',
             icon: icons.IconTag
         },
       /*  {
