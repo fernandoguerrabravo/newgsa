@@ -3,15 +3,17 @@
 //import PreviewCard from './components/SkuListDetails';
 
 //import SkuListTools from "./components/SkuListTools";
-import useAuth from "../../hooks/useAuth";
+
 import React, { useState } from "react";
 import { useTheme } from "@mui/material/styles";
 import { Card, CardContent } from "@mui/material";
 import SubCard from "ui-component/cards/SubCard";
 import SkuListTable from "./componentes/SkuListTable";
 import Carrierform from "./componentes/carrierform";
+import Validarups from "./componentes/validarups";
+import useAuth from "../../hooks/useAuth";
 
-export const SkuListApp = () => {
+export const Operadores = () => {
   const theme = useTheme();
 
   const cardStyle = {
@@ -24,11 +26,42 @@ export const SkuListApp = () => {
   };
   const { logout, user } = useAuth();
 
-  // eslint-disable-next-line no-unused-vars
-  const [skudetails, setskudetails] = useState({
-    skunumber: "",
-    idcliente: user.id,
-    skudetalle: [],
+  const [fedex, setfedex] = useState({
+    carrier: "",
+    account_id: "",
+    parameters: {
+      meter: "",
+      first_name: "", //Your first name
+      last_name: "", // Your last name
+      phone_number: "", // Your phone number
+      from_address_st: "", // Shipping address must match what you have on file with FedEx (see fedex.com profile)
+      from_address_city: "",
+      from_address_state: "",
+      from_address_zip: "",
+      from_address_country_iso2: "",
+    },
+    active: true,
+  });
+
+  const [ups, setups] = useState({
+    carrier: "",
+    account_id: "", //LOGIN
+    parameters: {
+      account_number: "",
+      password: "",
+    },
+    active: true,
+  });
+
+  const [dhl_express, setdhl_express] = useState({
+    carrier: "",
+    account_id: "",
+    parameters: {
+      site_id: "", // LOGIN MyDHLExpress
+      password: "",
+      payment_country: "",
+    },
+    active: true,
   });
 
   const [oculto, setoculto] = useState({
@@ -36,6 +69,9 @@ export const SkuListApp = () => {
     //hiddenstoreform: false,
     hiddentable: true,
     hiddenform: false,
+    activaups: false,
+    activafedex: false,
+    activadhl: false,
     //hiddendetails: false,
   });
 
@@ -58,7 +94,20 @@ export const SkuListApp = () => {
                 oculto={oculto}
                 setoculto={setoculto}
                 idcliente={user.id}
+                fedex={fedex}
+                setfedex={setfedex}
+                ups={ups}
+                setups={setups}
+                dhl_express={dhl_express}
+                setdhl_express={setdhl_express}
               ></Carrierform>
+            ) : null}
+            {oculto.activaups ? (
+              <Validarups
+                ups={ups}
+                setups={setups}
+                idcliente={user.id}
+              ></Validarups>
             ) : null}
           </CardContent>
         </Card>
@@ -67,4 +116,4 @@ export const SkuListApp = () => {
   );
 };
 
-export default SkuListApp;
+export default Operadores;

@@ -53,6 +53,29 @@ const BoxComponent = ({ box, setbox }) => {
     console.log("PICOOOO", box.weight);
   };
 
+  const marks3 = [
+    {
+      value: 1,
+      label: "1",
+    },
+
+    {
+      value: 2,
+      label: "2",
+    },
+    {
+      value: 3,
+      label: "3",
+    },
+    {
+      value: 4,
+      label: "4",
+    },
+    {
+      value: 5,
+      label: "5",
+    },
+  ];
   const marks2 = [
     {
       value: 1,
@@ -106,6 +129,7 @@ const BoxComponent = ({ box, setbox }) => {
   });
   const handleInputChange2 = (event) => {
     setcajas({
+      ...cajas,
       [event.target.name]: event.target.value,
     });
   };
@@ -122,21 +146,21 @@ const BoxComponent = ({ box, setbox }) => {
           subheader="Parcel Information"
         ></CardHeader>
         <CardContent>
-          <Grid container sx={{ p: 2 }} spacing={3}>
-            <Grid item lg={3} md={3} sm={12} xs={12}>
-              <Select
-                id="qty"
+          <Grid container sx={{ p: 5 }} spacing={3}>
+            <Grid item lg={12} md={12} sm={12} xs={12}>
+              <br></br>
+              <Slider
+                aria-label="Always visible"
+                //defaultValue={1}
                 name="qty"
-                value={cajas.qty || ""}
+                marks={marks3}
+                max={5}
+                min={1}
+                valueLabelDisplay="on"
+                value={cajas.qty}
                 onChange={handleInputChange2}
-                fullWidth
-              >
-                <MenuItem value={1}>1</MenuItem>
-                <MenuItem value={2}>2</MenuItem>
-                <MenuItem value={3}>3</MenuItem>
-                <MenuItem value={4}>4</MenuItem>
-                <MenuItem value={5}>5</MenuItem>
-              </Select>
+                color="dark"
+              />
             </Grid>
             <Grid item lg={12} md={12} sm={12} xs={12}>
               <br></br>

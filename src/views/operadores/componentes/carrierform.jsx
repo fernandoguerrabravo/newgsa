@@ -25,7 +25,6 @@ import InputLabel from "@mui/material/InputLabel";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import { codes, byAlpha2, byAlpha3, byNumeric } from "iso-country-codes";
-//import { UseValidarups } from "../hooks/useValidarups";
 
 const validationSchema = yup.object({
   accountnumber: yup.string().required("Carrier Account Number is required"),
@@ -42,7 +41,17 @@ const validationSchema = yup.object({
   zip: yup.string().required("Zip Code is required"),
 });
 
-const Carrierform = ({ oculto, setoculto, idcliente }) => {
+const Carrierform = ({
+  oculto,
+  setoculto,
+  idcliente,
+  fedex,
+  setfedex,
+  ups,
+  setups,
+  dhl_express,
+  setdhl_express,
+}) => {
   const volver = () => {
     setoculto({
       ...oculto,
@@ -50,25 +59,6 @@ const Carrierform = ({ oculto, setoculto, idcliente }) => {
       hiddenform: false,
     });
   };
-
-  /*const [activador, setactivador] = {
-    activaups: false,
-    activafedex: false,
-    activadhl: false,
-  }; */
-  const [fedex, setfedex] = useState();
-  const [ups, setups] = useState();
-
-  const [dhl_express, setdhl_express] = useState({
-    carrier: "",
-    account_id: "",
-    parameters: {
-      site_id: "", // LOGIN MyDHLExpress
-      password: "",
-      payment_country: "",
-    },
-    active: true,
-  });
 
   const formik = useFormik({
     initialValues: {
@@ -116,7 +106,13 @@ const Carrierform = ({ oculto, setoculto, idcliente }) => {
           },
           active: true,
         });
-       
+        setoculto({
+          hiddentable: false,
+          hiddenform: false,
+          activaups: true,
+          activafedex: false,
+          activadhl: false,
+        });
       } else {
         setdhl_express({
           carrier: "dhl_express",

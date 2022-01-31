@@ -26,7 +26,6 @@ const SaveAccount = async (ups, idcliente) => {
 	);
 	const sku = await resp.json();
 	
-    console.log("PICO", sku)
 	return sku
 };
 

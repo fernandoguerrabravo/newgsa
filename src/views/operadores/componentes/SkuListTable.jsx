@@ -1,10 +1,7 @@
 import { useGetSku } from "../hooks/useGetSku";
-import React, {  } from "react";
+import React from "react";
 // import { useTheme } from "@mui/material/styles";
-import {
-  Button,
-  Paper,
-} from "@mui/material";
+import { Button, Paper } from "@mui/material";
 import DataTable from "react-data-table-component";
 
 export default function SkuListTable({ oculto, setoculto, idcliente }) {
@@ -12,11 +9,11 @@ export default function SkuListTable({ oculto, setoculto, idcliente }) {
     setoculto({
       ...oculto,
       hiddentable: false,
-    hiddenform: true,
+      hiddenform: true,
     });
   };
-  
-/*	const useStyles = makeStyles(theme => ({
+
+  /*	const useStyles = makeStyles(theme => ({
 		root: {
 			flexGrow: 1
 		},
@@ -27,8 +24,8 @@ export default function SkuListTable({ oculto, setoculto, idcliente }) {
 		}
 	})); */
 
-   // const theme = useTheme();
-   /* const cardStyle = {
+  // const theme = useTheme();
+  /* const cardStyle = {
     background:
       theme.palette.mode === "dark"
         ? theme.palette.dark.main
@@ -40,10 +37,9 @@ export default function SkuListTable({ oculto, setoculto, idcliente }) {
         : theme.palette.grey[100],
   };  */
 
-  
   // const { data, loading } = useGetResearch(idcliente)
 
- /*  const details = (event) => {
+  /*  const details = (event) => {
     setskudetails({
       idcliente: "abcdef",
       skunumber: event,
@@ -61,23 +57,20 @@ export default function SkuListTable({ oculto, setoculto, idcliente }) {
   const { data } = useGetSku(idcliente);
 
   console.log("datos para tabla:", data);
-  ;
   const columnas = [
     {
       name: "Id",
-      selector: (row) => row.body['object_id'],
+      selector: (row) => row.body["object_id"],
     },
-    
+
     {
       name: "Operador",
-      selector: (row) => row.body['carrier'],
-
-     }, 
+      selector: (row) => row.body["carrier"],
+    },
     {
       name: "Nro. Cuenta ",
-      selector: (row) => row.body['account_id'],
+      selector: (row) => row.body["account_id"],
     },
-    
   ];
 
   /*const actions = [
