@@ -96,9 +96,9 @@ const AppBar = ({ ...others }) => {
               >
                 Login
               </Button>
-              {/* <Button color="inherit" component={Link} href="https://master.d330rjd99d7ubu.amplifyapp.com/" target="_blank">
+               <Button color="inherit" component={Link} href="https://master.d330rjd99d7ubu.amplifyapp.com/" target="_blank">
                               Amazon Admin
-    </Button> */}
+    </Button> 
             </Stack>
             <Box sx={{ display: { xs: "block", sm: "none" } }}>
               <IconButton
