@@ -12,6 +12,8 @@ import SkuListTable from "./componentes/SkuListTable";
 import Carrierform from "./componentes/carrierform";
 import Validarups from "./componentes/validarups";
 import useAuth from "../../hooks/useAuth";
+import Validarfedex from "./componentes/validarfedex";
+import Validardhl from "./componentes/validardhl";
 
 export const Operadores = () => {
   const theme = useTheme();
@@ -75,6 +77,11 @@ export const Operadores = () => {
     //hiddendetails: false,
   });
 
+  //Imagenes
+  const ups_image = "https://apps.goshippo.com/b5972a22a3a03e8912341d862eee91bb.svg"
+  const fedex_image = "https://apps.goshippo.com/7749b163ab9db78e5ee20c137b269c88.svg"
+  const dhl_image = "https://apps.goshippo.com/cd3c5b6cd234fc54a568eb93f899eb04.svg"
+
   return (
     <>
       <SubCard title="Operadores Conectados">
@@ -109,7 +116,28 @@ export const Operadores = () => {
                 idcliente={user.id}
                 oculto={oculto}
                 setoculto = {setoculto}
+                image={ups_image}
               ></Validarups>
+            ) : null}
+              {oculto.activafedex ? (
+              <Validarfedex
+                fedex={fedex}
+                setups={setfedex}
+                idcliente={user.id}
+                oculto={oculto}
+                setoculto = {setoculto}
+                image= {fedex_image}
+              ></Validarfedex>
+            ) : null}
+             {oculto.activadhl ? (
+               <Validardhl
+                dhl_express={dhl_express}
+                setdhl_express={setdhl_express}
+                idcliente={user.id}
+                oculto={oculto}
+                setoculto = {setoculto}
+                image={dhl_image}
+              ></Validardhl>
             ) : null}
           </CardContent>
         </Card>

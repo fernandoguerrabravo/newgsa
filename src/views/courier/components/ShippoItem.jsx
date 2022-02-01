@@ -11,16 +11,22 @@ import TableHead from "@mui/material/TableHead";
 import { Typography } from "@mui/material";
 import DataTable from "react-data-table-component";
 import UseGetRateIntegradores from "../hooks/UseGetRateIntegradores";
+import Swal from "sweetalert2";
+import Err from "../components/error"
 import {
-	Checkbox,
-	FormControlLabel,
-	TextField,
-	Box,
-	Button
-  } from "@mui/material";
-const ShippoItem = ({ datosfinales }) => {
+  Checkbox,
+  FormControlLabel,
+  TextField,
+  Box,
+  Button,
+} from "@mui/material";
+import Center from "react-center";
+
+
+const ShippoItem = ({ datosfinales, setActiveStep }) => {
   const { data, circle } = UseGetRateIntegradores(datosfinales);
 
+  console.log("AHORA SI PICHULA", datosfinales);
   const columnas = [
     {
       name: "Carrier",
@@ -55,47 +61,49 @@ const ShippoItem = ({ datosfinales }) => {
     <>
       <Grid item xs={12}>
         <Paper>
-          <Table sx={{ minWidth: 650 }} aria-label="simple table">
-            <TableHead>
-              <TableRow>
-                <TableCell>Provider</TableCell>
-                <TableCell>Currency</TableCell>
-                <TableCell>Rate</TableCell>
-                <TableCell>Service Level</TableCell>
-                <TableCell>Transit Time</TableCell>
-                <TableCell></TableCell>
-				<TableCell></TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {circle
-                ? "LOADING ...."
-                : data.map((home) => (
-                    <TableRow key={home.object_id}>
-                      <TableCell>{home.provider}</TableCell>
-                      <TableCell>{home.currency_local}</TableCell>
-                      <TableCell>{home.amount_local}</TableCell>
-                      <TableCell>{home.servicelevel.name}</TableCell>
-                      <TableCell>{home.estimated_days} &nbsp; Days</TableCell>
-                      <TableCell>
-                        <img
-                          src={home.provider_image_75}
-                          alt="carriers"
-                        />
-                      </TableCell>
-					  <TableCell>
-                        <Button
-						color="secondary"
-						variant="contained"
-						//onClick={handleBack}
-						sx={{ mt: 1, mr: 1 }}>
-							Booking
-						</Button>
-                      </TableCell>
-                    </TableRow>
-                  ))}
-            </TableBody>
-          </Table>
+          {circle ? (
+            <Center>"LOADING ...."</Center>
+          ) : data.length > 5 ? (
+            <Table sx={{ minWidth: 650 }} aria-label="simple table">
+              <TableHead>
+                <TableRow>
+                  <TableCell>Provider</TableCell>
+                  <TableCell>Currency</TableCell>
+                  <TableCell>Rate</TableCell>
+                  <TableCell>Service Level</TableCell>
+                  <TableCell>Transit Time</TableCell>
+                  <TableCell></TableCell>
+                  <TableCell></TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {data.map((home) => (
+                  <TableRow key={home.object_id}>
+                    <TableCell>{home.provider}</TableCell>
+                    <TableCell>{home.currency_local}</TableCell>
+                    <TableCell>{home.amount_local}</TableCell>
+                    <TableCell>{home.servicelevel.name}</TableCell>
+                    <TableCell>{home.estimated_days} &nbsp; Days</TableCell>
+                    <TableCell>
+                      <img src={home.provider_image_75} alt="carriers" />
+                    </TableCell>
+                    <TableCell>
+                      <Button
+                        color="secondary"
+                        variant="contained"
+                        //onClick={handleBack}
+                        sx={{ mt: 1, mr: 1 }}
+                      >
+                        Booking
+                      </Button>
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          ) : <Err setActiveStep={setActiveStep} ></Err>
+            
+          }
         </Paper>
       </Grid>
       <br />

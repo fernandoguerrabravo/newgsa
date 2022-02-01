@@ -65,7 +65,7 @@ export default function SkuListTable({ oculto, setoculto, idcliente }) {
 
     {
       name: "Operador",
-      selector: (row) => row.body["carrier"],
+      cell: (row) => <img src={row.image} alt="carrier" weight="60" height="60" ></img>
     },
     {
       name: "Nro. Cuenta ",

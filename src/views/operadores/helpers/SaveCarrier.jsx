@@ -1,11 +1,12 @@
-const SaveAccount = async (ups, idcliente) => {
+const SaveAccount = async (ups, idcliente, image) => {
 	
 
    const data = {
 
         "idcliente" : idcliente,
-        "operador": ups
-    }
+        "operador": ups,
+		"image": image
+	}
    
     const myHeaders = new Headers();
 	myHeaders.append('Content-Type', 'application/json');
@@ -26,6 +27,7 @@ const SaveAccount = async (ups, idcliente) => {
 	);
 	const sku = await resp.json();
 	
+	console.log("PICOOOOO", sku)
 	return sku
 };
 

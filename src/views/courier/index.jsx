@@ -18,7 +18,7 @@ import {
   Typography,
   TextField,
   Box,
-  Button
+  Button,
 } from "@mui/material";
 import CircularProgress from "@mui/material/CircularProgress";
 import BoxComponent from "./components/BoxComponent";
@@ -38,8 +38,8 @@ const Courier = () => {
 
   const [datosfinales, setdatosfinales] = useState({
     object_purpose: "PURCHASE",
-    address_from: '',
-    address_to: '',
+    address_from: "",
+    address_to: "",
     parcels: {
       weight: "",
       length: "",
@@ -87,12 +87,12 @@ const Courier = () => {
   });
 
   const [box, setbox] = useState({
-      weight: 1,
-      length: "60",
-      width: "60",
-      height: "60",
-      distance_unit: "cm",
-      mass_unit: "kg",
+    weight: 1,
+    length: "60",
+    width: "60",
+    height: "60",
+    distance_unit: "cm",
+    mass_unit: "kg",
   });
 
   // Estados para rellenar los campos del Shipper
@@ -121,34 +121,23 @@ const Courier = () => {
     );
   }, []); */
 
-  console.log("shipper2", shipper);
+  //console.log("shipper2", shipper);
 
-  const handleNext1 = () => {
-
-    setActiveStep(prevActiveStep => prevActiveStep + 1);
+  const handleNext2 = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep + 1);
     setdatosfinales({
       ...datosfinales,
       address_from: from,
-      address_to: de
-    })
-  }
+      address_to: de,
+      parcels: box,
+    });
+  };
 
-  const handleNext2 = () => {
+  const handleBack = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep - 1);
+  };
 
-    setActiveStep(prevActiveStep => prevActiveStep + 1);
-    setdatosfinales({
-      ...datosfinales,
-      parcels: box
-      
-    })
-  }
-
-
-	const handleBack = () => {
-		setActiveStep(prevActiveStep => prevActiveStep - 1);
-	};
-  
-  console.log("PICHO CALUGA", datosfinales)
+  console.log("PICHO CALUGA", datosfinales);
 
   return (
     <div>
@@ -156,49 +145,55 @@ const Courier = () => {
         <Step>
           <StepLabel>Shipper and Consignne Information</StepLabel>
           <StepContent>
-             <Box sx={{ mb: 2 }}>
-              <Shipperform shipper={shipper} from={from} setfrom={setfrom} de={de} setde={setde}></Shipperform>              
-              <br></br>
-              <Button
-                  color="secondary"
-                  variant="contained"
-                  onClick={handleNext1}
-                  sx={{ mt: 1, mr: 1 }}
-                >
-                  Continue
-                </Button>
-              </Box>
+            <Box sx={{ mb: 2 }}>
+              <Shipperform
+                shipper={shipper}
+                from={from}
+                setfrom={setfrom}
+                de={de}
+                setde={setde}
+                setActiveStep={setActiveStep}
+                datosfinales={datosfinales}
+                setdatosfinales={setdatosfinales}
+              ></Shipperform>
+            </Box>
           </StepContent>
         </Step>
         <Step>
           <StepLabel>Parcel Details</StepLabel>
           <StepContent>
-          <Box sx={{ mb: 2 }}>
-            <BoxComponent box={box} setbox={setbox}></BoxComponent>
-            <br></br>
+            <Box sx={{ mb: 2 }}>
+              <BoxComponent
+                datosfinales={datosfinales}
+                box={box}
+                setbox={setbox}
+              ></BoxComponent>
+              <br></br>
               <Button
-                  color="secondary"
-                  variant="contained"
-                  onClick={handleNext2}
-                  sx={{ mt: 1, mr: 1 }}
-                >
-                  Continue
-                </Button>
-                <Button
-                  color="secondary"
-                  variant="contained"
-                  onClick={handleBack}
-                  sx={{ mt: 1, mr: 1 }}
-                >
-                  Back
-                </Button>
-          </Box>
+                color="secondary"
+                variant="contained"
+                onClick={handleNext2}
+                sx={{ mt: 1, mr: 1 }}
+              >
+                Continue
+              </Button>
+              <Button
+                color="secondary"
+                variant="contained"
+                onClick={handleBack}
+                sx={{ mt: 1, mr: 1 }}
+              >
+                Back
+              </Button>
+            </Box>
           </StepContent>
         </Step>
         <Step>
           <StepLabel>International Carriers Rate</StepLabel>
           <StepContent>
-           {datosfinales ? <ShippoItem datosfinales={datosfinales}></ShippoItem> : null}
+            {datosfinales ? (
+              <ShippoItem datosfinales={datosfinales} setActiveStep={setActiveStep}></ShippoItem>
+            ) : null}
           </StepContent>
         </Step>
       </Stepper>

@@ -95,7 +95,14 @@ const Carrierform = ({
           active: true,
         });
 
-        // SaveAccount(fedex,idcliente)
+        setoculto({
+          hiddentable: false,
+          hiddenform: false,
+          activaups: false,
+          activafedex: true,
+          activadhl: false,
+        });
+
       } else if (values.carrier === "ups") {
         setups({
           carrier: "ups",
@@ -123,6 +130,13 @@ const Carrierform = ({
             payment_country: values.country,
           },
           active: true,
+        });
+        setoculto({
+          hiddentable: false,
+          hiddenform: false,
+          activaups: false,
+          activafedex: false,
+          activadhl: true,
         });
       }
     },
@@ -273,6 +287,13 @@ const Carrierform = ({
           </Grid>
           <Grid item lg={6} md={6} xs={6} sm={6}>
             <Divider />
+            <Typography variant="h6">
+              <br></br>
+              <strong>
+                * Para DHL Express, use sus credenciales de MyDHL
+              </strong>
+              <br></br>
+              </Typography>
             <Typography variant="h6" color="primary">
               <br></br>
               <strong>
@@ -283,6 +304,7 @@ const Carrierform = ({
               </strong>
               <br></br>
             </Typography>
+            
           </Grid>
           <Grid item lg={12} md={12} xs={12} sm={12}>
             <Typography variant="subtitle2" color="inherit">

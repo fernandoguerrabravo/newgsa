@@ -30,7 +30,9 @@ import {
 } from "@mui/material";
 const listabox = [];
 
-const BoxComponent = ({ box, setbox }) => {
+const BoxComponent = ({ box, setbox, datosfinales }) => {
+  
+  console.log("LFATOS", datosfinales)
   const theme = useTheme();
   const cardStyle = {
     background:
@@ -159,7 +161,7 @@ const BoxComponent = ({ box, setbox }) => {
                 valueLabelDisplay="on"
                 value={cajas.qty}
                 onChange={handleInputChange2}
-                color="dark"
+                color="secondary"
               />
             </Grid>
             <Grid item lg={12} md={12} sm={12} xs={12}>

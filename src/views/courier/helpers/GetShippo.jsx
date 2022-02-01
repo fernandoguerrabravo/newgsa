@@ -1,6 +1,7 @@
 const GetShippo = async datosfinales => {
 	
 	
+	console.log("enviar a la api", datosfinales)
 	const requestOptions = {
 		method: 'POST',
 
