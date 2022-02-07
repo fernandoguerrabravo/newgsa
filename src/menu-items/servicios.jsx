@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 // third-party
 import { FormattedMessage } from 'react-intl';
 
@@ -21,13 +22,13 @@ const servicios = {
     title: <FormattedMessage id="Gestión de Servicios" />,
     type: 'group',
     children: [
-        {
+    /*    {
             id: 'courier',
             title: <FormattedMessage id="Courier Internacional" />,
             type: 'item',
             url: '/courier',
             icon: icons.IconRuler2
-        },
+       }, */
        
      /*   {
          
@@ -37,13 +38,13 @@ const servicios = {
             url: '/request',
             icon: icons.IconRuler2
         }, */
-        {
+     /*   {
             id: 'priornotice',
             title: <FormattedMessage id="FDA Prior Notice" />,
             type: 'item',
             url: '/priornotice',
             icon: icons.IconRuler2
-        },
+        }, */
         
        /* {
             id: 'analytics',

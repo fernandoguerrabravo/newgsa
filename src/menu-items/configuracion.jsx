@@ -34,13 +34,13 @@ const configuracion = {
             url: '/skulist',
             icon: icons.IconTag
         },
-        {
+      /*  {
             id: 'operadores',
             title: <FormattedMessage id="Conecta tu Operador" />,
             type: 'item',
             url: '/operadores',
             icon: icons.IconTag
-        },
+        }, */
       /*  {
             id: 'pickup',
             title: <FormattedMessage id="Pickup Address" />,

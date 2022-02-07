@@ -18,9 +18,13 @@ import CardHeader from '@mui/material/CardHeader';
 import MainCard from "ui-component/cards/MainCard";
 import AnimateButton from "ui-component/extended/AnimateButton";
 import StepOne from "./components/StepOne";
+import StepTwo from "./components/StepTwo";
+import StepThree from "./components/StepThree";
+
+
 
 // step options
-const steps = ["Submitter & Shipper", "Payment details", "Review your order"];
+const steps = ["Submitter & Shipper", "Consignee Information", "Carrier Information", "Products", "Summary", "Payment"];
 
 function getStepContent(
   step,
@@ -41,12 +45,27 @@ function getStepContent(
           shippingData={shippingData}
           setShippingData={setShippingData}
         ></StepOne>
-      );
+      )
     case 1:
-      break;
+      return (
+      <StepTwo
+          handleNext={handleNext}
+          setErrorIndex={setErrorIndex}
+          shippingData={shippingData}
+          setShippingData={setShippingData}
+        ></StepTwo>
+        );
 
     case 2:
-      break;
+      return (
+        <StepThree
+            handleNext={handleNext}
+            setErrorIndex={setErrorIndex}
+            shippingData={shippingData}
+            setShippingData={setShippingData}
+          ></StepThree>
+          );
+      
     default:
       throw new Error("Unknown step");
   }
