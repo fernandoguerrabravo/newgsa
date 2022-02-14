@@ -110,7 +110,7 @@ const AppBar = ({ ...others }) => {
                 href="https://gsacompliance.io/"
                 target="_blank"
               >
-                Prior Notice Suppport
+                Prior Notice Support
               </Button>}
             </Stack>
             <Box sx={{ display: { xs: "block", sm: "none" } }}>
