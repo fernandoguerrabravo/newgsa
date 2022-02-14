@@ -96,14 +96,22 @@ const AppBar = ({ ...others }) => {
               >
                 Login
               </Button>
-              <Button
+             {/* <Button
                 color="inherit"
                 component={Link}
                 href="https://master.d330rjd99d7ubu.amplifyapp.com/"
                 target="_blank"
               >
                 Amazon Admin
-              </Button>
+              </Button> */}
+               { <Button
+                color="inherit"
+                component={Link}
+                href="https://gsacompliance.io/"
+                target="_blank"
+              >
+                Prior Notice Suppport
+              </Button>}
             </Stack>
             <Box sx={{ display: { xs: "block", sm: "none" } }}>
               <IconButton
